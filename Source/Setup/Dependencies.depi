@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DependencyCheckerConfiguration version="2.0">
+	<title>Contoso Expense Reporting Demo</title>
+	<dependencies>
+		<dependency
+            hint="Microsoft Visual Studio (?:Ultimate 2012 RC|Premium 2012 RC|Professional 2012 RC|Express 2012 for Windows 8).*;11.0"
+			name="Microsoft Visual Studio 2012"
+			description="Microsoft Visual Studio Ultimate 2012, Microsoft Visual Studio Premium 2012, Microsoft Visual Studio Professional 2012 or Microsoft Visual Studio 2012 Express for Windows 8"
+			helpLink="http://go.microsoft.com/fwlink/?LinkId=240160"
+			disableSkip="true"
+			type="Uninstall" />
+		<dependency
+			hint="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\110\Tools\Setup.Version;11.0.2100.60"
+			name="SQL Server 2012 Express"
+			description="SQL Server 2012 Express"
+			helpLink="http://www.microsoft.com/en-us/download/details.aspx?id=29062"
+			disableSkip = "false"
+			type="Registry" />
+		<dependency
+		   hint="azurenodesdk"
+		   name="Windows Azure SDK for Node.js"
+		   helpLink=""
+		   type="WebPI" />
+    </dependencies>	
+</DependencyCheckerConfiguration>
