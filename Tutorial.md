@@ -1,34 +1,26 @@
-<a name="title" />
-# (TODO: Insert a descriptive title here) #
+﻿<a name="title" />
+# Contoso Expense Reporting Demo #
 
 ---
 
 <a name="Overview" />
 ## Overview ##
 
-(TODO: Include an overview text here. For example:)  
-In this tutorial you will open Notepad.
+In this demo, you will show how to move an on-premise application to Windows Azure, using Virtual Machines and SQL Databases.
 
 <a id="goals" />
 ### Goals ###
-In this tutorial you will see three things:
+In this demo, you will see the following things:
 
-1. (TODO: Insert objective 1 here)
+1. Contoso Expense Reporting application running on-premise.
 
-1. (TODO: Insert objective 2 here)
+1. Deploy the application to a Windows Azure Web Site.
 
-1. (TODO: Insert objective 3 here)
+1. Connect the application to a Windows Azure SQL Database.
 
-<a name="technologies" />
-### Key Technologies ###
+1. Connect the application to use Windows Azure Storage.
 
-- [TODO: Insert technology 1 here][1]
-- [TODO: Insert technology 2 here][2]
-- [TODO: Insert technology 3 here][3]
-
-[1]: http://insert_link_to_technology_1_here/
-[2]: http://insert_link_to_technology_2_here/
-[3]: http://insert_link_to_technology_3_here/
+1. Create SQL Database Federations.
 
 <a name="setup" />
 ### Setup and Configuration ###
@@ -40,30 +32,54 @@ In this tutorial you will see three things:
 <a name="Tutorial" />
 ## Tutorial ##
 
-This tutorial is composed of the following segments:
+This demo is composed of the following segments:
 
-1. [TODO: Insert segment1 title here](#segment1).
-1. [TODO: Insert segment2 title here](#segment2).
+1. [Contoso Expense Reporting on-premise](#segment1).
+1. [Deploy the Expense demo to a Web Site](#segment2).
+1. [Connect application to a SQL Database](#segment3). 
+1. [Connect application to Windows Azure Storage](#segment4). 
+1. [Create a SQL Database Federations](#segment5). 
 
 <a name="segment1" />
-### TODO: Insert segment1 title here ###
+### Contoso Expense Reporting on-premise ###
 
-(TODO: Insert a tutorial segment text here. For example:)  
-Let's start by launching Notepad. Click the Start button and type _"Notepad"_, then press **ENTER**.
+1. Open **Visual Studio 2012** as an Administrator.
 
-![TODO: Insert an alternative text here](images/insert_your_notepad_image_here.png?raw=true)
+1. Open the **Begin** solution from the **Source** folder of this demo.
 
-_TODO: Insert caption text here_
+1. Run the application. When the Home page is displayed, select **Register** to create a new User.
+
+	![Contoso Expense Reporting Home Page](images/contoso-expense-reporting-home-page.png?raw=true)
+
+	_Contoso Expense Reporting Home Page_
+
+1. Create a new user by entering a username, email and password. Click **Register** to continue.
+
+	![Registering a new user](images/registering-a-new-user.png?raw=true)
+
+	_Registering a New User_
+
+1. Enter the Profile values for **First Name**, **Last Name** and **Title**, and select one of the sample managers from the drop-down list.
+
+	![Creating the User Profile](images/creating-the-user-profile.png?raw=true)
+
+	_Creating the User Profile_
+
+1. Once the user is created, select the **My Reports** menu option and create a new report by clicking the **Add New Report** button.
+
+	![Adding a New Report](images/adding-a-new-report.png?raw=true)
+
+	_Adding a New Report_
+
+1. Set the Report **Title** and **Purpose**. Add two **Expenses** to the report with different values. When prompted, confirm the action.
+
+	![Setting the Expense Report](images/setting-the-expense-report.png?raw=true)
+
+	_Setting the Expense Report_
 
 <a name="segment2" />
-### TODO: Insert segment2 title here ###
+### Deploying the Application to a Windows Azure Web Site ###
 
-(TODO: Insert a tutorial segment text here. For example:)  
-Let's start by launching Notepad. Click the Start button and type _"Notepad"_, then press **ENTER**.
-
-![TODO: Insert an alternative text here](images/insert_your_notepad_image_here.png?raw=true)
-
-_TODO: Insert caption text here_
 
 ---
 
