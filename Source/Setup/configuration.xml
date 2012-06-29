@@ -1,0 +1,53 @@
+<configuration>		
+	<beginSolutionDir>..\begin</beginSolutionDir>
+	<demoWorkingDir>..\demo</demoWorkingDir>
+	<demoSolutionFile>..\demo\Expenses.Web.sln</demoSolutionFile>	
+	<azureNodeSDKDir>..\assets\azure-sdk-for-node</azureNodeSDKDir>
+	<nuGetLocalDir>..\assets\windowsazure.storage.nuget</nuGetLocalDir>
+	
+	<copyAssets>
+		<receiptsDir>..\assets\receipts</receiptsDir>
+		<federationsDir>..\assets\federations</federationsDir>
+		<hadoopDir>..\assets\hadoop</hadoopDir>
+	</copyAssets>
+
+	<localSqlServer>
+		<servername>LWADataPV</servername>
+		<dbName>Expenses</dbName>			
+	</localSqlServer>
+	
+	<vmSqlServer>
+		<servername>sql2012vm.cloudapp.net</servername>
+		<username>SQLUser</username>
+		<password>Passw0rd!</password>
+		<dbName>Expenses</dbName>			
+	</vmSqlServer>
+	<iis>
+		<bindingName>contosoexpense</bindingName>
+		<webSiteProjectFilePath>..\begin\Expenses.Web\Expenses.Web.csproj</webSiteProjectFilePath>
+		<appPoolName>contosoexpense</appPoolName>
+		<siteName>Expenses.Web</siteName>
+	</iis>
+	<codeSnippets>
+		<cSharp>..\assets\snippets\csharp</cSharp>
+		<html>..\assets\snippets\html</html>
+		<xml>..\assets\snippets\xml\primary</xml>		
+	</codeSnippets>	
+	
+	<windowsAzureSubscription>
+		<publishSettingsFile>..\assets\dpedemo13.publishsettings</publishSettingsFile>
+		<storageAccountName>contosoreceipt</storageAccountName>	
+		<webSitesToKeep></webSitesToKeep>		
+		<sqlManagementEndpoint>https://management.database.windows.net:8443</sqlManagementEndpoint>		
+	</windowsAzureSubscription>	
+
+	<features>
+		<enableWebSitesDelete>true</enableWebSitesDelete>
+	</features>
+	
+	<urls>
+		<windowsAzureMgmtPortal>http://manage.windowsazure.com</windowsAzureMgmtPortal>
+	</urls>
+	
+	<manualResetFile>..\assets\Manual Reset.txt</manualResetFile>	
+</configuration>

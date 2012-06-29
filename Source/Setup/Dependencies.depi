@@ -29,4 +29,8 @@
 		   helpLink=""
 		   type="WebPI" />
     </dependencies>	
+	<setupCommands>
+      <setup command=".\reset.cmd" name="ContosoExpenseReporting"
+	description="ContosoExpenseReporting demo setup..." />
+  </setupCommands>
 </DependencyCheckerConfiguration>
