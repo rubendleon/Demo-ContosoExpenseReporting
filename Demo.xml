@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Tutorial xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/ContentFramework.Core.Models">
+<Demo xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/ContentFramework.Core.Models">
 	<Id>ContosoExpenseReporting</Id>
 	<Author>
 		<Name>sklein</Name>
 	</Author>
 	<Description>TBC</Description>  
-	<Document ConversionType="Html">Tutorial.md</Document>
+	<Document ConversionType="Html">Demo.md</Document>
 	<Title>Contoso Expense Reporting Demo</Title>
 	<Version>1.0.0</Version>
 	<Source>Source</Source>
@@ -13,4 +13,4 @@
 	<CustomProperties>    
 		<Property Name="GitHubRepository" Value="https://github.com/WindowsAzure-Preview/Demo-ContosoExpenseReporting" />
 	</CustomProperties>
-</Tutorial>
+</Demo>
