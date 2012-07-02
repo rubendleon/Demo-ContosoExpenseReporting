@@ -25,12 +25,16 @@ if($configFile -eq $nul -or $configFile -eq "")
 [string] $SQLServerName = $xml.configuration.localSqlServer.serverName
 [string] $dbName = $xml.configuration.localSqlServer.dbName
 
+[string] $receiptsAssetsDir = $xml.configuration.copyAssets.receiptsDir
+[string] $federationsAssetsDir = $xml.configuration.copyAssets.federationsDir
+[string] $hadoopAssetsDir = $xml.configuration.copyAssets.hadoopDir
+
 
 # ========= Removing current working directory... =========
 & ".\tasks\remove-workingdir.ps1" -demoWorkingDir "$workingDir"
 
 # ========= Cleaning up demo related folders... =========
-& ".\tasks\cleanup-relatedfolders.ps1"
+& ".\tasks\cleanup-relatedfolders.ps1" -receiptsAssetsDir "$receiptsAssetsDir" -federationsAssetsDir "$federationsAssetsDir" -hadoopAssetsDir "$hadoopAssetsDir"
 
 # ========= Resetting IIS Express... =========
 & ".\tasks\reset-iis-express.ps1"

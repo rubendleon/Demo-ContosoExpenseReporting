@@ -13,4 +13,9 @@
 		<appPoolName>contosoexpense</appPoolName>
 		<siteName>Expenses.Web</siteName>
 	</iis>
+	<copyAssets>
+		<receiptsDir>..\assets\receipts</receiptsDir>
+		<federationsDir>..\assets\federations</federationsDir>
+		<hadoopDir>..\assets\hadoop</hadoopDir>
+	</copyAssets>
 </Configuration>

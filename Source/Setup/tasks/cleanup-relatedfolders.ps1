@@ -1,3 +1,11 @@
+Param([string] $receiptsAssetsDir,
+	[string] $federationsAssetsDir,
+	[string] $hadoopAssetsDir)
+
+$receiptsAssetsDir = Resolve-Path $receiptsAssetsDir
+$federationsAssetsDir = Resolve-Path $federationsAssetsDir
+$hadoopAssetsDir = Resolve-Path $hadoopAssetsDir
+
 write-host "========= Cleaning up demo related folders... ========="
 [string] $desktopFolder = [Environment]::GetFolderPath("Desktop")
 
