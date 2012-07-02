@@ -3,7 +3,7 @@
 		<vsSettingsFile>assets\VS2012Settings-Font-Output.vssettings</vsSettingsFile>
     <solutions>
       <solution>
-        <file>ServiceBusRelay.Web.sln</file>
+        <file>Expenses.Web.sln</file>
       </solution>
     </solutions>
 	</localPaths>
@@ -33,8 +33,8 @@
     <setVSOpenProjectDialogDefaults>true</setVSOpenProjectDialogDefaults>
     <setNuGetRestoreOnBuild>true</setNuGetRestoreOnBuild>
     <emptyRecycleBin>true</emptyRecycleBin>
-    <startVS>false</startVS>
-    <startVSWithSolutions>true</startVSWithSolutions>
+    <startVS>true</startVS>
+    <startVSWithSolutions>false</startVSWithSolutions>
     <vsNewProjectDialogDefaults>
       <fxVersion>4.0</fxVersion>
       <templateName>ASP.NET MVC 4 Web Application</templateName>

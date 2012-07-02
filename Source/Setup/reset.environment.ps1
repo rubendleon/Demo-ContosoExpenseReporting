@@ -187,25 +187,12 @@ if($emptyRecycleBin.ToLower() -eq "true")
 	& ".\tasks\empty-recyclebin.ps1"
 }
 
-if(
-
 if($startVS.ToLower() -eq "true")
 {
     write-host "========= Starting Visual Studio... ========="
     Start-VS 
     Start-Sleep -s 2
     write-host "Starting Visual Studio Done!"
-}
-
-if($startVSWithSolutions.ToLower() -eq "true")
-{
-	write-host "========= Starting Visual Studio with solutions... ========="
-	$solutions.solution | ForEach-Object {
-		$solutionPath = Join-Path $solutionPath $_.file
-		Start-VS -SolutionFile $solutionPath
-		Start-Sleep -s 2
-	}
-	write-host "Starting Visual Studio with solutions Done!"
 }
 
 if($startSQL.ToLower() -eq "true")

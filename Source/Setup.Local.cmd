@@ -11,9 +11,6 @@ IF %ERRORLEVEL% NEQ 0 (
 )
 cls
 
-REM Here executes the PS1 to download the DC.EXE.
-echo Running Dependency Checker
-
 IF EXIST %WINDIR%\SysWow64 (
 set powerShellDir=%WINDIR%\SysWow64\windowspowershell\v1.0
 ) ELSE (
@@ -21,7 +18,22 @@ set powerShellDir=%WINDIR%\system32\windowspowershell\v1.0
 )
 
 call %powerShellDir%\powershell.exe -Command Set-ExecutionPolicy unrestricted
-call %powerShellDir%\powershell.exe -Command "&'.\Setup\Scripts\RunDC.ps1'"
+
+cls
+
+call %powerShellDir%\powershell.exe -Command "&'.\Setup\tasks\show-consent-message.ps1' -SetupLocal "; exit $LASTEXITCODE
+
+IF %ERRORLEVEL% == 1 GOTO exit
+
+cls
+
+call %powerShellDir%\powershell.exe -Command "&'.\Setup\tasks\show-config-xml-message.ps1' Config.Local.xml"; exit $LASTEXITCODE
+
+IF %ERRORLEVEL% == 1 GOTO exit
+
+cls
+
+call %powerShellDir%\powershell.exe -Command "&'.\Setup\tasks\RunDC.ps1'"
 
 :exit
 

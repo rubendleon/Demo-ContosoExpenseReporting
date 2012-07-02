@@ -6,7 +6,7 @@ Set-Location $scriptDir
 # "========= Initialization =========" #
 if($userSettingsFile -eq $nul -or $userSettingsFile -eq "")
 {
-	$userSettingsFile = "config.local.xml"
+	$userSettingsFile = "..\config.local.xml"
 }
 
 # Get settings from demo configuration file
@@ -70,7 +70,7 @@ Set-Content $fileName $fileContent
 write-host "Updating web.config file done!"
 
 write-host "========= Setting up demo related folders... ========="
-string] $desktopFolder = [Environment]::GetFolderPath("Desktop")
+[string] $desktopFolder = [Environment]::GetFolderPath("Desktop")
 
 [string] $packagesFolder = Join-Path $desktopFolder "Packages"
 New-Item "$packagesFolder" -type directory
@@ -87,21 +87,26 @@ Copy-Item "$federationsAssetsDir\*" "$federationsFolder" -recurse -Force
 Add-WindowsExplorerFavorite  "Federations" $federationsFolder
 
 [string] $hadoopFolder = Join-Path $desktopFolder "Hadoop"
+New-Item "$hadoopFolder" -type directory
 Copy-Item "$hadoopAssetsDir\*" "$hadoopFolder" -recurse -Force
 Add-WindowsExplorerFavorite  "Hadoop" $hadoopFolder
 write-host "========= Setting up demo related folders... done! ========="
 
 write-host "========= Deploying the site to IIS ========="
-.\SetupIIS.cmd $webSiteProjectFilePath $appPoolName $bindingName $siteName $SQLServerName
+$webSiteProjectFilePath = Resolve-Path $webSiteProjectFilePath 
+.\tasks\SetupIIS.cmd $webSiteProjectFilePath $appPoolName $bindingName $siteName $SQLServerName
 write-host "Deploying the site to IIS Done!"
 
 write-host "========= Adding Host file entry ========="
-.\addHosts.ps1 127.0.0.1 $bindingName $true
+.\tasks\addHosts.ps1 127.0.0.1 $bindingName $true
 Add-IEProxyException "http://$bindingName"
 write-host "Adding Host file entry Done!"
 
 write-host "========= Warming up IIS Sites ========="
-Ping-Url ([Xml](get-content WarmupUrls.xml))
+Ping-Url ([Xml](get-content .\tasks\WarmupUrls.xml))
 write-host "Warming IIS Sites Done!"
 
-
+write-host "========= Install Node Package ... ========="
+$exe = "npm"
+& $exe install azure --g
+write-host "========= Installing Node Package done! ... ========="

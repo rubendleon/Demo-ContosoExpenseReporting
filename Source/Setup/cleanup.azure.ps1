@@ -6,7 +6,7 @@ Set-Location $scriptDir
 # "========= Initialization =========" #
 if($configFile -eq $nul -or $configFile -eq "")
 {
-	$configFile = "config.azure.xml"
+	$configFile = "..\config.azure.xml"
 }
 
 # Get the key and account setting from configuration using namespace
@@ -39,7 +39,4 @@ if (-not ($wazPublishSettings) -or -not (test-path $wazPublishSettings)) {
 
 #========= Deleting Configured SQL Azure Database... =========
 & ".\tasks\waz-delete-azure-sqldb.ps1" -SQLAzureServerName $SQLAzureServerName -SQLAzureUsername $SQLAzureUsername -SQLAzurePassword $SQLAzurePassword -azureDbName $azureDbName
-
-#========= Deleting Configured Cloud Service... =========
-& ".\tasks\waz-delete-cloud-service.ps1" -wazPublishSettings $wazPublishSettings -azureServiceName $azureServiceNameToDelete
 

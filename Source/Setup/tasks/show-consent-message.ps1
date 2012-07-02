@@ -6,7 +6,9 @@ if ($SetupLocal.IsPresent) {
     Write-Host "1. Create the demo's working directory"
     Write-Host "2. Copy begin solution"
     Write-Host "3. Update web project connection string"
-}
+	Write-Host "4. Setup demo related folders"
+	Write-Host "5. Deploy site to IIS"
+}}
 
 if ($ResetLocal.IsPresent) {
     Write-Warning "This script will reset your machine by performing the following tasks:"
@@ -40,20 +42,22 @@ if ($ResetAzure.IsPresent) {
     Write-Warning "This script will reset your Azure subscription by performing the following tasks:"
     Write-Host ""
     Write-Host " 1. Delete Websites configured in the Setup.Azure.xml file" -ForegroundColor Red
-    Write-Host " 2. Delete Cloud Services configured in the Setup.Azure.xml file" -ForegroundColor Red
+    Write-Host " 2. Delete SQL Azure databases configured in the Setup.Azure.xml file" -ForegroundColor Red
 }
 
 if ($CleanupLocal.IsPresent) {
 Write-Warning "This script will cleanup your machine by performing the following tasks:"
     Write-Host ""
     Write-Host "1. Remove the working directory for the demo"
+	Write-Host "3. Remove demo related folders"
+	Write-Host "4. Remove site from IIS"
 }
 
 if ($CleanupAzure.IsPresent) {
     Write-Warning "This script will reset your Azure subscription by performing the following tasks:"
     Write-Host ""
     Write-Host " 1. Delete Websites configured in the Setup.Azure.xml file" -ForegroundColor Red
-    Write-Host " 2. Delete Cloud Services configured in the Setup.Azure.xml file" -ForegroundColor Red
+    Write-Host " 2. Delete SQL Azure databases configured in the Setup.Azure.xml file" -ForegroundColor Red
 }
 
 Write-Host ""

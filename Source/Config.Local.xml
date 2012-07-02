@@ -9,13 +9,8 @@
   </localSqlserver>
 	<iis>
 		<bindingName>contosoexpense</bindingName>
-		<webSiteProjectFilePath>..\begin\Expenses.Web\Expenses.Web.csproj</webSiteProjectFilePath>
+		<webSiteProjectFilePath>..\Begin\Expenses.Web\Expenses.Web.csproj</webSiteProjectFilePath>
 		<appPoolName>contosoexpense</appPoolName>
 		<siteName>Expenses.Web</siteName>
 	</iis>
-	<copyAssets>
-		<receiptsDir>..\assets\receipts</receiptsDir>
-		<federationsDir>..\assets\federations</federationsDir>
-		<hadoopDir>..\assets\hadoop</hadoopDir>
-	</copyAssets>
 </Configuration>

@@ -1,4 +1,4 @@
-Param([string] $userSettingsFile)
+Param([string] $demoSettingsFile, [string] $userSettingsFile)
 
 $scriptDir = (split-path $myinvocation.mycommand.path -parent)
 Set-Location $scriptDir
@@ -13,22 +13,28 @@ if ((Get-PSSnapin | ?{$_.Name -eq "DemoToolkitSnapin"}) -eq $null) {
 } 
 
 # "========= Initialization =========" #
-if($configFile -eq $nul -or $configFile -eq "")
+if($userSettingsFile -eq $nul -or $userSettingsFile -eq "")
 {
-	$configFile = "config.local.xml"
+	$userSettingsFile = "..\config.local.xml"
 }
 
-[xml]$xml = Get-Content $userSettingsFile
+# Get settings from demo configuration file
+if($demoSettingsFile -eq $nul -or $demoSettingsFile -eq "")
+{
+	$demoSettingsFile = "setup.xml"
+}
 
-[string] $workingDir = $xml.configuration.localPaths.workingDir
+[xml]$userSettingsFile = Get-Content $userSettingsFile
+[xml]$xmlDemoSettings = Get-Content $demoSettingsFile
 
-[string] $SQLServerName = $xml.configuration.localSqlServer.serverName
-[string] $dbName = $xml.configuration.localSqlServer.dbName
+[string] $workingDir = $userSettingsFile.configuration.localPaths.workingDir
 
-[string] $receiptsAssetsDir = $xml.configuration.copyAssets.receiptsDir
-[string] $federationsAssetsDir = $xml.configuration.copyAssets.federationsDir
-[string] $hadoopAssetsDir = $xml.configuration.copyAssets.hadoopDir
+[string] $SQLServerName = $userSettingsFile.configuration.localSqlServer.serverName
+[string] $dbName = $userSettingsFile.configuration.localSqlServer.dbName
 
+[string] $receiptsAssetsDir = $xmlDemoSettings.configuration.copyAssets.receiptsDir
+[string] $federationsAssetsDir = $xmlDemoSettings.configuration.copyAssets.federationsDir
+[string] $hadoopAssetsDir = $xmlDemoSettings.configuration.copyAssets.hadoopDir
 
 # ========= Removing current working directory... =========
 & ".\tasks\remove-workingdir.ps1" -demoWorkingDir "$workingDir"
