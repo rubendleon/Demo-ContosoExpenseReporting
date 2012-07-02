@@ -37,7 +37,7 @@
 	<windowsAzureSubscription>
 		<publishSettingsFile>..\assets\dpedemo13.publishsettings</publishSettingsFile>
 		<storageAccountName>contosoreceipt</storageAccountName>	
-		<webSitesToKeep></webSitesToKeep>		
+		<webSitesToDelete></webSitesToDelete>		
 		<sqlManagementEndpoint>https://management.database.windows.net:8443</sqlManagementEndpoint>		
 	</windowsAzureSubscription>	
 

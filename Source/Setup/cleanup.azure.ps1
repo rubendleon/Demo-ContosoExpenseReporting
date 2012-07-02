@@ -23,8 +23,12 @@ if(-not $localSettingsFile)
 [string] $vmSQLUsername = $xml.configuration.vmSqlServer.username
 [string] $vmSQLPassword = $xml.configuration.vmSqlServer.password
 [string] $vmDbName = $xml.configuration.vmSqlServer.dbName
-
+[bool] $enableWebSitesDelete = [System.Convert]::ToBoolean($xml.configuration.features.enableWebSitesDelete)
+[string] $azureNodeSDKDir = $xml.configuration.azureNodeSDKDir
+[string] $webSitesToDelete = $xml.configuration.windowsAzureSubscription.webSitesToDelete
 [string] $wazStorageAccountName = $xml.configuration.windowsAzureSubscription.storageAccountName
+
+$azureNodeSDKDir = Resolve-Path $azureNodeSDKDir
 
 # ========= Dropping Azure Database... =========
 & ".\tasks\drop-azuredatabase.ps1" -vmSQLServerName "$vmSQLServerName" -vmSQLUsername "$vmSQLUsername" -vmSQLPassword "$vmSQLPassword" -vmDbName "$vmDbName"
@@ -32,3 +36,7 @@ if(-not $localSettingsFile)
 # ========= Remove Azure Storage Account... =========
 & ".\tasks\remove-azurestore.ps1" -wazStorageAccountName "$wazStorageAccountName"
 
+# ========= Deleting Web sites... =========
+if ($enableWebSitesDelete) {
+& ".\tasks\waz-delete-websites.ps1" -azureNodeSDKDir "$azureNodeSDKDir" -webSitesToDelete "$webSitesToDelete"
+}
