@@ -26,6 +26,11 @@ if($userSettingsFile -eq $nul -or $userSettingsFile -eq "")
 
 [string] $SQLServerName = $xml.configuration.localSqlServer.serverName
 [string] $dbName = $xml.configuration.localSqlServer.dbName
+[bool] $enableWebSitesDelete = [System.Convert]::ToBoolean($xml.configuration.features.enableWebSitesDelete)
+[string] $azureNodeSDKDir = $xml.configuration.azureNodeSDKDir
+[string] $webSitesToKeep = $xml.configuration.windowsAzureSubscription.webSitesToKeep
+
+$azureNodeSDKDir = Resolve-Path $azureNodeSDKDir
 
 # ========= Removing current working directory... =========
 & ".\tasks\remove-workingdir.ps1" -demoWorkingDir "$workingDir"
@@ -38,3 +43,8 @@ if($userSettingsFile -eq $nul -or $userSettingsFile -eq "")
 
 # ========= Dropping Local Database... =========
 & ".\tasks\drop-localdatabase.ps1" -SQLServerName "$SQLServerName" -dbName "$dbName"
+
+# ========= Deleting Web sites... =========
+if ($enableWebSitesDelete) {
+& ".\tasks\delete-websites.ps1" -azureNodeSDKDir "$azureNodeSDKDir" -webSitesToKeep "$webSitesToKeep"
+}
