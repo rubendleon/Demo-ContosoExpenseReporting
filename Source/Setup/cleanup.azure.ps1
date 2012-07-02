@@ -24,5 +24,11 @@ if(-not $localSettingsFile)
 [string] $vmSQLPassword = $xml.configuration.vmSqlServer.password
 [string] $vmDbName = $xml.configuration.vmSqlServer.dbName
 
+[string] $wazStorageAccountName = $xml.configuration.windowsAzureSubscription.storageAccountName
+
 # ========= Dropping Azure Database... =========
 & ".\tasks\drop-azuredatabase.ps1" -vmSQLServerName "$vmSQLServerName" -vmSQLUsername "$vmSQLUsername" -vmSQLPassword "$vmSQLPassword" -vmDbName "$vmDbName"
+
+# ========= Remove Azure Storage Account... =========
+& ".\tasks\remove-azurestore.ps1" -wazStorageAccountName "$wazStorageAccountName"
+
