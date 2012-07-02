@@ -13,11 +13,9 @@ if ((Get-PSSnapin | ?{$_.Name -eq "DemoToolkitSnapin"}) -eq $null) {
 } 
 
 # "========= Initialization =========" #
-
-# Get settings from user configuration file
-if($userSettingsFile -eq $nul -or $userSettingsFile -eq "")
+if($configFile -eq $nul -or $configFile -eq "")
 {
-	$userSettingsFile = "..\configuration.xml"
+	$configFile = "config.local.xml"
 }
 
 [xml]$xml = Get-Content $userSettingsFile

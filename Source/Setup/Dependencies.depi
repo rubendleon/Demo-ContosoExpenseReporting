@@ -30,7 +30,7 @@
 		   type="WebPI" />
     </dependencies>	
 	<setupCommands>
-      <setup command=".\reset.cmd" name="ContosoExpenseReporting"
-	description="ContosoExpenseReporting demo setup..." />
+      <setup command=".\DoSetup.cmd" name="HelloWorld"
+	description="HelloWorld demo setup..." />
   </setupCommands>
 </DependencyCheckerConfiguration>

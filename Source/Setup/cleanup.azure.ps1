@@ -1,42 +1,45 @@
-Param([string] $localSettingsFile, [string] $azureSettingsFile)
+Param([string] $configFile)
 
 $scriptDir = (split-path $myinvocation.mycommand.path -parent)
 Set-Location $scriptDir
 
-if ((Get-PSSnapin -Registered | ?{$_.Name -eq "DemoToolkitSnapin"}) -eq $null) {
-	Write-Host "Demo Toolkit Snapin not installed." -ForegroundColor Red
-	Write-Host "Install it from https://github.com/microsoft-dpe/demo-tools/tree/master/demo-toolkit/bin" -ForegroundColor Red
-	return;
-} 
-if ((Get-PSSnapin | ?{$_.Name -eq "DemoToolkitSnapin"}) -eq $null) {
-	Add-PSSnapin DemoToolkitSnapin	
-} 
-
 # "========= Initialization =========" #
-if(-not $localSettingsFile)
+if($configFile -eq $nul -or $configFile -eq "")
 {
-	$localSettingsFile = "configuration.xml"
+	$configFile = "config.azure.xml"
 }
-[xml] $xmlLocalSettings = Get-Content $localSettingsFile
 
-[string] $vmSQLServerName = $xml.configuration.vmSqlServer.serverName
-[string] $vmSQLUsername = $xml.configuration.vmSqlServer.username
-[string] $vmSQLPassword = $xml.configuration.vmSqlServer.password
-[string] $vmDbName = $xml.configuration.vmSqlServer.dbName
-[bool] $enableWebSitesDelete = [System.Convert]::ToBoolean($xml.configuration.features.enableWebSitesDelete)
-[string] $azureNodeSDKDir = $xml.configuration.azureNodeSDKDir
+# Get the key and account setting from configuration using namespace
+[xml]$xml = Get-Content $configFile
+[string] $wazPublishSettings = $xml.configuration.windowsAzureSubscription.publishSettingsFile
 [string] $webSitesToDelete = $xml.configuration.windowsAzureSubscription.webSitesToDelete
-[string] $wazStorageAccountName = $xml.configuration.windowsAzureSubscription.storageAccountName
+[string] $publishProfileDownloadUrl = $xml.configuration.urls.publishProfileDownloadUrl
+[string] $azureServiceNameToDelete = $xml.configuration.windowsAzureSubscription.azureServiceNameToDelete
 
-$azureNodeSDKDir = Resolve-Path $azureNodeSDKDir
+[string] $SQLAzureServerName = $xmlUserSettings.configuration.azureSqlServer.serverName
+[string] $SQLAzureUsername = $xmlUserSettings.configuration.azureSqlServer.username
+[string] $SQLAzurePassword = $xmlUserSettings.configuration.azureSqlServer.password
+[string] $azureDbName = $xmlUserSettings.configuration.azureSqlServer.dbName
 
-# ========= Dropping Azure Database... =========
-& ".\tasks\drop-azuredatabase.ps1" -vmSQLServerName "$vmSQLServerName" -vmSQLUsername "$vmSQLUsername" -vmSQLPassword "$vmSQLPassword" -vmDbName "$vmDbName"
 
-# ========= Remove Azure Storage Account... =========
-& ".\tasks\remove-azurestore.ps1" -wazStorageAccountName "$wazStorageAccountName"
-
-# ========= Deleting Web sites... =========
-if ($enableWebSitesDelete) {
-& ".\tasks\waz-delete-websites.ps1" -azureNodeSDKDir "$azureNodeSDKDir" -webSitesToDelete "$webSitesToDelete"
+# "========= Main Script =========" #
+if (-not ($wazPublishSettings) -or -not (test-path $wazPublishSettings)) {
+    Write-Error "You must specify the publish setting profile. After downloading the publish settings profile from the management portal, specify the file location in the configuration file path under the publishSettingsFile element."
+	Write-Host "You should save the publish setting profile into a known and safe location to avoid being removed. Then configure the publishSettingFile in the Config.Azure.xml file."
+	
+    start $publishProfileDownloadUrl
+    return
 }
+   
+#========= Importing the Windows Azure Subscription Settings File... =========
+& ".\tasks\import-waz-publishsettings.ps1" -wazPublishSettings $wazPublishSettings
+
+#========= Deleting Configured Windows Azure Web Sites... =========
+& ".\tasks\waz-delete-websites.ps1" -webSitesToDelete $webSitesToDelete
+
+#========= Deleting Configured SQL Azure Database... =========
+& ".\tasks\waz-delete-azure-sqldb.ps1" -SQLAzureServerName $SQLAzureServerName -SQLAzureUsername $SQLAzureUsername -SQLAzurePassword $SQLAzurePassword -azureDbName $azureDbName
+
+#========= Deleting Configured Cloud Service... =========
+& ".\tasks\waz-delete-cloud-service.ps1" -wazPublishSettings $wazPublishSettings -azureServiceName $azureServiceNameToDelete
+

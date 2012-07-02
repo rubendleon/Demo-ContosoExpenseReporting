@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+  <localPaths>
+    <workingDir>C:\Projects</workingDir>
+  </localPaths>
+  <localSqlserver>
+		<servername>LWADataPV</servername>
+		<dbName>Expenses</dbName>		
+  </localSqlserver>
+	<iis>
+		<bindingName>contosoexpense</bindingName>
+		<webSiteProjectFilePath>..\begin\Expenses.Web\Expenses.Web.csproj</webSiteProjectFilePath>
+		<appPoolName>contosoexpense</appPoolName>
+		<siteName>Expenses.Web</siteName>
+	</iis>
+</Configuration>
