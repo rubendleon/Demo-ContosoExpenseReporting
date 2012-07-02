@@ -4,7 +4,7 @@
 		You must configure the publishSettingFile to a known and safe location to avoid being removed by the Cleanup.Local process (this process clears the Download folder and the Desktop)
 		For instances you can set it to: 'C:\SafeLocation\AzDemoSubscription-OtherSubscription-1-1-2012-credentials.publishsettings'
 	-->
-		<publishSettingsFile>C:\NewSitePublishSettings\Azdem169F29744N-6-25-2012-credentials.publishsettings</publishSettingsFile>
+		<publishSettingsFile></publishSettingsFile>
 	<!-- 
 		The Cleanup.Azure process will remove the list of Web Sites configured (comma separated) in the webSitesToDelete element.
 	-->
