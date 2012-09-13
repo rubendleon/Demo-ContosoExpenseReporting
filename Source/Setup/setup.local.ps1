@@ -74,22 +74,18 @@ write-host "========= Setting up demo related folders... ========="
 
 [string] $packagesFolder = Join-Path $desktopFolder "Packages"
 New-Item "$packagesFolder" -type directory
-Add-WindowsExplorerFavorite "Packages" $packagesFolder
 
 [string] $receiptsFolder = Join-Path $desktopFolder "Receipts"
 New-Item "$receiptsFolder" -type directory
 Copy-Item "$receiptsAssetsDir\*" "$receiptsFolder" -recurse -Force
-Add-WindowsExplorerFavorite  "Receipts" $receiptsFolder
 
 [string] $federationsFolder = Join-Path $desktopFolder "Federations"
 New-Item "$federationsFolder" -type directory
 Copy-Item "$federationsAssetsDir\*" "$federationsFolder" -recurse -Force
-Add-WindowsExplorerFavorite  "Federations" $federationsFolder
 
 [string] $hadoopFolder = Join-Path $desktopFolder "Hadoop"
 New-Item "$hadoopFolder" -type directory
 Copy-Item "$hadoopAssetsDir\*" "$hadoopFolder" -recurse -Force
-Add-WindowsExplorerFavorite  "Hadoop" $hadoopFolder
 write-host "========= Setting up demo related folders... done! ========="
 
 write-host "========= Deploying the site to IIS ========="
@@ -99,12 +95,7 @@ write-host "Deploying the site to IIS Done!"
 
 write-host "========= Adding Host file entry ========="
 .\tasks\addHosts.ps1 127.0.0.1 $bindingName $true
-Add-IEProxyException "http://$bindingName"
 write-host "Adding Host file entry Done!"
-
-write-host "========= Warming up IIS Sites ========="
-Ping-Url ([Xml](get-content .\tasks\WarmupUrls.xml))
-write-host "Warming IIS Sites Done!"
 
 write-host "========= Install Node Package ... ========="
 $exe = "npm"
