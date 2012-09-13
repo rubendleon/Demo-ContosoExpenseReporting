@@ -1,6 +1,7 @@
 ﻿namespace Expenses.Web.Repository
 {
     using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
     using System.Data.Entity.ModelConfiguration.Conventions;
     using Expenses.Web.Models;
 
@@ -9,7 +10,7 @@
         public ReportsContext()
         {
             this.Configuration.LazyLoadingEnabled = false;
-            this.Configuration.ProxyCreationEnabled = false;
+            this.Configuration.ProxyCreationEnabled = false;            
         }
 
         public DbSet<ExpenseReport> ExpenseReports { get; set; }
@@ -22,7 +23,7 @@
                 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();            
         }
     }
 }

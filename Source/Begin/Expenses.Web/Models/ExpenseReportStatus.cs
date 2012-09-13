@@ -1,6 +1,7 @@
 ﻿namespace Expenses.Web.Models
 {
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public class ExpenseReportStatus
     {
