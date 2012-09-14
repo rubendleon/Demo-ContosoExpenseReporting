@@ -4,7 +4,7 @@
     <workingDir>C:\Projects</workingDir>
   </localPaths>
   <localSqlserver>
-		<servername>LWADataPV</servername>
+		<servername>(localdb)\v11.0</servername>
 		<dbName>Expenses</dbName>		
   </localSqlserver>
 	<iis>

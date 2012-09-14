@@ -6,7 +6,7 @@
 <a name="Overview" />
 ## Overview ##
 
-This demo is will illustrate an end-to-end scenario highlighting the Windows Azure cloud-ready data services, including Windows Azure SQL Database, Windows Azure Storage, and SQL Server 2012 in a Windows Azure Virtual Machine. This demo will showcase the rich and powerful features of the Windows Azure data services including easy provisioning of the services, fluid migration options, and the high-performing, scalable and feature-rich data options.
+This demo illustrates an end-to-end scenario highlighting the Windows Azure cloud-ready data services, including Windows Azure SQL Database, Windows Azure Storage, and SQL Server 2012 in a Windows Azure Virtual Machine. This demo will showcase the rich and powerful features of the Windows Azure data services including easy provisioning of the services, fluid migration options, and the high-performing, scalable and feature-rich data options.
 
 <a id="goals" />
 ### Goals ###
@@ -27,7 +27,7 @@ In this demo, you will see the following things:
 
 This demo requires an already provisioned and configured VM with SQL Server. Once provisioned, the following steps are required to allow connection from on-premises SSMS.
 
-1.	Create Endpoint on VM
+1.	Create endpoint on VM
 1.	Create a new SQL user with appropriate privileges to import and export dacpac’s.
 1.	In the VM, open a port in the Windows Firewall for TCP access
 
@@ -71,7 +71,8 @@ This demo is composed of the following segments:
 	>
 	> We’re first going to log in as a user to illustrate some of the pain points we have with this application in submitting expense reports and highlight some of the areas where this application can be expanded and improved.
 
-1. Click **Add New Report**.
+
+1. Select **My Reports** in the toolbar and then click **Add New Report**.
 
 	![Application Dashboard](images/application-dashboard.png?raw=true "Application Dashboard")
 
