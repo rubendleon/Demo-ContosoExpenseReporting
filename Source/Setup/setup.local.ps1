@@ -98,6 +98,5 @@ write-host "========= Adding Host file entry ========="
 write-host "Adding Host file entry Done!"
 
 write-host "========= Install Node Package ... ========="
-$exe = "npm"
-& $exe install azure --g
+& npm install azure -g
 write-host "========= Installing Node Package done! ... ========="
