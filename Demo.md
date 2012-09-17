@@ -80,13 +80,16 @@ This demo is composed of the following segments:
 
 	>**Speaking Point**
 	>
-	> In my Dashboard view, here is see expenses I have submitted and are awaiting approval from my manager, as well as those that have been approved and rejected.
+	> In my Dashboard view, I can see expenses I have submitted and are awaiting approval from my manager, as well as those that have been approved and rejected.
 
 1.	Enter the following information:
 	- Name
 	- Purpose
+
+1. Next, click **Add New Expense** and fill in the following fields:
+	- Category
 	- Description
-	- Date
+	- Merchant
 	- Billed Amount
 	- Transaction Amount
 
@@ -98,7 +101,7 @@ This demo is composed of the following segments:
 	>
 	> Highlight the fact that because of limitations on-premises, receipts are still submitted manually and are not physically associated or attached with the Expense report.
 
-1. Click **Save As Draft**.
+1. Click **Save Draft**.
 
 	![Expense Reporting - Save Draft](images/expense-reporting-save-draft.png?raw=true "Expense Reporting - Save Draft")
 
@@ -106,9 +109,9 @@ This demo is composed of the following segments:
 
 	>**Speaking Point**
 	>
-	> We going to save this report as a draft because we are going to come back to this expense report several times during this demo.
+	> We are going to save this expense report as a draft because we will come back to it several times during this demo.
 
-1.	Show **Visual Studio**. 
+1. Show **Visual Studio**. 
 1. Open the **Solution Explorer** window.
 
 	![Application's Solution Explorer](images/applications-solution-explorer.png?raw=true "Application's Solution Explorer")
@@ -122,9 +125,10 @@ This demo is composed of the following segments:
 <a name="segment2" />
 ### Migrating to Windows Azure with Virtual Machines & SQL Server 2012 ###
 
-1. Open the Web Browser and navigate to the Windows Azure Portal at <http://windows.azure.com>
+1. Open the Web browser and navigate to the Windows Azure Portal at <http://windows.azure.com>
 
-1. Sign in with the customers live id.
+1. Sign in with your Live ID.
+
 
 	![Sign in](images/sign-in.png?raw=true "Windows Azure Portal Sign in")
 
@@ -132,27 +136,26 @@ This demo is composed of the following segments:
 
 	>**Speaking Point**
 	>
-	> The first step in migrating our application to Windows Azure is to create our VM.
+	> The first step in migrating our application to Windows Azure is to create a VM.
 	>
 	> Let us first navigate to the Windows Azure portal and get signed in.
 	>
-	> We use live id for authentication on the portal - so let’s get log in.
+	> We use Live ID for authentication on the portal, so let’s log in.
 
 1. Click **New** | **Virtual Machine** | **From Gallery**.
 
 	![Creating Virtual Machine from Gallery](images/creating-virtual-machine-from-gallery.png?raw=true "Creating Virtual Machine from Gallery")
 
-	_Creating Virtual Machine from Gallery_
+	_Creating a virtual machine from the Gallery_
 
 	>**Speaking Point**
 	>
 	> Now that we’re logged in, creating a virtual machine via the portal is easy. Let’s select the virtual machines option in the navigation pane.
 	>
-	> At least one virtual machine will be created, but we’re going to create a new virtual machine that has SQL Server 2012. To do that, we’re going to select the **FROM GALLARY** option.
+	> At least one virtual machine will be created, but we’re going to create a new virtual machine that has SQL Server 2012. To do that, we’re going to select the **FROM GALLERY** option.
 	>
-	>**Quick Create** if you only need one virtual machine that doesn’t need to be load-balanced or joined to a virtual network.
-	>
-	>**From Gallery** you have more complex solution. Witth this option you have more flexibility in how the machine is used in advanced solutions.
+	>You can use **Quick Create** if you only need one virtual machine that doesn’t need to be load-balanced or joined to a virtual network or
+**From Gallery** if you have more complex solution. With the latter, you have more flexibility in how the machine is used in advanced scenarios.
 
 1.	In the **CREATE VIRTUAL MACHINE** dialog, select the **SQL Server 2012 Evaluation** option.
 1.	Click the right arrow (Next).
@@ -164,13 +167,14 @@ This demo is composed of the following segments:
 
 	>**Speaking Point**
 	>
-	> Notice all the different VM’s that we have in our gallery. As you can see, we have several VMs that include Linux, as well as several Sever 2008 R2 and Server 8 Beta VMs.
+	> Notice all the different VM’s that we have in our gallery. As you can see, we have many VMs that include Linux, as well as several Server 2008 R2 and Server 2012 VMs.
 	>
 	>We also have, as you can see, a SQL Server 2012 VM. This VM is running SQL Server 2012 Enterprise Evaluation edition which is the VM we want to create, so let’s select that one.
 
 1.	The second page of the **Create Virtual Machine** wizard is the **VM Configuration**. Enter the following:
-	-**NAME**: ConstosExpenseVM
-	-**Password**: Passw0rd!
+	- **Virtual Machine Name**: ContosExpenseVM
+	- **Password**: Passw0rd!
+
 1.	Enter password for the administrator account, then re-enter the password for confirmation.
 1. Select the _Large_ VM **size**.
 
@@ -180,11 +184,11 @@ This demo is composed of the following segments:
 
 	>**Speaking Point**
 	>
-	> Now what we need to do is give our Virtual machine a name. This is the portal display name.
+	> Now what we need to do is give our virtual machine a name. This is the portal display name.
 	>
-	>We also need to supply an administrator Password. 
+	>We also need to supply an administrator password. 
 	>
-	>More  importantly however, we also need to select the size of the VM. There are several size options:
+	>More  importantly, however, we also need to select the size of the VM. There are several size options:
 	>
 	>	- Extra Small
 	>	- Small
@@ -194,10 +198,10 @@ This demo is composed of the following segments:
 	>
 	>These sizes differ, as we can see, in the amount of CPU cores and memory allotted to the VM. It is important that the VM we select will suffice for our needs.
 
-1.	The third page of the **CREATE VIRTUAL MACHINE** wizard is the **VM Mode.** Select the **Standalone Virtual Machine** option.
-1.	Enter a _unique_ **DNS** name for the Virtual Machine.
+1.	The third page of the **CREATE VIRTUAL MACHINE** wizard is the **VM Mode.** Select the **STANDALONE VIRTUAL MACHINE** option.
+1.	Enter a _unique_ **DNS NAME** for the virtual machine.
 1.	For the **STORAGE ACCOUNT**, leave the default at **Use Automatically Generated Storage Account**.
-1. Leave the **REGION/AFFINITY GROUP/VIRTUAL NETWORK** option to **West US**.
+1. Choose a suitable **REGION/AFFINITY GROUP/VIRTUAL NETWORK** where the VM will be deployed.
 
 	![VM Mode page](images/vm-mode-page.png?raw=true "VM Mode page")
 
@@ -205,11 +209,11 @@ This demo is composed of the following segments:
 
 	>**Speaking Point**
 	>
-	> Next we need to select the type of Virtual Machine. Meaning, is this going to be new standalone virtual machine, or are we connecting to an existing virtual machine? With the new IaaS domain features, we have the ability to join this VM to an existing domain. However, for the purposes of this demo, we’ll simply create a standalone VM.
+	> Next we need to select the type of virtual machine. In other words, is this going to be new standalone virtual machine, or are we connecting to an existing virtual machine? With the new IaaS domain features, we have the ability to join this VM to an existing domain. However, for the purposes of this demo, we’ll simply create a standalone VM.
 	>
 	> Next we need to supply a DNS name for this VM. 
 	> 
-	> These VMs are stored in BLOB storage, and we need to specify whether our VM will use an Azure account tied to our Subscription if we created one, or use an automatically generated Storage Account. Since we haven’t created our Storage Account yet, we’ll use the automatically generated account.
+	> These VMs are stored in blob storage and we need to specify whether our VM will use a Windows Azure account tied to our subscription if we created one, or use an automatically generated storage account. Since we haven’t created a storage account yet, we’ll use the automatically generated account.
 Lastly, we need specify in which region to create the VM. 
 
 
@@ -225,81 +229,98 @@ Lastly, we need specify in which region to create the VM.
 	>
 	> Lastly, we need to select an availability set in which to create the VM. 
 	>
-	> POINT: **Availability sets are a group of machines that are deployed across multiple locations (commonly called Fault domains). Availability sets are used to protect from outages.**
+	> An availability set is a group of machines that are deployed across multiple locations (commonly called fault domains). Availability sets are used to protect from outages.
 	> 
-	>So, we’ll select the Create Availability Set Option, and name the Availability Set MyAvailSet.
+	>So, we’ll select the **Create Availability Set** option and name the availability set as _MyAvailSet_.
 	>
-	>Great, were done! We can see in the portal that our VM is being provisioned.
+	>Great, we are done! We can see in the portal that our VM is being provisioned.
 
-1.	At this point, we will switch over to an already provision Virtual Machine that has been prepped and configured.
-1. In the Dashboard, highlight and copy the **DNS** name to the clipboard.
+1. At this point, you may switch over to an already provisioned virtual machine that has been configured with an endpoint for SQL Server Management and that has the corresponding port (1433) opened in its firewall, as well as having an additional SQL Server login which you can use to connect remotely. Otherwise, follow these steps to complete the required configuration. 
 
-	![Virtual Machine's DNS](images/virtual-machines-dns.png?raw=true "Virtual Machine's DNS")
+1.	In the **Windows Azure Portal**, select the VM you created previously.
+1.	Click  the **ENDPOINTS link.**
+1.	Click **ADD ENDPOINT** in the command bar.
+1.	In the **ADD ENDPOINT** dialog, select **Add Endpoint** and then click the right arrow to go to the next page.
 
-	_Virtual Machine's DNS_
+	![Add Endpoint to Virtual Machine page](images/add-endpoint-to-virtual-machine-page.png?raw=true "Add Endpoint to Virtual Machine page")
 
-	>**Speaking Point**
-	>
-	> However, instead of waiting, we are going to use a VM that we provisioned earlier. 
-	>
-	> However, before we connect to the VM, we need to grab some information from it. 
-	>
-	> In order to connect to SQL Server in the VM, we need the DNS name. We’ll be using shortly to connect to SQL Server.
+	_Adding an endpoint to a virtual machine_
 
+1.	In the second page of the **ADD ENDPOINT** dialog, enter a **NAME** for the endpoint, select **TCP** as the **PROTOCOL**, and enter **1433** for both the **PUBLIC PORT** and **PRIVATE PORT** . 
 
-1.	Ensure that you are on the DASHBOARD page.
-1.	Click **Connect** on the whatever bar.
-1.	Save the RDP file to the desktop.
-1 Minimize the browser.
+	![Add Endpoint To Virtual Machine page](images/add-endpoint-to-virtual-machine-page2.png?raw=true "Add Endpoint To Virtual Machine page")
 
-	![Connect to the Virtual Machine](images/connect-to-the-virtual-machine.png?raw=true "Connect to the Virtual Machine")
-
-	_Connect to the Virtual Machine_
-
-	>**Speaking Point**
-	>
-	> We’re going to connect to this VM, and to do that, we simply selected the VM in the portal and click the CONNECT button, which creates an RDP shortcut and asks us to open it or run it. 
-	>
-	> For our existing VM, we saved that shortcut to our desktop.
-
-1.	On the desktop, double0-click the RDP file.
-2.	In the Windows Security dialog, enter the password
-	- Password: Passw0rd!
-1. Click OK.
-
-	![Connecting Virtual Machine - Entering Credentials](images/connecting-virtual-machine-entering-credent.png?raw=true "Connecting Virtual Machine - Entering Credentials")
-
-	_Connecting Virtual Machine - Entering Credentials_
-
-	>**Speaking Point**
-	>
-	> Let’s log into the Virtual Machine by entering the password we entered earlier. 
-	>
-	> While the machine is booting up, call out the steps to prep the  vm for SQL Server access (create endpoint, open port on vm firewall).
-	>	- Creating the endpoint allows the ability to access the VM (_do we go back to the portal and show how that’s done_)?
-	> - To gain access to SQL Server in the Vm, we also need to open port 1433 on the Windows Firewall to allow inbound connections.
-	> - For simplicity sake, we also created a SQL Server login and user with which to connect to SQL Server in the VM.
-
-1.	While the VM is loading, **Go back to the portal**.
-1.	Select the already provisioned VM.
-1. Click the **Endpoints** link.
-
-	![Endpoints Section](images/endpoints-section.png?raw=true "Endpoints Section")
-
-	_Endpoints Section_
+	_Configuring the virtual machine endpoint_
 
 	>**Speaking Point**
 	>
 	> Highlight the fact that in order to gain access to SQL Server inside the VM from external, we needed to create an **Endpoint** for port 1433.
 	>
 	>**Virtual machines** use endpoints to communicate within Windows Azure and with other resources on the Internet
+	>
+	>Creating the endpoint allows us to access the VM remotely to connect to SQL Server.
 
+	![Endpoints Section](images/endpoints-section.png?raw=true "Endpoints Section")
 
-1.	When the Virtual Machine loads, open SQL Server Management Studio and log in to SQL Server using Windows  Authentication.
-1.	Highlight the fact that is SQL Server 2012.
-1.	Expand the databases node to illustrate that there are no user databases.
-Minimize the VM.
+1.	Ensure that you are on the **DASHBOARD** page.
 
+1. In the **DASHBOARD**, highlight and copy the **DNS** name of the virtual machine to the clipboard.
+
+	![Virtual Machine's DNS](images/virtual-machines-dns.png?raw=true "Virtual Machine's DNS")
+
+	_Virtual machine's DNS_
+
+	>**Speaking Point**
+	>
+	> However, before we connect to the VM, we need to grab some information from it. 
+	>
+	> In order to connect to SQL Server in the VM, we need its DNS name. We’ll be using it shortly to connect to SQL Server.
+
+1.	Now, click **Connect** on the command bar.
+1.	Save the RDP file to the desktop or another suitable location.
+1. Minimize the browser.
+
+	![Connect to the Virtual Machine](images/connect-to-the-virtual-machine.png?raw=true "Connect to the Virtual Machine")
+
+	_Connecting to the virtual machine_
+
+	>**Speaking Point**
+	>
+	> We’re going to connect to this VM and to do that, we simply select the VM in the portal and click **CONNECT**, which downloads a Remote Desktop Connection file and asks us to open it or save it to disk. 
+	>
+	> For our existing VM, we will save this shortcut to our desktop.
+
+1.	On the desktop, double-click the RDP file.
+2.	In the **Windows Security** dialog, enter the password
+	- Password: Passw0rd!
+1. Click **OK**.
+
+	![Connecting Virtual Machine - Entering Credentials](images/connecting-virtual-machine-entering-credent.png?raw=true "Connecting Virtual Machine - Entering Credentials")
+
+	_Entering credentials for the Remote Desktop Connection_
+
+	>**Speaking Point**
+	>
+	> Let’s log into the virtual machine by entering the password we configured earlier. 
+
+1.	Inside the remote desktop session, click **Run** on the **Start** menu, type **WF.msc**, and then click **OK**.
+1.	In the **Windows Firewall with Advanced Security** management console, select **Inbound Rules** in the tree view on the left pane, and then click **New Rule** in the action pane.
+1.	In the **Rule Type** dialog box, select **Port**, and then click **Next**.
+1.	In the **Protocol and Ports** dialog box, select **TCP**. Select **Specific local ports**, and then type the port number of the instance of the Database Engine, such as **1433** for the default instance. Click **Next**.
+1.	In the **Action** dialog box, select **Allow the connection**, and then click **Next**.
+1.	In the **Profile** dialog box, select any profiles that describe the computer connection environment when you want to connect to the Database Engine, and then click **Next**.
+1.	In the **Name** dialog box, type a name and description for this rule, and then click **Finish**.
+new-inbound-firewall-rule.png
+
+	![New Inbound Firewall Rule](images/new-inbound-firewall-rule.png?raw=true"New Inbound Firewall Rule")
+
+	_Creating a firewall rule for SQL Server access_
+
+	>**Speaking Point**
+	> 
+	> To gain access to SQL Server in the VM, we need to open port 1433 on the Windows Firewall to allow inbound connections.
+
+1.	Now, open SQL Server Management Studio in the remote desktop session and log in to SQL Server using Windows Authentication.
 	![Management Studio's Object Explorer](images/management-studios-object-explorer.png?raw=true "Management Studio's Object Explorer")
 
 	_Management Studio's Object Explorer_
@@ -308,24 +329,52 @@ Minimize the VM.
 	>
 	> Call out the fact that is indeed SQL Server 2012, FULL FUNCTIONALITY.
 
-1.	Open Management Studio for SQL Server 2012 on -premises.
-1.	In the Connection dialog, log into the on-premise SQL Server using Windows Authentication.
+1. Expand the databases node to illustrate that there are no user databases.
+1. Right-click the (root) server node and then select **Properties**.
+1. In the **Server Properties** dialog, select the **Security** page.
+1. Under **Server authentication**, select the option labeled **SQL Server and Windows Authentication mode** and then click **OK**.
+
+	![Enabling SQL Server Authentication](images/enabling-sql-server-authentication.png?raw=true "Enabling SQL Server Authentication")
+
+	_Enabling SQL Server Authentication_
+
+	>**Speaking Point**
+	> 
+	> For this demo, we will enable SQL Server authentication mode and create login that we can use to connect remotely.
+
+1. Now, right-click the (root) server node again and select **Restart** to allow the change in authentication mode to take effect.
+
+1. Expand the **Security** node, right-click **Logins**, and then select **New Login**.
+1. In the **Login - New** dialog, type a new **Login name**, for example _demouser_, select **SQL Server authentication**, clear the option labeled **User must change password at next login**, and then click **OK**.
+
+	![New SQL Server Login](images/sql-server-create-login.png?raw=true"New SQL Server Login")
+
+	_Adding a new SQL Server login_
+
+	>**Speaking Point**
+	>
+	> For simplicity sake, we also need to create a new SQL Server login with which to connect to SQL Server in the VM.
+
+1. Minimize the remote desktop session for the VM.
+
+1.	Open Management Studio for SQL Server 2012 in your local machine (on-premises).
+1.	In the **Connect to Server** dialog, log into the on-premise SQL Server using Windows Authentication.
 1. Expand the database node and point to the database that is going to be migrated to the VM. 
 
 	![Connecting to on-premises SQL Server](images/connecting-to-on-premises-sql-server.png?raw=true "Connecting to on-premises SQL Server")
 
-	_Connecting to on-premises SQL Server_
+	_Connecting to the on-premises SQL Server_
 
 	>**Speaking Point**
 	>
 	> Our first task is to connect to our on-premises SQL Server. This is where our source database is coming from.
 
-1.	Create another SQL Server connection. Paste in the DNS name of the VM copied from **Step 30**, **removing** http:// from the name and any trailing slashes.
-1. Use SQL Authentication, using **SQLUser** and **Passw0rd1!** For the login name and password.
+1.	Create a second SQL Server connection. In the **Server name** field, paste in the DNS name of the VM copied earlier from the portal.
+1. Use SQL Authentication, and type _demouser_ and _Passw0rd1!_ for the login name and password.
 
 	![Creating to SQL Server using VM's DNS Name](images/creating-to-sql-server-using-vms-dns-name.png?raw=true "Creating to SQL Server using VM's DNS Name")
 
-	_Creating to SQL Server using VM's DNS Name_
+	_Connecting to the SQL Server in Windows Azure using the VM's DNS name_
 
 	>**Speaking Point**
 	>
@@ -335,9 +384,9 @@ Minimize the VM.
 	>
 	>We copied this name to the clipboard earlier.
 
-1.	You should now have two connections, one for on-prem, one for SQL Server in the VM.
-1.	In the on-prem connection, right mouse-click on the database to export and select **Tasks** -> **Export Data-Tier Application** from the context menu
-1. Click **Next** on Introduction Screen.
+1.	You should now have two connections, one for on-premises and one for SQL Server in the VM.
+1.	In the on-premises connection, right-click the database to export and select **Tasks** -> **Export Data-Tier Application** in the context menu.
+1. In the **Introduction** screen, click **Next**.
 
 	![Exporting Data-tier Application](images/exporting-data-tier-application.png?raw=true "Exporting Data-tier Application")
 
@@ -345,11 +394,11 @@ Minimize the VM.
 
 	>**Speaking Point**
 	>
-	> We actually have several ways of getting our database from on-premises to the VM, including Generate Scripts wizard or backup/restore. 
+	> We actually have several ways of getting our database from on-premises to the VM, including the Generate Scripts wizard or backup/restore. 
 	>
-	> **However, new in sql server 2012 is the ability to export and import a database using what are called BACPACs**.
+	> **However, new in Sql Server 2012 is the ability to export and import a database using what are called BACPACs**.
 
-1.	On the Export Settings page, select the Save to local disk option.
+1.	In the **Export Settings** page, select the option labeled **Save to local disk**.
 1.	Click Browse.
 1.	In the Save As dialog, navigate to the C:\DAC Packages folder and enter **Expenses** for the filename.
 1.	Click Save on the Save As dialog.
