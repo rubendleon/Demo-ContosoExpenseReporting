@@ -51,7 +51,7 @@ This demo is composed of the following segments:
 
 1. Open the Web Browser and navigate to the application at <http://ExpenseApp>.
 
-	![Expense Reportin App running Locally](images/expense-reportin-app-running-locally.png?raw=true "Expense Reportin App running Locally")
+	![Expense Reportin App running Locally](Images/expense-reportin-app-running-locally.png?raw=true "Expense Reportin App running Locally")
 
 	_Expense Reportin App running Locally_
 
@@ -63,7 +63,7 @@ This demo is composed of the following segments:
 
 1. Click **Login as user**.
 
-	![Log in as User](images/log-in-as-user.png?raw=true "Log in as User")
+	![Log in as User](Images/log-in-as-user.png?raw=true "Log in as User")
 
 	_Log in as User_
 
@@ -74,7 +74,7 @@ This demo is composed of the following segments:
 
 1. Select **My Reports** in the toolbar and then click **Add New Report**.
 
-	![Application Dashboard](images/application-dashboard.png?raw=true "Application Dashboard")
+	![Application Dashboard](Images/application-dashboard.png?raw=true "Application Dashboard")
 
 	_Application Dashboard_
 
@@ -93,7 +93,7 @@ This demo is composed of the following segments:
 	- Billed Amount
 	- Transaction Amount
 
-	![Expense Reporting - New Report](images/expense-reporting-new-report.png?raw=true "Expense Reporting - New Report")
+	![Expense Reporting - New Report](Images/expense-reporting-new-report.png?raw=true "Expense Reporting - New Report")
 
 	_Expense Reporting - New Report_
 
@@ -103,7 +103,7 @@ This demo is composed of the following segments:
 
 1. Click **Save Draft**.
 
-	![Expense Reporting - Save Draft](images/expense-reporting-save-draft.png?raw=true "Expense Reporting - Save Draft")
+	![Expense Reporting - Save Draft](Images/expense-reporting-save-draft.png?raw=true "Expense Reporting - Save Draft")
 
 	_Expense Reporting - Save Draft_
 
@@ -114,7 +114,7 @@ This demo is composed of the following segments:
 1. Show **Visual Studio**. 
 1. Open the **Solution Explorer** window.
 
-	![Application's Solution Explorer](images/applications-solution-explorer.png?raw=true "Application's Solution Explorer")
+	![Application's Solution Explorer](Images/applications-solution-explorer.png?raw=true "Application's Solution Explorer")
 
 	_Application's Solution Explorer_
 
@@ -130,7 +130,7 @@ This demo is composed of the following segments:
 1. Sign in with your Live ID.
 
 
-	![Sign in](images/sign-in.png?raw=true "Windows Azure Portal Sign in")
+	![Sign in](Images/sign-in.png?raw=true "Windows Azure Portal Sign in")
 
 	Windows Azure Portal Sign in
 
@@ -144,7 +144,7 @@ This demo is composed of the following segments:
 
 1. Click **New** | **Virtual Machine** | **From Gallery**.
 
-	![Creating Virtual Machine from Gallery](images/creating-virtual-machine-from-gallery.png?raw=true "Creating Virtual Machine from Gallery")
+	![Creating Virtual Machine from Gallery](Images/creating-virtual-machine-from-gallery.png?raw=true "Creating Virtual Machine from Gallery")
 
 	_Creating a virtual machine from the Gallery_
 
@@ -161,7 +161,7 @@ This demo is composed of the following segments:
 1.	Click the right arrow (Next).
 
 
-	![Selecting Virtual Machine OS version](images/selecting-virtual-machine-os-version.png?raw=true "Selecting Virtual Machine OS version")
+	![Selecting Virtual Machine OS version](Images/selecting-virtual-machine-os-version.png?raw=true "Selecting Virtual Machine OS version")
 
 	_Selecting Virtual Machine OS version_
 
@@ -178,7 +178,7 @@ This demo is composed of the following segments:
 1.	Enter password for the administrator account, then re-enter the password for confirmation.
 1. Select the _Large_ VM **size**.
 
-	![VM Configuration page](images/vm-configuration-page.png?raw=true "VM Configuration page")
+	![VM Configuration page](Images/vm-configuration-page.png?raw=true "VM Configuration page")
 
 	_VM Configuration page_
 
@@ -203,7 +203,7 @@ This demo is composed of the following segments:
 1.	For the **STORAGE ACCOUNT**, leave the default at **Use Automatically Generated Storage Account**.
 1. Choose a suitable **REGION/AFFINITY GROUP/VIRTUAL NETWORK** where the VM will be deployed.
 
-	![VM Mode page](images/vm-mode-page.png?raw=true "VM Mode page")
+	![VM Mode page](Images/vm-mode-page.png?raw=true "VM Mode page")
 
 	_VM Mode page_
 
@@ -221,7 +221,7 @@ Lastly, we need specify in which region to create the VM.
 1.	Select **Create Availability Set**, and set the **NAME** to **MyAvailSet**.
 1. Click Finish (check mark).
 
-	![VM Options page](images/vm-options-page.png?raw=true "VM Options page")
+	![VM Options page](Images/vm-options-page.png?raw=true "VM Options page")
 
 	_VM Options page_
 
@@ -242,13 +242,13 @@ Lastly, we need specify in which region to create the VM.
 1.	Click **ADD ENDPOINT** in the command bar.
 1.	In the **ADD ENDPOINT** dialog, select **Add Endpoint** and then click the right arrow to go to the next page.
 
-	![Add Endpoint to Virtual Machine page](images/add-endpoint-to-virtual-machine-page.png?raw=true "Add Endpoint to Virtual Machine page")
+	![Add Endpoint to Virtual Machine page](Images/add-endpoint-to-virtual-machine-page.png?raw=true "Add Endpoint to Virtual Machine page")
 
 	_Adding an endpoint to a virtual machine_
 
 1.	In the second page of the **ADD ENDPOINT** dialog, enter a **NAME** for the endpoint, select **TCP** as the **PROTOCOL**, and enter **1433** for both the **PUBLIC PORT** and **PRIVATE PORT** . 
 
-	![Add Endpoint To Virtual Machine page](images/add-endpoint-to-virtual-machine-page2.png?raw=true "Add Endpoint To Virtual Machine page")
+	![Add Endpoint To Virtual Machine page](Images/add-endpoint-to-virtual-machine-page2.png?raw=true "Add Endpoint To Virtual Machine page")
 
 	_Configuring the virtual machine endpoint_
 
@@ -260,13 +260,13 @@ Lastly, we need specify in which region to create the VM.
 	>
 	>Creating the endpoint allows us to access the VM remotely to connect to SQL Server.
 
-	![Endpoints Section](images/endpoints-section.png?raw=true "Endpoints Section")
+	![Endpoints Section](Images/endpoints-section.png?raw=true "Endpoints Section")
 
 1.	Ensure that you are on the **DASHBOARD** page.
 
 1. In the **DASHBOARD**, highlight and copy the **DNS** name of the virtual machine to the clipboard.
 
-	![Virtual Machine's DNS](images/virtual-machines-dns.png?raw=true "Virtual Machine's DNS")
+	![Virtual Machine's DNS](Images/virtual-machines-dns.png?raw=true "Virtual Machine's DNS")
 
 	_Virtual machine's DNS_
 
@@ -280,7 +280,7 @@ Lastly, we need specify in which region to create the VM.
 1.	Save the RDP file to the desktop or another suitable location.
 1. Minimize the browser.
 
-	![Connect to the Virtual Machine](images/connect-to-the-virtual-machine.png?raw=true "Connect to the Virtual Machine")
+	![Connect to the Virtual Machine](Images/connect-to-the-virtual-machine.png?raw=true "Connect to the Virtual Machine")
 
 	_Connecting to the virtual machine_
 
@@ -295,7 +295,7 @@ Lastly, we need specify in which region to create the VM.
 	- Password: Passw0rd!
 1. Click **OK**.
 
-	![Connecting Virtual Machine - Entering Credentials](images/connecting-virtual-machine-entering-credent.png?raw=true "Connecting Virtual Machine - Entering Credentials")
+	![Connecting Virtual Machine - Entering Credentials](Images/connecting-virtual-machine-entering-credent.png?raw=true "Connecting Virtual Machine - Entering Credentials")
 
 	_Entering credentials for the Remote Desktop Connection_
 
@@ -312,7 +312,7 @@ Lastly, we need specify in which region to create the VM.
 1.	In the **Name** dialog box, type a name and description for this rule, and then click **Finish**.
 new-inbound-firewall-rule.png
 
-	![New Inbound Firewall Rule](images/new-inbound-firewall-rule.png?raw=true"New Inbound Firewall Rule")
+	![New Inbound Firewall Rule](Images/new-inbound-firewall-rule.png?raw=true"New Inbound Firewall Rule")
 
 	_Creating a firewall rule for SQL Server access_
 
@@ -321,7 +321,7 @@ new-inbound-firewall-rule.png
 	> To gain access to SQL Server in the VM, we need to open port 1433 on the Windows Firewall to allow inbound connections.
 
 1.	Now, open SQL Server Management Studio in the remote desktop session and log in to SQL Server using Windows Authentication.
-	![Management Studio's Object Explorer](images/management-studios-object-explorer.png?raw=true "Management Studio's Object Explorer")
+	![Management Studio's Object Explorer](Images/management-studios-object-explorer.png?raw=true "Management Studio's Object Explorer")
 
 	_Management Studio's Object Explorer_
 
@@ -334,7 +334,7 @@ new-inbound-firewall-rule.png
 1. In the **Server Properties** dialog, select the **Security** page.
 1. Under **Server authentication**, select the option labeled **SQL Server and Windows Authentication mode** and then click **OK**.
 
-	![Enabling SQL Server Authentication](images/enabling-sql-server-authentication.png?raw=true "Enabling SQL Server Authentication")
+	![Enabling SQL Server Authentication](Images/enabling-sql-server-authentication.png?raw=true "Enabling SQL Server Authentication")
 
 	_Enabling SQL Server Authentication_
 
@@ -347,7 +347,7 @@ new-inbound-firewall-rule.png
 1. Expand the **Security** node, right-click **Logins**, and then select **New Login**.
 1. In the **Login - New** dialog, type a new **Login name**, for example _demouser_, select **SQL Server authentication**, clear the option labeled **User must change password at next login**, and then click **OK**.
 
-	![New SQL Server Login](images/sql-server-create-login.png?raw=true"New SQL Server Login")
+	![New SQL Server Login](Images/sql-server-create-login.png?raw=true"New SQL Server Login")
 
 	_Adding a new SQL Server login_
 
@@ -361,7 +361,7 @@ new-inbound-firewall-rule.png
 1.	In the **Connect to Server** dialog, log into the on-premise SQL Server using Windows Authentication.
 1. Expand the database node and point to the database that is going to be migrated to the VM. 
 
-	![Connecting to on-premises SQL Server](images/connecting-to-on-premises-sql-server.png?raw=true "Connecting to on-premises SQL Server")
+	![Connecting to on-premises SQL Server](Images/connecting-to-on-premises-sql-server.png?raw=true "Connecting to on-premises SQL Server")
 
 	_Connecting to the on-premises SQL Server_
 
@@ -372,7 +372,7 @@ new-inbound-firewall-rule.png
 1.	Create a second SQL Server connection. In the **Server name** field, paste in the DNS name of the VM copied earlier from the portal.
 1. Use SQL Authentication, and type _demouser_ and _Passw0rd1!_ for the login name and password.
 
-	![Creating to SQL Server using VM's DNS Name](images/creating-to-sql-server-using-vms-dns-name.png?raw=true "Creating to SQL Server using VM's DNS Name")
+	![Creating to SQL Server using VM's DNS Name](Images/creating-to-sql-server-using-vms-dns-name.png?raw=true "Creating to SQL Server using VM's DNS Name")
 
 	_Connecting to the SQL Server in Windows Azure using the VM's DNS name_
 
@@ -388,7 +388,7 @@ new-inbound-firewall-rule.png
 1.	In the on-premises connection, right-click the database to export and select **Tasks** -> **Export Data-Tier Application** in the context menu.
 1. In the **Introduction** screen, click **Next**.
 
-	![Exporting Data-tier Application](images/exporting-data-tier-application.png?raw=true "Exporting Data-tier Application")
+	![Exporting Data-tier Application](Images/exporting-data-tier-application.png?raw=true "Exporting Data-tier Application")
 
 	_Exporting Data-tier Application_
 
@@ -405,7 +405,7 @@ new-inbound-firewall-rule.png
 1.	Click Next.
 1. Click Finish on Summary Page.
 
-	![Exporting bacpac file](images/exporting-bacpac-file.png?raw=true "Exporting bacpac file")
+	![Exporting bacpac file](Images/exporting-bacpac-file.png?raw=true "Exporting bacpac file")
 
 	_Exporting bacpac file_
 
@@ -421,7 +421,7 @@ new-inbound-firewall-rule.png
 1.	Select Import Data-Tier Application from context menu.
 1. Click Next on the Introduction page.
 
-	![Importing Data-tier Application](images/importing-data-tier-application.png?raw=true "Importing Data-tier Application")
+	![Importing Data-tier Application](Images/importing-data-tier-application.png?raw=true "Importing Data-tier Application")
 
 	_Importing Data-tier Application_
 
@@ -435,7 +435,7 @@ new-inbound-firewall-rule.png
 1.	Click Next on the Database Settings page.
 1. Click Finish on the Summary page.
 
-	![Importing bacpac file](images/importing-bacpac-file.png?raw=true "Importing bacpac file")
+	![Importing bacpac file](Images/importing-bacpac-file.png?raw=true "Importing bacpac file")
 
 	_Importing bacpac file_
 
@@ -457,7 +457,7 @@ new-inbound-firewall-rule.png
 1.	Select **My XML Snippets**.
 1. Insert the **VMConnectionString** snippet.
 
-	![Updating connection stirng within Web.config](images/updating-connection-stirng-within-webconfig.png?raw=true "Updating connection stirng within Web.config")
+	![Updating connection stirng within Web.config](Images/updating-connection-stirng-within-webconfig.png?raw=true "Updating connection stirng within Web.config")
 
 	_Updating connection stirng within Web.config_
 
@@ -479,7 +479,7 @@ new-inbound-firewall-rule.png
 1.	Keep the default **REGION**.
 1. Click **Create Web Site**.
 
-	![Creating a new Web Site](images/creating-a-new-web-site.png?raw=true "Creating a new Web Site")
+	![Creating a new Web Site](Images/creating-a-new-web-site.png?raw=true "Creating a new Web Site")
 
 	_Creating a new Web Site_
 
@@ -497,13 +497,13 @@ new-inbound-firewall-rule.png
 
 1. Once provisioned, select the newly created web site **NAME** in the list.
 
-	![Selecting Web Site's name](images/selecting-web-sites-name.png?raw=true "Selecting Web Site's name")
+	![Selecting Web Site's name](Images/selecting-web-sites-name.png?raw=true "Selecting Web Site's name")
 
 	_Selecting Web Site's name_
 
 1. In the **DASHBOARD**, click the **Download publish profile** link.
 
-	![Downloading Publish Profile](images/downloading-publish-profile.png?raw=true "Downloading Publish Profile")
+	![Downloading Publish Profile](Images/downloading-publish-profile.png?raw=true "Downloading Publish Profile")
 
 	_Downloading Publish Profile_
 
@@ -517,7 +517,7 @@ new-inbound-firewall-rule.png
 1.	In the **Publish Web** dialog, click the **Import** button.
 1. Browse to the **.PublishSettings** file on the **Desktop**. Click **Open**.
 
-	![Importin Publish Settings File](images/importin-publish-settings-file.png?raw=true "Importin Publish Settings File")
+	![Importin Publish Settings File](Images/importin-publish-settings-file.png?raw=true "Importin Publish Settings File")
 
 	_Importin Publish Settings File_
 
@@ -530,7 +530,7 @@ new-inbound-firewall-rule.png
 1.	Click **ACCEPT** on the certificate dialog
 1. The web site will automatically load after the deployment is finished.
 
-	![Publish Web Application Page](images/publish-web-application-page.png?raw=true "Publish Web Application Page")
+	![Publish Web Application Page](Images/publish-web-application-page.png?raw=true "Publish Web Application Page")
 
 	_Publish Web Application Page_
 
@@ -548,7 +548,7 @@ new-inbound-firewall-rule.png
 1.	Back in to the Windows Azure portal, select the **SQL Databases** option in the navigation pane
 1. Click New.
 
-	![Azure Portal SQL Databases](images/azure-portal-sql-databases.png?raw=true "Azure Portal SQL Databases")
+	![Azure Portal SQL Databases](Images/azure-portal-sql-databases.png?raw=true "Azure Portal SQL Databases")
 
 	_Azure Portal SQL Databases_
 
@@ -560,7 +560,7 @@ new-inbound-firewall-rule.png
 1.	Select the **SERVERS** menu option.
 1. Click **CREATE A SQL SERVER**.
 
-	![Servers Section](images/servers-section.png?raw=true "Servers Section")
+	![Servers Section](Images/servers-section.png?raw=true "Servers Section")
 
 	_Servers Section_
 
@@ -575,7 +575,7 @@ new-inbound-firewall-rule.png
 1.	Click **OK**.
 1. Once the server is provisioned, click on the Name in the list.
 
-	![Database server settings](images/database-server-settings.png?raw=true "Database server settings")
+	![Database server settings](Images/database-server-settings.png?raw=true "Database server settings")
 
 	_Database server settings_
 
@@ -586,7 +586,7 @@ new-inbound-firewall-rule.png
 
 1. Click the **CONFIGURE** menu option.
 
-	![Configure Option](images/configure-option.png?raw=true "Configure Option")
+	![Configure Option](Images/configure-option.png?raw=true "Configure Option")
 
 	_Configure Option_
 
@@ -597,7 +597,7 @@ new-inbound-firewall-rule.png
 1.	Add a Firewall Rule for the current IP ADDRESS.
 1. Click the **check mark** on the Rule.
 
-	![Add Firewall Rule](images/add-firewall-rule.png?raw=true "Add Firewall Rule")
+	![Add Firewall Rule](Images/add-firewall-rule.png?raw=true "Add Firewall Rule")
 
 	Add Firewall Rule
 
@@ -614,7 +614,7 @@ new-inbound-firewall-rule.png
 1. In the portal, select the DASHBOARD menu option.
 1. Copy the **FQDN** of the server to the clipboard.
 
-	![Manage URL](images/manage-url.png?raw=true "Manage URL")
+	![Manage URL](Images/manage-url.png?raw=true "Manage URL")
 
 	_Manage URL_
 
@@ -628,7 +628,7 @@ new-inbound-firewall-rule.png
 	- Login: AzureAdmin
 	- Password: Passw0rd!
 
-	![Connecting to Azure SQL Database](images/connecting-to-azure-sql-database.png?raw=true "Connecting to Azure SQL Database")
+	![Connecting to Azure SQL Database](Images/connecting-to-azure-sql-database.png?raw=true "Connecting to Azure SQL Database")
 
 	_Connecting to Azure SQL Database_
 
@@ -645,7 +645,7 @@ new-inbound-firewall-rule.png
 1. Click **Next** on the Introduction page.
 
 
-	![Import Data-tier Application](images/import-data-tier-application2.png?raw=true "Import Data-tier Application")
+	![Import Data-tier Application](Images/import-data-tier-application2.png?raw=true "Import Data-tier Application")
 
 	_Import Data-tier Application 2_
 
@@ -657,7 +657,7 @@ new-inbound-firewall-rule.png
 1.	Select the xx bacpac file and click Open.
 1. Click **Next**.
 
-	![Importing bacpac file](images/importing-bacpac-file2.png?raw=true "Importing bacpac file")
+	![Importing bacpac file](Images/importing-bacpac-file2.png?raw=true "Importing bacpac file")
 
 	_Importing bacpac file_
 
@@ -670,7 +670,7 @@ new-inbound-firewall-rule.png
 	- Edition/Size: Keep Default
 1. Click **Finish** on the **Summary** page.
 
-	![Specify Settings for the new SQL Database](images/specify-settings-for-the-new-sql-database.png?raw=true "Specify Settings for the new SQL Database")
+	![Specify Settings for the new SQL Database](Images/specify-settings-for-the-new-sql-database.png?raw=true "Specify Settings for the new SQL Database")
 
 	_Specify Settings for the new SQL Database_
 
@@ -682,19 +682,19 @@ new-inbound-firewall-rule.png
 1.	In the Portal, select the **Databases** option in the **Navigation** pane.
 1. Select the **database NAME**.	
 	
-	![SQL Databases section](images/sql-databases-section.png?raw=true "SQL Databases section")
+	![SQL Databases section](Images/sql-databases-section.png?raw=true "SQL Databases section")
 
 	_SQL Databases section_
 
 1. In the DASHBOARD, click the **Show Connection Strings** link.
 
-	![Show Connection Strings](images/show-connection-strings.png?raw=true "Show Connection Strings")
+	![Show Connection Strings](Images/show-connection-strings.png?raw=true "Show Connection Strings")
 
 	_Show Connection Strings_
 
 1. Highlight and copy the ADO.NET connection string.
 
-	![Connection String](images/connection-string.png?raw=true "Connection String")
+	![Connection String](Images/connection-string.png?raw=true "Connection String")
 
 	_Connection String_
 
@@ -707,7 +707,7 @@ new-inbound-firewall-rule.png
 1.	Paste the connection string from the portal into the placeholder.
 1. Update the password with:
 
-	![Updating Web.config with Azure Connection String](images/updating-webconfig-with-azure-connection-stri.png?raw=true "Updating Web.config with Azure Connection String")
+	![Updating Web.config with Azure Connection String](Images/updating-webconfig-with-azure-connection-stri.png?raw=true "Updating Web.config with Azure Connection String")
 
 	_Updating Web.config with Azure Connection String_
 
@@ -717,7 +717,7 @@ new-inbound-firewall-rule.png
 
 1. Right mouse click the **Web Project** and select **Publish** from the context menu.
 
-	![Re-deploying application](images/re-deploying-application.png?raw=true "Re-deploying application")
+	![Re-deploying application](Images/re-deploying-application.png?raw=true "Re-deploying application")
 
 	_Re-deploying application_
 
@@ -731,7 +731,7 @@ new-inbound-firewall-rule.png
 
 1. In SQL Server Management Studio, expand SQL Azure Connection in Object Explorer and select the Databases node.
 
-	![Management Studio's Object Explorer](images/management-studios-object-explorer-.png?raw=true "Management Studio's Object Explorer")
+	![Management Studio's Object Explorer](Images/management-studios-object-explorer-.png?raw=true "Management Studio's Object Explorer")
 
 	>**Speaking Point**
 	>
@@ -741,7 +741,7 @@ new-inbound-firewall-rule.png
 1.	Open a new query window and create a new database named **ContosoFED**.
 Execute the script.
 
-	![Creating a new database](images/creating-a-new-database.png?raw=true "Creating a new database")
+	![Creating a new database](Images/creating-a-new-database.png?raw=true "Creating a new database")
 
 	_Creating a new database_
 
@@ -754,7 +754,7 @@ Execute the script.
 1.	Once the database is created, open the SQL script on the desktop called ContosoFedDB in SSMS. Ensure that the query window connection is for the new database.
 1. Execute the script.
 
-	![Create Federation script](images/create-federation-script.png?raw=true "Create Federation script")
+	![Create Federation script](Images/create-federation-script.png?raw=true "Create Federation script")
 
 	_Create Federation script_
 
@@ -771,7 +771,7 @@ Execute the script.
 1.	In Object Explorer in SSMS, expand the Federations node of the new database.
 1. Right mouse click on the Expense_Federation.
 
-	![Azure SQL Database Connection](images/azure-sql-database-connection.png?raw=true "Azure SQL Database Connection")
+	![Azure SQL Database Connection](Images/azure-sql-database-connection.png?raw=true "Azure SQL Database Connection")
 	
 	_Azure SQL Database Connection_
 
@@ -786,7 +786,7 @@ Execute the script.
 1.	Execute the 2nd set of statements (the DMV’s)
 1. Execute the SELECT queries
 
-	![Execute Federation Script](images/execute-federation-script.png?raw=true "Execute Federation Script")
+	![Execute Federation Script](Images/execute-federation-script.png?raw=true "Execute Federation Script")
 
 	_Execute Federation Script_
 
@@ -801,7 +801,7 @@ Execute the script.
 1.	Select the **Databases** option.
 1. Click the Federated database **NAME** from the list.
 
-	![SQL Databases page](images/sql-databases-page.png?raw=true "SQL Databases page")
+	![SQL Databases page](Images/sql-databases-page.png?raw=true "SQL Databases page")
 
 	_SQL Databases page_
 
@@ -811,7 +811,7 @@ Execute the script.
 
 1. In the **Dashboard** for the **Federated** database, click the **MANAGE URL** link.
 
-	![Manage URL](images/manage-url2.png?raw=true "Manage URL")
+	![Manage URL](Images/manage-url2.png?raw=true "Manage URL")
 
 	_Manage URL_
 
@@ -820,13 +820,13 @@ Execute the script.
 	1.	Passw0rd!
 1. Click **Log On**.
 
-	![Log in to Azure SQL Database portal](images/log-in-to-azure-sql-database-portal.png?raw=true "Log in to Azure SQL Database portal")
+	![Log in to Azure SQL Database portal](Images/log-in-to-azure-sql-database-portal.png?raw=true "Log in to Azure SQL Database portal")
 
 	_Log in to Azure SQL Database portal_
 
 1. In the **Summary Page** of the SQL Database portal, click the **right arrow** in the Federations section to show all Federation Members.
 
-	![SQL Portal showing federations](images/sql-portal-showing-federations.png?raw=true "SQL Portal showing federations")
+	![SQL Portal showing federations](Images/sql-portal-showing-federations.png?raw=true "SQL Portal showing federations")
 
 	_SQL Portal showing federations_
 
@@ -839,7 +839,7 @@ Execute the script.
 1.	Enter the value of **40**.
 1. Click **Split**.
 
-	![Federation Member](images/federation-member.png?raw=true "Federation Member")
+	![Federation Member](Images/federation-member.png?raw=true "Federation Member")
 
 	_Federation Member_
 
@@ -856,7 +856,7 @@ Execute the script.
 
 1. Open the **Windows Azure Management portal** and select the **STORAGE ACCOUNTS** option in the **Navigation Pane**.
 
-	![Selecting the Sorage Accounts](images/selecting-the-sorage-accounts.png?raw=true "Selecting the Sorage Accounts")
+	![Selecting the Sorage Accounts](Images/selecting-the-sorage-accounts.png?raw=true "Selecting the Sorage Accounts")
 
 	_Selecting the Sorage Accounts_
 
@@ -868,13 +868,13 @@ Execute the script.
 
 1. Click **New | STORAGE ACCOUNT | QUICK CREATE**.	
 
-	![Quick Create Storage Account](images/quick-create-storage-account.png?raw=true "Quick Create Storage Account")
+	![Quick Create Storage Account](Images/quick-create-storage-account.png?raw=true "Quick Create Storage Account")
 
 	_Quick Create a Storage Account_
 
 1. In **CREATE A NEW STORAGE ACCOUNT**, enter **contosostorage** for the storage account name.
 
-	![Creating the Storage Account](images/creating-the-storage-account.png?raw=true "Creating the Storage Account")
+	![Creating the Storage Account](Images/creating-the-storage-account.png?raw=true "Creating the Storage Account")
 
 	_Creating the Storage Account_
 
@@ -892,7 +892,7 @@ Execute the script.
 
 1. In the Package Manager Console, type: **Install-Package WindowsAzure.Storage**.
 
-	![Using the Package Manager Console](images/using-the-package-manager-console.png?raw=true "Using the Package Manager Console")
+	![Using the Package Manager Console](Images/using-the-package-manager-console.png?raw=true "Using the Package Manager Console")
 
 	_Using the Package Manager Console_
 
@@ -904,7 +904,7 @@ Execute the script.
 
 1. Press **CTL+K**, **CTL+X**, select **My XML Snippets** and insert the **StorageAccountInfo** snippet.
 
-	![Editing Web.config values](images/editing-webconfig-values.png?raw=true "Editing Web.config values")
+	![Editing Web.config values](Images/editing-webconfig-values.png?raw=true "Editing Web.config values")
 
 	_Editing Web.config values_
 
@@ -918,7 +918,7 @@ Execute the script.
 
 1. Add a new line after line 17. Enter **attachlink** and press **TAB** to install the code snippet.
 
-	![Editing ExtenseReportDetail.cshtml](images/editing-extensereportdetailcshtml.png?raw=true "Editing ExtenseReportDetail.cshtml")
+	![Editing ExtenseReportDetail.cshtml](Images/editing-extensereportdetailcshtml.png?raw=true "Editing ExtenseReportDetail.cshtml")
 
 	_Editing ExtenseReportDetail.cshtml_
 
@@ -930,7 +930,7 @@ Execute the script.
 
 1. At line 85, enter **attachform** and press **TAB** to install the code snippet.	
 
-	![Editing Edit.cshtml](images/editing-editcshtml.png?raw=true "Editing Edit.cshtml")
+	![Editing Edit.cshtml](Images/editing-editcshtml.png?raw=true "Editing Edit.cshtml")
 
 	_Editing Edit.cshtml_
 
@@ -942,25 +942,25 @@ Execute the script.
 
 1. Add a new line after line 112, enter **attachmethod** and press **TAB** to install the code snippet.
 
-	![Editing ReportsController.cs](images/editing-reportscontrollercs.png?raw=true "Editing ReportsController.cs")
+	![Editing ReportsController.cs](Images/editing-reportscontrollercs.png?raw=true "Editing ReportsController.cs")
 
 	_Editing ReportsController.cs_
 
 1. Go back to the **Azure Management portal** and select **STORAGE** from the navigation pane.
 
-	![Selecing Storage from the Management Portal](images/selecing-storage-from-the-management-portal.png?raw=true "Selecing Storage from the Management Portal")
+	![Selecing Storage from the Management Portal](Images/selecing-storage-from-the-management-portal.png?raw=true "Selecing Storage from the Management Portal")
 
 	_Selecing Storage from the Management Portal_
 
 1. Select the newly created storage account **NAME** in the list of storage accounts.
 
-	![Selecting the Storage Account Name](images/selecting-the-storage-account-name.png?raw=true "Selecting the Storage Account Name")
+	![Selecting the Storage Account Name](Images/selecting-the-storage-account-name.png?raw=true "Selecting the Storage Account Name")
 
 	_Selecting the Storage Account Name_
 
 1. Select the **CONFIGURE** menu option.
 
-	![Selecting Configure Option](images/selecting-configure-option.png?raw=true "Selecting Configure Option")
+	![Selecting Configure Option](Images/selecting-configure-option.png?raw=true "Selecting Configure Option")
 
 	_Selecting Configure Option_
 
@@ -972,7 +972,7 @@ Execute the script.
 
 1. In the **MONITORING** section for **BLOBS**, set the monitoring level to **MINIMAL**.
 
-	![Selecting Monitoring Blobs Option](images/selecting-monitoring-blobs-option.png?raw=true "Selecting Monitoring Blobs Option")
+	![Selecting Monitoring Blobs Option](Images/selecting-monitoring-blobs-option.png?raw=true "Selecting Monitoring Blobs Option")
 
 	_Selecting Monitoring Blobs Option_
 
@@ -982,17 +982,17 @@ Execute the script.
 
 1. Click **MANAGE KEYS**.
 
-	![Clicking Manage Keys](images/clicking-manage-keys.png?raw=true "Clicking Manage Keys")
+	![Clicking Manage Keys](Images/clicking-manage-keys.png?raw=true "Clicking Manage Keys")
 
 1. Copy the **Primary Access Key** to the clipboard.
 
-	![Copying the Primary Access Key](images/copying-the-primary-access-key.png?raw=true "Copying the Primary Access Key")
+	![Copying the Primary Access Key](Images/copying-the-primary-access-key.png?raw=true "Copying the Primary Access Key")
 
 	_Copying the Primary Access Key_
 
 1. Scroll to the end of that line and paste in the **account key** from step 34.
 
-	![Editing Web.config AccountKey](images/editing-webconfig-accountkey.png?raw=true "Editing Web.config AccountKey")
+	![Editing Web.config AccountKey](Images/editing-webconfig-accountkey.png?raw=true "Editing Web.config AccountKey")
 
 	_Editing Web.config AccountKey_
 
@@ -1002,7 +1002,7 @@ Execute the script.
 
 1. Right mouse click the **Web Project** and select **Publish** from the context menu. Follow the Wizard until the application is deployed.
 
-	![Redeploying the application](images/redeploying-the-application.png?raw=true "Redeploying the application")
+	![Redeploying the application](Images/redeploying-the-application.png?raw=true "Redeploying the application")
 
 	_Redeploying the application_
 
@@ -1014,13 +1014,13 @@ Execute the script.
 
 1. Click the **Attach receipt** link.
 
-	![Clicking Attach Receipt](images/attach-receipt.png?raw=true "Clicking Attach Receipt")
+	![Clicking Attach Receipt](Images/attach-receipt.png?raw=true "Clicking Attach Receipt")
 
 	_Clicking Attach Receipt_
 
 1. In the **Attach Receipt** dialog, click **Browse**.
 
-	![Clicking Browse Receipt](images/clicking-browse-receipt.png?raw=true "Clicking Browse Receipt")
+	![Clicking Browse Receipt](Images/clicking-browse-receipt.png?raw=true "Clicking Browse Receipt")
 
 	_Clicking Browse Receipt_
 
@@ -1028,13 +1028,13 @@ Execute the script.
 
 1. Click **Submit** on the **Attach Receipt** dialog.	
 
-	![Submiting a Receipt](images/submiting-a-receipt.png?raw=true "Submiting a Receipt")
+	![Submiting a Receipt](Images/submiting-a-receipt.png?raw=true "Submiting a Receipt")
 
 	_Submiting a Receipt_
 
 1. **Save** and **Submit** the expense report.
 
-	![Saving and Submiting](images/saving-and-submiting.png?raw=true "Saving and Submiting")
+	![Saving and Submiting](Images/saving-and-submiting.png?raw=true "Saving and Submiting")
 
 	_Saving and Submiting_
 
@@ -1048,7 +1048,7 @@ Execute the script.
 
 1. Back in the portal, click the **MONITOR** option.	
 
-	![Portal Monitor Option](images/portal-monitor-option.png?raw=true "Portal Monitor Option")
+	![Portal Monitor Option](Images/portal-monitor-option.png?raw=true "Portal Monitor Option")
 
 	_Portal Monitor Option_
 
@@ -1081,13 +1081,13 @@ Execute the script.
 1.	Click **ADD ENDPOINT**.
 1.	In the first page of the **ADD ENDPOINT** dialog, select the **Add Endpoint** option then click the right arrow to go to the second page.
 
-	![Add Endpoint to Virtual Machine page](images/add-endpoint-to-virtual-machine-page.png?raw=true "Add Endpoint to Virtual Machine page")
+	![Add Endpoint to Virtual Machine page](Images/add-endpoint-to-virtual-machine-page.png?raw=true "Add Endpoint to Virtual Machine page")
 
 	_Add Endpoint to Virtual Machine page_
 
 1.	In the second page of the **ADD ENDPOINT** dialog, enter a **NAME** for the endpoint, select **TCP** for the **protocol**, and enter **1433** for the **PUBLIC** and **PRIVATE** ports. 
 
-	![Add Endpoint To Virtual Machine page](images/add-endpoint-to-virtual-machine-page2.png?raw=true "Add Endpoint To Virtual Machine page")
+	![Add Endpoint To Virtual Machine page](Images/add-endpoint-to-virtual-machine-page2.png?raw=true "Add Endpoint To Virtual Machine page")
 
 	_Add Endpoint To Virtual Machine page_
 
