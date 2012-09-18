@@ -15,15 +15,6 @@ if($demoSettingsFile -eq $nul -or $demoSettingsFile -eq "")
 	$demoSettingsFile = "setup.xml"
 }
 
-if ((Get-PSSnapin -Registered | ?{$_.Name -eq "DemoToolkitSnapin"}) -eq $null) {
-	Write-Host "Demo Toolkit Snapin not installed." -ForegroundColor Red
-	Write-Host "Install it from https://github.com/microsoft-dpe/demo-tools" -ForegroundColor Red
-	return;
-} 
-if ((Get-PSSnapin | ?{$_.Name -eq "DemoToolkitSnapin"}) -eq $null) {
-	Add-PSSnapin DemoToolkitSnapin	
-}
-
 # Get the key and account setting from configuration using namespace
 [xml]$xmlUserSettings = Get-Content $userSettingsFile
 [xml]$xmlDemoSettings = Get-Content $demoSettingsFile
