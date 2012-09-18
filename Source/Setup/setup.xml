@@ -7,9 +7,11 @@
       </solution>
     </solutions>
 	</localPaths>
-	 <codeSnippets>
-        <cSharp>assets\snippets\</cSharp>
-    </codeSnippets>
+    <codeSnippets>
+        <cSharp>assets\snippets\csharp</cSharp>
+        <html>assets\snippets\html</html>
+        <xml>assets\snippets\xml</xml>
+    </codeSnippets>	
 	<copyAssets>
 		<receiptsDir>..\assets\receipts</receiptsDir>
 		<federationsDir>..\assets\federations</federationsDir>

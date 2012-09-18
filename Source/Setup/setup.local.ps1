@@ -22,7 +22,7 @@ if ((Get-PSSnapin -Registered | ?{$_.Name -eq "DemoToolkitSnapin"}) -eq $null) {
 } 
 if ((Get-PSSnapin | ?{$_.Name -eq "DemoToolkitSnapin"}) -eq $null) {
 	Add-PSSnapin DemoToolkitSnapin	
-} 
+}
 
 # Get the key and account setting from configuration using namespace
 [xml]$xmlUserSettings = Get-Content $userSettingsFile
@@ -31,6 +31,10 @@ if ((Get-PSSnapin | ?{$_.Name -eq "DemoToolkitSnapin"}) -eq $null) {
 [string] $workingDir = $xmlUserSettings.configuration.localPaths.workingDir
 [string] $sourceCodeDir = Resolve-Path "..\Begin"
 [string] $sqlServerName = $xmlUserSettings.configuration.localSqlserver.sqlServerName
+
+[string] $CSharpSnippets = $xmlDemoSettings.configuration.codeSnippets.cSharp
+[string] $htmlSnippets = $xmlDemoSettings.configuration.codeSnippets.html
+[string] $xmlSnippets = $xmlDemoSettings.configuration.codeSnippets.xml
 
 [string] $receiptsAssetsDir = $xmlDemoSettings.configuration.copyAssets.receiptsDir
 [string] $federationsAssetsDir = $xmlDemoSettings.configuration.copyAssets.federationsDir
@@ -58,9 +62,8 @@ write-host "========= Copying Begin solution to working directory...  ========="
 Copy-Item "$sourceCodeDir\*" "$workingDir" -recurse -Force
 write-host "Copying Begin solution to working directory done!"
 
-write-host "========= Installing Code Snippets ... ========="
-# pending
-write-host "Installing Code Snippets done!"
+#========= Install Code Snippets... =========
+& ".\tasks\install-code-snippets.ps1" -CSharpSnippets $CSharpSnippets -htmlSnippets $htmlSnippets -xmlSnippets $xmlSnippets
 
 write-host "========= Updating web.config file... ========="
 [string] $fileName = Resolve-Path(Join-Path $sourceCodeDir "\Expenses.Web\web.config")
