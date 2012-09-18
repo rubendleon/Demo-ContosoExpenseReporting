@@ -21,6 +21,7 @@ if($demoSettingsFile -eq $nul -or $demoSettingsFile -eq "")
 
 [string] $workingDir = $xmlUserSettings.configuration.localPaths.workingDir
 [string] $sourceCodeDir = Resolve-Path "..\Begin"
+[string] $assetsDir = Resolve-Path "..\Assets"
 [string] $sqlServerName = $xmlUserSettings.configuration.localSqlserver.sqlServerName
 
 [string] $CSharpSnippets = $xmlDemoSettings.configuration.codeSnippets.cSharp
@@ -32,7 +33,6 @@ if($demoSettingsFile -eq $nul -or $demoSettingsFile -eq "")
 
 $receiptsAssetsDir = Resolve-Path $receiptsAssetsDir
 $federationsAssetsDir = Resolve-Path $federationsAssetsDir
-$hadoopAssetsDir = Resolve-Path $hadoopAssetsDir
 
 [string] $bindingName = $xmlUserSettings.configuration.iis.bindingName
 [string] $webSiteProjectFilePath = $xmlUserSettings.configuration.iis.webSiteProjectFilePath
@@ -52,6 +52,15 @@ write-host "========= Copying Begin solution to working directory...  ========="
 Copy-Item "$sourceCodeDir\*" "$workingDir" -recurse -Force
 write-host "Copying Begin solution to working directory done!"
 
+write-host "========= Copying assets code to working directory... ========="
+if (!(Test-Path "$workingDir\Assets"))
+{
+	New-Item "$workingDir\Assets" -type directory | Out-Null
+}
+Copy-Item "$assetsDir\*" "$workingDir\Assets" -recurse -Force
+write-host "Copying Assets code to working directory done!"
+
+
 #========= Install Code Snippets... =========
 & ".\tasks\install-code-snippets.ps1" -CSharpSnippets $CSharpSnippets -htmlSnippets $htmlSnippets -xmlSnippets $xmlSnippets
 
@@ -61,21 +70,6 @@ $fileContent = Get-Content $fileName
 $fileContent = $fileContent.Replace("Server=.\SQLEXPRESS", "Server=" + $sqlServerName)
 Set-Content $fileName $fileContent
 write-host "Updating web.config file done!"
-
-write-host "========= Setting up demo related folders... ========="
-[string] $desktopFolder = [Environment]::GetFolderPath("Desktop")
-
-[string] $packagesFolder = Join-Path $desktopFolder "Packages"
-New-Item "$packagesFolder" -type directory
-
-[string] $receiptsFolder = Join-Path $desktopFolder "Receipts"
-New-Item "$receiptsFolder" -type directory
-Copy-Item "$receiptsAssetsDir\*" "$receiptsFolder" -recurse -Force
-
-[string] $federationsFolder = Join-Path $desktopFolder "Federations"
-New-Item "$federationsFolder" -type directory
-Copy-Item "$federationsAssetsDir\*" "$federationsFolder" -recurse -Force
-write-host "========= Setting up demo related folders... done! ========="
 
 write-host "========= Deploying the site to IIS ========="
 $webSiteProjectFilePath = Resolve-Path $webSiteProjectFilePath 
