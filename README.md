@@ -32,4 +32,4 @@ If you find any issues or opportunities for improving this demo, fix them!  Feel
 
 ### Reporting Issues ###
 
-If you find any issues with this demo that you can't fix, feel free to report them in the [issues](https://github.com/WindowsAzure-TrainingKit/Demo-TwitterReader/issues) section of this repository.
+If you find any issues with this demo that you can't fix, feel free to report them in the [issues](https://github.com/WindowsAzure-TrainingKit/Demo-ContosoExpenseReporting/issues) section of this repository.
