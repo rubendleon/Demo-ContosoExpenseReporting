@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Configuration>
   <localPaths>
-    <workingDir>C:\Projects</workingDir>
+    <workingDir>C:\AzureDemos</workingDir>
   </localPaths>
   <localSqlserver>
 		<servername>(localdb)\v11.0</servername>
