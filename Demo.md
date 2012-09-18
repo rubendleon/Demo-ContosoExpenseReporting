@@ -321,6 +321,7 @@ new-inbound-firewall-rule.png
 	> To gain access to SQL Server in the VM, we need to open port 1433 on the Windows Firewall to allow inbound connections.
 
 1.	Now, open SQL Server Management Studio in the remote desktop session and log in to SQL Server using Windows Authentication.
+
 	![Management Studio's Object Explorer](Images/management-studios-object-explorer.png?raw=true "Management Studio's Object Explorer")
 
 	_Management Studio's Object Explorer_
@@ -345,11 +346,13 @@ new-inbound-firewall-rule.png
 1. Now, right-click the (root) server node again and select **Restart** to allow the change in authentication mode to take effect.
 
 1. Expand the **Security** node, right-click **Logins**, and then select **New Login**.
-1. In the **Login - New** dialog, type a new **Login name**, for example _demouser_, select **SQL Server authentication**, clear the option labeled **User must change password at next login**, and then click **OK**.
+1. In the **Login - New** dialog, select the **General** page, type a new **Login name**, for example _demouser_, select **SQL Server authentication**, clear the option labeled **User must change password at next login**.
 
 	![New SQL Server Login](Images/sql-server-create-login.png?raw=true"New SQL Server Login")
 
 	_Adding a new SQL Server login_
+
+1. Now, select the **Server Roles** page, enable the **sysadmin** role for the login, and then click **OK**.
 
 	>**Speaking Point**
 	>
@@ -359,7 +362,6 @@ new-inbound-firewall-rule.png
 
 1.	Open Management Studio for SQL Server 2012 in your local machine (on-premises).
 1.	In the **Connect to Server** dialog, log into the on-premise SQL Server using Windows Authentication.
-1. Expand the database node and point to the database that is going to be migrated to the VM. 
 
 	![Connecting to on-premises SQL Server](Images/connecting-to-on-premises-sql-server.png?raw=true "Connecting to on-premises SQL Server")
 
@@ -369,6 +371,7 @@ new-inbound-firewall-rule.png
 	>
 	> Our first task is to connect to our on-premises SQL Server. This is where our source database is coming from.
 
+1. Expand the database node and point to the database that is going to be migrated to the VM. 
 1.	Create a second SQL Server connection. In the **Server name** field, paste in the DNS name of the VM copied earlier from the portal.
 1. Use SQL Authentication, and type _demouser_ and _Passw0rd1!_ for the login name and password.
 
@@ -399,15 +402,14 @@ new-inbound-firewall-rule.png
 	> **However, new in Sql Server 2012 is the ability to export and import a database using what are called BACPACs**.
 
 1.	In the **Export Settings** page, select the option labeled **Save to local disk**.
-1.	Click Browse.
-1.	In the Save As dialog, navigate to the C:\DAC Packages folder and enter **Expenses** for the filename.
-1.	Click Save on the Save As dialog.
-1.	Click Next.
-1. Click Finish on Summary Page.
+1.	Click **Browse**.
+1.	In the **Save As** dialog, go to the _C:\DAC Packages_ folder and enter **Expenses** for the filename, then click **Save**.
+1. Click **Next** to go to the **Summary Page**.
+1. Click **Finish**.
 
 	![Exporting bacpac file](Images/exporting-bacpac-file.png?raw=true "Exporting bacpac file")
 
-	_Exporting bacpac file_
+	_Exporting the bacpac file_
 
 	>**Speaking Point**
 	>
@@ -416,24 +418,23 @@ new-inbound-firewall-rule.png
 	>	- BACPACs - schema and data
 	>	- Save to Windows Azure BLOB storage
 
-1.	We will now import the dacpac i
-1.	In the SQL/VM connection in Object explorer, right mouse-click on Databases node.
-1.	Select Import Data-Tier Application from context menu.
-1. Click Next on the Introduction page.
+1.	We will now import the bacpac.
+1.	In the SQL/VM connection in Object Explorer, right-click the **Databases** node and select **Import Data-Tier Application**.
+1. In the **Introduction** page, click **Next**.
 
 	![Importing Data-tier Application](Images/importing-data-tier-application.png?raw=true "Importing Data-tier Application")
 
-	_Importing Data-tier Application_
+	_Importing the data-tier application_
 
 	>**Speaking Point**
 	>
-	> Again we go back to SQL Server 2012, but this time we select our destination server, which is SQL Server running in the VM.
+	> Again, we go back to SQL Server 2012, but this time we select our destination server, which is SQL Server running in the VM.
 
-1.	On the Import Settings page, click the Browse button and navigate to C:\DAC Packages.
-1.	Select the xx bacpac file and click Open.
-1.	Click Next.
-1.	Click Next on the Database Settings page.
-1. Click Finish on the Summary page.
+1.	In the **Import Settings** page, click **Browse** and go to the folder where you previously saved the bacpac file.
+1. Select the bacpac file and click **Open**.
+1. Click **Next**.
+1. In the **Database Settings** page, click **Next**.
+1. In the Summary page, click **Finish**.
 
 	![Importing bacpac file](Images/importing-bacpac-file.png?raw=true "Importing bacpac file")
 
@@ -444,14 +445,15 @@ new-inbound-firewall-rule.png
 	> Now we’re going to import from the export bacpac file. 
 	>
 	> Again, Highlight the following:
+	>
 	>	- BACPACs - schema and data
 	>	- Import FROM Windows Azure BLOB storage
 	>
 	> POINT: No need to create the database! This process will create it for you!**
 
-1.	Maximize the VM, and in SSMS, refresh the databases node.
-1. Expand the Tables node.
-1.	In Visual Studio. Open the **web.config** .
+1.	Maximize the VM and in SSMS, refresh the **Databases** node.
+1. Expand the **Tables** node.
+1. In Visual Studio, open the **web.config** .
 1.	Remove the existing connection string.
 1.	CTL+K, CTL+X.
 1.	Select **My XML Snippets**.
