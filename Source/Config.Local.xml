@@ -4,13 +4,6 @@
     <workingDir>C:\AzureDemos</workingDir>
   </localPaths>
   <localSqlserver>
-		<servername>(localdb)\v11.0</servername>
-		<dbName>Expenses</dbName>		
+		<servername>(localdb)\v11.0</servername>		
   </localSqlserver>
-	<iis>
-		<bindingName>contosoexpense</bindingName>
-		<webSiteProjectFilePath>..\Begin\Expenses.Web\Expenses.Web.csproj</webSiteProjectFilePath>
-		<appPoolName>contosoexpense</appPoolName>
-		<siteName>Expenses.Web</siteName>
-	</iis>
 </Configuration>
