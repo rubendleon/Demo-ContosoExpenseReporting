@@ -6,7 +6,7 @@
     using System.Web.Security;
     using Expenses.Web.Models;
 
-    public class ReportsContextInitializer : DropCreateDatabaseIfModelChanges<ReportsContext>
+    public class ReportsContextInitializer : CreateDatabaseIfNotExists<ReportsContext>
     {
         public const byte DraftStatus = 1;
         public const byte PendingStatus = 2;
