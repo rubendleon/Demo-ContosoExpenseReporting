@@ -29,7 +29,6 @@ if($demoSettingsFile -eq $nul -or $demoSettingsFile -eq "")
 
 [string] $receiptsAssetsDir = $xmlDemoSettings.configuration.copyAssets.receiptsDir
 [string] $federationsAssetsDir = $xmlDemoSettings.configuration.copyAssets.federationsDir
-[string] $hadoopAssetsDir = $xmlDemoSettings.configuration.copyAssets.hadoopDir
 
 $receiptsAssetsDir = Resolve-Path $receiptsAssetsDir
 $federationsAssetsDir = Resolve-Path $federationsAssetsDir
@@ -76,10 +75,6 @@ Copy-Item "$receiptsAssetsDir\*" "$receiptsFolder" -recurse -Force
 [string] $federationsFolder = Join-Path $desktopFolder "Federations"
 New-Item "$federationsFolder" -type directory
 Copy-Item "$federationsAssetsDir\*" "$federationsFolder" -recurse -Force
-
-[string] $hadoopFolder = Join-Path $desktopFolder "Hadoop"
-New-Item "$hadoopFolder" -type directory
-Copy-Item "$hadoopAssetsDir\*" "$hadoopFolder" -recurse -Force
 write-host "========= Setting up demo related folders... done! ========="
 
 write-host "========= Deploying the site to IIS ========="

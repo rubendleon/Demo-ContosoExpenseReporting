@@ -15,7 +15,6 @@
 	<copyAssets>
 		<receiptsDir>..\assets\receipts</receiptsDir>
 		<federationsDir>..\assets\federations</federationsDir>
-		<hadoopDir>..\assets\hadoop</hadoopDir>
 	</copyAssets>
 
   <resetEnvironment>
