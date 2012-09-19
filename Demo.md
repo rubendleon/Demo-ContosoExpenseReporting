@@ -55,7 +55,7 @@ This demo is composed of the following segments:
 <a name="segment1" />
 ### Contoso Expense Reporting on-premise ###
 
-1. In Visual Studio, open the **Expenses.Web.sln solution** located in the working folder of the demo.
+1. In Visual Studio, open the **Expenses.Web.sln** solution located in the working folder of this demo.
 1. Press **F5** to launch the application in the Development Server.
 
 	![Expense Reportin App running Locally](Images/expense-reportin-app-running-locally.png?raw=true "Expense Reportin App running Locally")
@@ -182,7 +182,7 @@ This demo is composed of the following segments:
 	- **Virtual Machine Name**: ContosExpenseVM
 	- **Password**: Passw0rd!
 
-1.	Enter password for the administrator account, then re-enter the password for confirmation.
+1.	Enter the password for the administrator account, then re-enter the password for confirmation.
 1. Select the _Large_ VM **size**.
 
 	![VM Configuration page](Images/vm-configuration-page.png?raw=true "VM Configuration page")
@@ -242,7 +242,7 @@ Lastly, we need specify in which region to create the VM.
 	>
 	>Great, we are done! We can see in the portal that our VM is being provisioned.
 
-1. At this point, you may switch over to an already provisioned virtual machine that has been configured with an endpoint for SQL Server Management and that has the corresponding port (1433) opened in its firewall, as well as having an additional SQL Server login which you can use to connect remotely. Otherwise, follow these steps to complete the required configuration. 
+1. For expediency, you may switch over to an already provisioned virtual machine that has been configured with an endpoint for SQL Server Management and that has the corresponding port (1433) opened in its firewall, as well as having an additional SQL Server login which you can use to connect remotely. Otherwise, you will need to complete the following steps to configure the VM. 
 
 1.	In the **Windows Azure Portal**, select the VM you created previously.
 1.	Click  the **ENDPOINTS link.**
