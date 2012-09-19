@@ -242,11 +242,10 @@ Lastly, we need specify in which region to create the VM.
 	>
 	>Great, we are done! We can see in the portal that our VM is being provisioned.
 
-1. For expediency, you may switch over to an already provisioned virtual machine that has been configured with an endpoint for SQL Server Management and that has the corresponding port (1433) opened in its firewall, as well as having an additional SQL Server login which you can use to connect remotely. Otherwise, you will need to complete the following steps to configure the VM. 
+1. For expediency, you may switch over to a virtual machine that has been previously provisioned and configured with an endpoint for SQL Server Management and that has the corresponding TCP port (1433) opened in its firewall, as well as having an additional SQL Server login which you can use to connect remotely. Otherwise, you will need to complete the following steps to configure the VM. 
 
 1.	In the **Windows Azure Portal**, select the VM you created previously.
-1.	Click  the **ENDPOINTS link.**
-1.	Click **ADD ENDPOINT** in the command bar.
+1.	Select the **ENDPOINTS** view, and then click **ADD ENDPOINT** in the command bar.
 1.	In the **ADD ENDPOINT** dialog, select **Add Endpoint** and then click the right arrow to go to the next page.
 
 	![Add Endpoint to Virtual Machine page](Images/add-endpoint-to-virtual-machine-page.png?raw=true "Add Endpoint to Virtual Machine page")
@@ -394,23 +393,23 @@ new-inbound-firewall-rule.png
 	>
 	>We copied this name to the clipboard earlier.
 
-1.	You should now have two connections, one for on-premises and one for SQL Server in the VM.
+1.	You should now have two connections, one for the on-premises SQL Server and one for the server running in the VM.
 1.	In the on-premises connection, right-click the database to export and select **Tasks** -> **Export Data-Tier Application** in the context menu.
 1. In the **Introduction** screen, click **Next**.
 
 	![Exporting Data-tier Application](Images/exporting-data-tier-application.png?raw=true "Exporting Data-tier Application")
 
-	_Exporting Data-tier Application_
+	_Exporting the data-tier application_
 
 	>**Speaking Point**
 	>
 	> We actually have several ways of getting our database from on-premises to the VM, including the Generate Scripts wizard or backup/restore. 
 	>
-	> **However, new in Sql Server 2012 is the ability to export and import a database using what are called BACPACs**.
+	> **However, new in Sql Server 2012 is the ability to export and import a database using what are known as BACPACs**.
 
 1.	In the **Export Settings** page, select the option labeled **Save to local disk**.
 1.	Click **Browse**.
-1.	In the **Save As** dialog, go to the _C:\DAC Packages_ folder and enter **Expenses** for the filename, then click **Save**.
+1.	In the **Save As** dialog, go to the _C:\DAC Packages_ folder, set the filename to **Expenses**, and then click **Save**.
 1. Click **Next** to go to the **Summary Page**.
 1. Click **Finish**.
 
@@ -423,7 +422,7 @@ new-inbound-firewall-rule.png
 	> **Highlight the following:**
 	>
 	>	- BACPACs - schema and data
-	>	- Save to Windows Azure BLOB storage
+	>	- Save TO Windows Azure BLOB storage
 
 1.	We will now import the bacpac.
 1.	In the SQL/VM connection in Object Explorer, right-click the **Databases** node and select **Import Data-Tier Application**.
@@ -445,34 +444,33 @@ new-inbound-firewall-rule.png
 
 	![Importing bacpac file](Images/importing-bacpac-file.png?raw=true "Importing bacpac file")
 
-	_Importing bacpac file_
+	_Importing the bacpac file_
 
 	>**Speaking Point**
 	>
-	> Now we’re going to import from the export bacpac file. 
+	> Now, we’re going to import from the exported bacpac file. 
 	>
-	> Again, Highlight the following:
+	> Again, highlight the following:
 	>
 	>	- BACPACs - schema and data
 	>	- Import FROM Windows Azure BLOB storage
 	>
 	> POINT: No need to create the database! This process will create it for you!**
 
-1.	Maximize the VM and in SSMS, refresh the **Databases** node.
-1. Expand the **Tables** node.
-1. In Visual Studio, open the **web.config** .
+1.	Maximize the remote desktop session to the VM and in SSMS, refresh the **Databases** node.
+1. Show the newly created database and, in particular, expand its **Tables** node.
+1. In Visual Studio, open the **Web.config** file.
 1.	Remove the existing connection string.
-1.	CTL+K, CTL+X.
-1.	Select **My XML Snippets**.
-1. Insert the **VMConnectionString** snippet.
+1.	Press *CTL+K, CTL+X** and select **My XML Snippets**.
+1. Insert the **VMConnectionString** snippet and replace the placeholders in the connection string with the host name of your SQL Server VM, and the user name and password of the SQL Server login that you created previously.
 
-	![Updating connection stirng within Web.config](Images/updating-connection-stirng-within-webconfig.png?raw=true "Updating connection stirng within Web.config")
+	![Updating the connection string within Web.config](Images/updating-connection-stirng-within-webconfig.png?raw=true "Updating the connection string within Web.config")
 
-	_Updating connection stirng within Web.config_
+	_Updating the connection string in Web.config_
 
 	>**Speaking Point**
 	>
-	> We now need to deploy the application to Windows Azure, but we now want it to connect to our database in the VM, so the first thing we need to do is modify the connection string.
+	> We are going to deploy the application to Windows Azure, but we now want it to connect to our database in the VM, so the first thing we need to do is modify the connection string.
 
 1. Press **F5**.
 
@@ -484,13 +482,13 @@ new-inbound-firewall-rule.png
 
 1.	Go back to the portal.
 1.	Click **NEW** | **WEB SITE** | **QUICK CREATE**. 
-1. Enter **ContosoExpense** for the **URL**.
-1.	Keep the default **REGION**.
+1. Enter **ContosoExpense** for the **URL** or, if this DNS name is already in use, choose another suitable name.
+1.	Choose the **REGION** where the site will be created.
 1. Click **Create Web Site**.
 
 	![Creating a new Web Site](Images/creating-a-new-web-site.png?raw=true "Creating a new Web Site")
 
-	_Creating a new Web Site_
+	_Creating a new Web site_
 
 	>**Speaking Point**
 	>
@@ -498,100 +496,98 @@ new-inbound-firewall-rule.png
 	>
 	> **From Gallery** when you want to quickly build a web site from one of several available templates.
 	>
-	> **Custom Create** a website if you plan to deploy a completed web application to your Window Azure and you want to simultaneously set up a database for use with your website.
+	> **Custom Create** a website if you plan to deploy a completed web application to Window Azure and you want to simultaneously set up a database for use with your website.
 	>
-	> We need to specify the URL by which this app will be access. We also need to specify in which region our application will be hosted.
+	> We need to specify the URL through which this app will be accessed, as well as the region where our application will be hosted.
 	>
-	> POINT: **Notice how fast our WEB SITE was provisioned**.
+	> POINT: **Notice how fast our Web site was provisioned**.
 
 1. Once provisioned, select the newly created web site **NAME** in the list.
 
 	![Selecting Web Site's name](Images/selecting-web-sites-name.png?raw=true "Selecting Web Site's name")
 
-	_Selecting Web Site's name_
+	_Selecting the Web site_
 
-1. In the **DASHBOARD**, click the **Download publish profile** link.
+1. In the **DASHBOARD** view, click the **Download publish profile** link.
 
 	![Downloading Publish Profile](Images/downloading-publish-profile.png?raw=true "Downloading Publish Profile")
 
-	_Downloading Publish Profile_
+	_Downloading the publish profile_
 
-1. Save the file to the Desktop.
+1. Save the file to the desktop.
 
 	>**Speaking Point**
 	>
-	> POINT: All of the information required to publish a web application to a Windows Azure website for each enabled publication method is stored in an XML file known as a **publish profile**. The publish profile contains the URLs, user credentials and database strings required to connect to and authenticate against each of the endpoints for which a publication method is enabled.
+	> POINT: All of the information required to publish a Web application to a Windows Azure website is stored in an XML file known as a **publish profile**. The publish profile contains the URLs, user credentials and database strings required to connect to and authenticate against each of the endpoints for which a publication method is enabled.
 
-1.	Go back to **Visual Studio**. Right mouse click the **Web Project** and select **Publish** from the context menu.
-1.	In the **Publish Web** dialog, click the **Import** button.
-1. Browse to the **.PublishSettings** file on the **Desktop**. Click **Open**.
+1.	Go back to **Visual Studio**, right-click the **Web Project** and then select **Publish**.
+1.	In the **Publish Web** dialog, click the **Import** button, browse to locate the **.PublishSettings** file that you downloaded previously, and then click **Open**.
 
 	![Importin Publish Settings File](Images/importin-publish-settings-file.png?raw=true "Importin Publish Settings File")
 
-	_Importin Publish Settings File_
+	_Importing the publish settings file_
 
 	>**Speaking Point**
 	>
-	> POINT: **MAXIMUM COMPATABILITY!**
+	> POINT: **MAXIMUM COMPATIBILITY!**
 
-1.	Click **Next**
-1.	Click **Publish**
-1.	Click **ACCEPT** on the certificate dialog
+1.	Click **Next**.
+1.	Click **Publish**.
 1. The web site will automatically load after the deployment is finished.
 
 	![Publish Web Application Page](Images/publish-web-application-page.png?raw=true "Publish Web Application Page")
 
-	_Publish Web Application Page_
+	_Publishing the Web application_
 
 	>**Speaking Point**
 	>
 	> The **Web Deploy** settings will be automatically populated according to the settings in the **.PublishSettings** file.
 	>
-	> We need to accept the **certificate for deployment** when prompted.
-	>
-	> **POINT:** With a few clicks we have deploy both app and database to the cloud with NO CODE except for changing the connection string. Familiar tools, careful of the migration message.
+	> **POINT:** With a few clicks and using familiar tools we have deployed both the app and the database to the cloud with NO CODE except for changing the connection string. 
 
 <a name="segment3" />
 #### Windows Azure SQL Database ####
 
 1.	Back in to the Windows Azure portal, select the **SQL Databases** option in the navigation pane
-1. Click New.
+1. Click **New**.
 
 	![Azure Portal SQL Databases](Images/azure-portal-sql-databases.png?raw=true "Azure Portal SQL Databases")
 
-	_Azure Portal SQL Databases_
+	_SQL Databases in the portal_
 
 	>**Speaking Point**
 	>
-	> We have multiple options for creating servers and databases. Previously we clicked NEW on the nav bar.
-	> Here we simply need to create a server. So  we’re going to go another route and go back to the Navigation bar and select SQL Databases.
+	> We have multiple options for creating servers and databases. Previously, we clicked NEW on the navigation bar.
+	> Here, we simply need to create a server, so we'll take a different route and go back to the navigation bar and select SQL Databases.
 
 1.	Select the **SERVERS** menu option.
-1. Click **CREATE A SQL SERVER**.
 
 	![Servers Section](Images/servers-section.png?raw=true "Servers Section")
 
-	_Servers Section_
+	_Servers view_
 
 	>**Speaking Point**
 	>
-	> From here, we’re going to click the **SERVERS** option because we simply need to provision a server.
+	> From here, we’ll click the **SERVERS** option because we simply need to provision a server.
 
-1.	In the **SERVER SETTNGS** page, enter the following:
-	- Admin Name:  **AzureAdmin**
-	- Password: **Passw0rd!**
-1.	Ensure the **Allow Windows Azure Services to access the server is checked**.
-1.	Click **OK**.
-1. Once the server is provisioned, click on the Name in the list.
+1. Now, click **ADD**.
+1.	In the **SQL Database server settings** page, enter the following:
+	- **LOGIN NAME**:  _AzureAdmin_
+	- **LOGIN PASSWORD**: _Passw0rd!_
+1. Choose a **REGION** that matches the region used by the web site that you created previously.
+1.	Ensure that the option labeled **Allow Windows Azure services to access the server** is selected.
 
 	![Database server settings](Images/database-server-settings.png?raw=true "Database server settings")
 
 	_Database server settings_
 
+1.	Click **OK**.
+1. Once the server is provisioned, click its Name on the list.
+
 	>**Speaking Point**
 	>
-	> The admin account is much like the sa account in on-prem SQL Server. This account is the main administrator for the WA SQL Database server.
-	> You can create other accounts and assign different permissions just like you can on-prem.
+	> The admin account is much like the _sa_ account in the on-premises SQL Server. This account is the main administrator for the Windows Azure SQL Database server.
+	> You can create other accounts and assign different permissions just like you can on-premises.
 
 1. Click the **CONFIGURE** menu option.
 
@@ -603,25 +599,23 @@ new-inbound-firewall-rule.png
 	>
 	> With our server provisioned, we need to configure a few things.
 
-1.	Add a Firewall Rule for the current IP ADDRESS.
-1. Click the **check mark** on the Rule.
+1.	Add a firewall rule for the current IP address. You can click the arrow shown next to the **CURRENT CLIENT IP ADDRESS** field to do this automatically.
 
 	![Add Firewall Rule](Images/add-firewall-rule.png?raw=true "Add Firewall Rule")
 
-	Add Firewall Rule
+	_Adding a firewall rule_
 
 1. Click **Save**.
 
 	>**Speaking Point**
 	>
-	> One of the great features of WA SQL DB is its built-in security. Firewall rules helps protect your data by preventing all access to your server until you specify who, which computers, have permission.
+	> One of the great features of WA SQL Database is its built-in security. Firewall rules help protect your data by preventing all access to your server until you specify which computers have permission.
 	>
-	>Firewall rules grant access based on originating IP Addresses of each request.
+	>Firewall rules grant access based on originating IP addresses of each request.
 	>
-	> Let's Save the changes.
+	> Let's save the changes.
 
-1. In the portal, select the DASHBOARD menu option.
-1. Copy the **FQDN** of the server to the clipboard.
+1. In the portal, select the **DASHBOARD** menu option and copy the **FQDN** of the server to the clipboard.
 
 	![Manage URL](Images/manage-url.png?raw=true "Manage URL")
 
@@ -632,56 +626,57 @@ new-inbound-firewall-rule.png
 	> Unchanged is how to connect to WA SQL DB; via a DNS endpoint.
 
 1.	Go back to SQL Server Management Studio.
-2.	In **Object Explorer**, click **Connect -> Database Engine**.
-3.	Enter the following:
-	- Login: AzureAdmin
-	- Password: Passw0rd!
+1.	In **Object Explorer**, click **Connect -> Database Engine**.
+1.	Select _SQL Server Authentication_ as the authentication method and enter the following credentials:
+	- **Login**: _AzureAdmin_
+	- **Password**: _Passw0rd!_
 
 	![Connecting to Azure SQL Database](Images/connecting-to-azure-sql-database.png?raw=true "Connecting to Azure SQL Database")
 
-	_Connecting to Azure SQL Database_
+	_Connecting to Windows Azure SQL Database_
 
 	>**Speaking Point**
 	>
 	> We now have every relational database option in a single tool!
 	>
 	>	- On-Premises
-	>	- SQL in a VM
-	>	- WA SQL DB
+	>	- SQL Server in a VM
+	>	- Windows Azure SQL Database
 
-1.	We now need to import the database into WA SQL Database.
-1.	In Object Explorer, right mouse-click on Databases node for WA SQL Database and select Import Data-Tier Application from context menu.
-1. Click **Next** on the Introduction page.
+1.	We now need to import the database into the Windows Azure SQL Database.
+1.	In Object Explorer, right-click the **Databases** node for the Windows Azure SQL Database connection and select **Import Data-Tier Application**.
+1. In the **Introduction** page, click **Next**.
 
 
 	![Import Data-tier Application](Images/import-data-tier-application2.png?raw=true "Import Data-tier Application")
 
-	_Import Data-tier Application 2_
+	_Importing a data-tier application_
 
 	>**Speaking Point**
 	>
-	> Let’s now import that same bacpac that we used earlier to also import into Azure SQL Database.
+	> Now, let’s use the same bacpac that we used earlier to also import the data into a Windows Azure SQL Database.
 
-1.	On the Import Settings page, click the Browse button and navigate to C:\DAC Packages.
-1.	Select the xx bacpac file and click Open.
+1.	In the **Import Settings** page, click **Browse** and go to C:\DAC Packages.
+1.	Select the **Expenses** bacpac file and click **Open**.
 1. Click **Next**.
 
-	![Importing bacpac file](Images/importing-bacpac-file2.png?raw=true "Importing bacpac file")
+	![Importing the bacpac file](Images/importing-bacpac-file2.png?raw=true "Importing the bacpac file")
 
-	_Importing bacpac file_
+	_Importing the bacpac file_
 
 	>**Speaking Point**
 	>
 	> POINT: COMPATIBILTY ON EXPORT.
 
-1.	In the Database Settings page enter the following:
-	- New Database Name: Expenses
-	- Edition/Size: Keep Default
-1. Click **Finish** on the **Summary** page.
+1.	In the **Database Settings** page, enter the following:
+	- **New Database Name**: _Expenses_
+	- **Edition/ Maximum database size**: Keep Default
+1. Click **Next**.
+1. In the **Summary** page, click **Finish**.
 
 	![Specify Settings for the new SQL Database](Images/specify-settings-for-the-new-sql-database.png?raw=true "Specify Settings for the new SQL Database")
 
-	_Specify Settings for the new SQL Database_
+	_Configuring the new SQL Database_
 
 	>**Speaking Point**
 	>
@@ -689,17 +684,17 @@ new-inbound-firewall-rule.png
 	> Also point out that this process will create the database for you.
 
 1.	In the Portal, select the **Databases** option in the **Navigation** pane.
-1. Select the **database NAME**.	
+1. Select the database **NAME**.	
 	
 	![SQL Databases section](Images/sql-databases-section.png?raw=true "SQL Databases section")
 
 	_SQL Databases section_
 
-1. In the DASHBOARD, click the **Show Connection Strings** link.
+1. In the **DASHBOARD**, click **Show Connection Strings**.
 
 	![Show Connection Strings](Images/show-connection-strings.png?raw=true "Show Connection Strings")
 
-	_Show Connection Strings_
+	_Viewing the connection strings_
 
 1. Highlight and copy the ADO.NET connection string.
 
@@ -708,47 +703,45 @@ new-inbound-firewall-rule.png
 	_Connection String_
 
 
-1.	In Visual Studio. Open the **web.config** 
-1.	Remove the existing connection string
-1.	CTL+K, CTL+X
-1.	Select **My XML Snippets**
-1.	Insert the **AzureConnectionString**
-1.	Paste the connection string from the portal into the placeholder.
-1. Update the password with:
+1.	In Visual Studio, open the **Web.config** file.
+1.	Remove the existing connection string 
+1.	Press **CTL+K, CTL+X** and select **My XML Snippets**.
+1.	Insert the **AzureConnectionString** and replace the placeholder with the connection string that you copied from the portal. 
+1. Remember to update the password in the new connection string:
 
 	![Updating Web.config with Azure Connection String](Images/updating-webconfig-with-azure-connection-stri.png?raw=true "Updating Web.config with Azure Connection String")
 
-	_Updating Web.config with Azure Connection String_
+	_Updating Web.config with the Azure connection string_
 
 	>**Speaking Point**
 	>
 	> We now need to deploy the application to Windows Azure, but we now want it to connect to our database in the VM, so the first thing we need to do is modify the connection string.
 
-1. Right mouse click the **Web Project** and select **Publish** from the context menu.
+1. Right-click the **Web Project** and then select **Publish**.
 
 	![Re-deploying application](Images/re-deploying-application.png?raw=true "Re-deploying application")
 
-	_Re-deploying application_
+	_Re-deploying the application_
 
 	>**Speaking Point**
 	>
-	> Simply by changing the connection string and redeploying I running completely in Azure managed services. 
+	> Simply by changing the connection string and redeploying, I'm  running completely in Azure managed services. 
 
 
 <a name="segment4" />
 ### Windows Azure SQL Federation ###
 
-1. In SQL Server Management Studio, expand SQL Azure Connection in Object Explorer and select the Databases node.
+1. In SQL Server Management Studio, expand the SQL Azure Connection in Object Explorer and select the **Databases** node.
 
 	![Management Studio's Object Explorer](Images/management-studios-object-explorer-.png?raw=true "Management Studio's Object Explorer")
 
 	>**Speaking Point**
 	>
-	> The database we have been using up to this point is a single Azure SQL Database. Since we just discussed SQL Federations, we’re going to illustrate how to create a Federated version of our expense report database.
+	> The database we have been using up to this point is a single Azure SQL Database. Since we've just discussed SQL Federations, we’re going to illustrate how to create a federated version of our expense report database.
 	> In SSMS, we need to create a new database from which we will create our federations. 
 
-1.	Open a new query window and create a new database named **ContosoFED**.
-Execute the script.
+1.	Right-click the server node, and select **New Query** to open a new query window connected to the _master_ database. 
+1. In the new query window, execute the following statement to create a database named **ContosoFED**.
 
 	![Creating a new database](Images/creating-a-new-database.png?raw=true "Creating a new database")
 
@@ -756,11 +749,11 @@ Execute the script.
 
 	>**Speaking Point**
 	>
-	> Let’s open a new query window and create a new database. We’ll call this database TechEdDemoDB2. 
+	> Let’s open a new query window and create a new database. We’ll call this database ContosoFED. 
 	>
 	> We need to make sure that the connection for this query window is connected to the Master database.
 
-1.	Once the database is created, open the SQL script on the desktop called ContosoFedDB in SSMS. Ensure that the query window connection is for the new database.
+1.	Once the database is created, in SSMS, open the **ContosoExpenseFed_DB.sql** script located in the **Assets\Federations** folder. Ensure that the query window connection is for the new database.
 1. Execute the script.
 
 	![Create Federation script](Images/create-federation-script.png?raw=true "Create Federation script")
@@ -778,7 +771,7 @@ Execute the script.
 	> With our root database created, let’s run the script that will create our federation and associated federated objects.
 
 1.	In Object Explorer in SSMS, expand the Federations node of the new database.
-1. Right mouse click on the Expense_Federation.
+1. Right-click on the Expense_Federation.
 
 	![Azure SQL Database Connection](Images/azure-sql-database-connection.png?raw=true "Azure SQL Database Connection")
 	
@@ -911,7 +904,8 @@ Execute the script.
 	>
 	> Let’s add the storage account snippet. This information allows us to securely access our storage services.
 
-1. Press **CTL+K**, **CTL+X**, select **My XML Snippets** and insert the **StorageAccountInfo** snippet.
+1. Press **CTL+K**, **CTL+X** and select **My XML Snippets**.
+1. Insert the **StorageAccountInfo** snippet.
 
 	![Editing Web.config values](Images/editing-webconfig-values.png?raw=true "Editing Web.config values")
 
@@ -1009,7 +1003,7 @@ Execute the script.
 	>
 	> Every account has a set of unique keys. We need to update the key in our web.config with the key or the account we just generated.
 
-1. Right mouse click the **Web Project** and select **Publish** from the context menu. Follow the Wizard until the application is deployed.
+1. Right-click the **Web Project** and select **Publish** from the context menu. Follow the Wizard until the application is deployed.
 
 	![Redeploying the application](Images/redeploying-the-application.png?raw=true "Redeploying the application")
 
