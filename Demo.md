@@ -25,11 +25,17 @@ In this demo, you will see the following things:
 <a name="setup" />
 ### Setup and Configuration ###
 
-This demo requires an already provisioned and configured VM with SQL Server. Once provisioned, the following steps are required to allow connection from on-premises SSMS.
+In order to execute this demo, you need to set up your environment.
 
-1.	Create endpoint on VM
-1.	Create a new SQL user with appropriate privileges to import and export dacpac’s.
-1.	In the VM, open a port in the Windows Firewall for TCP access
+1. Open Windows Explorer and browse to the demo's **Source** folder.
+
+1. Execute **Setup.Local.cmd** with Administrator privileges to launch the setup process that will verify all the prerequisites and install the Visual Studio code snippets for this demo.
+
+1. If the User Account Control dialog is shown, confirm the action to proceed.
+
+>**Note 1:** Make sure you have all the dependencies for this demo checked before proceeding.
+
+> **Note 2:** The setup script copies the source code for this demo to a working folder that can be configured in the **Config.Local.xml** file (by default, C:\Projects). From now on, this folder will be referenced in this document as the **working folder**.
 
 ---
 
@@ -49,7 +55,8 @@ This demo is composed of the following segments:
 <a name="segment1" />
 ### Contoso Expense Reporting on-premise ###
 
-1. Open the Web Browser and navigate to the application at <http://ExpenseApp>.
+1. In Visual Studio, open the **Expenses.Web.sln** solution located in the working folder of this demo.
+1. Press **F5** to launch the application in the Development Server.
 
 	![Expense Reportin App running Locally](Images/expense-reportin-app-running-locally.png?raw=true "Expense Reportin App running Locally")
 
@@ -175,7 +182,7 @@ This demo is composed of the following segments:
 	- **Virtual Machine Name**: ContosExpenseVM
 	- **Password**: Passw0rd!
 
-1.	Enter password for the administrator account, then re-enter the password for confirmation.
+1.	Enter the password for the administrator account, then re-enter the password for confirmation.
 1. Select the _Large_ VM **size**.
 
 	![VM Configuration page](Images/vm-configuration-page.png?raw=true "VM Configuration page")
@@ -235,7 +242,7 @@ Lastly, we need specify in which region to create the VM.
 	>
 	>Great, we are done! We can see in the portal that our VM is being provisioned.
 
-1. At this point, you may switch over to an already provisioned virtual machine that has been configured with an endpoint for SQL Server Management and that has the corresponding port (1433) opened in its firewall, as well as having an additional SQL Server login which you can use to connect remotely. Otherwise, follow these steps to complete the required configuration. 
+1. For expediency, you may switch over to an already provisioned virtual machine that has been configured with an endpoint for SQL Server Management and that has the corresponding port (1433) opened in its firewall, as well as having an additional SQL Server login which you can use to connect remotely. Otherwise, you will need to complete the following steps to configure the VM. 
 
 1.	In the **Windows Azure Portal**, select the VM you created previously.
 1.	Click  the **ENDPOINTS link.**
@@ -352,11 +359,11 @@ new-inbound-firewall-rule.png
 
 	_Adding a new SQL Server login_
 
-1. Now, select the **Server Roles** page, enable the **sysadmin** role for the login, and then click **OK**.
+1. Now, switch to the **Server Roles** page, enable the **sysadmin** role, and then click **OK**.
 
 	>**Speaking Point**
 	>
-	> For simplicity sake, we also need to create a new SQL Server login with which to connect to SQL Server in the VM.
+	> For simplicity, we also need to create a new SQL Server login with which to connect to SQL Server in the VM.
 
 1. Minimize the remote desktop session for the VM.
 
@@ -373,7 +380,7 @@ new-inbound-firewall-rule.png
 
 1. Expand the database node and point to the database that is going to be migrated to the VM. 
 1.	Create a second SQL Server connection. In the **Server name** field, paste in the DNS name of the VM copied earlier from the portal.
-1. Use SQL Authentication, and type _demouser_ and _Passw0rd1!_ for the login name and password.
+1. Choose **SQL Server Authentication** as the authentication method, and then type _demouser_ and _Passw0rd1!_ for the login name and password.
 
 	![Creating to SQL Server using VM's DNS Name](Images/creating-to-sql-server-using-vms-dns-name.png?raw=true "Creating to SQL Server using VM's DNS Name")
 
@@ -383,7 +390,7 @@ new-inbound-firewall-rule.png
 	>
 	> We also need to connect to SQL Server in the VM. 
 	>
-	>This is simply as easy as specifying the DNS name of the VM. 
+	>This is as easy as specifying the DNS name of the VM. 
 	>
 	>We copied this name to the clipboard earlier.
 
