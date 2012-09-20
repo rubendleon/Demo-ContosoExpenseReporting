@@ -874,6 +874,10 @@ div.actions.expenses-header
 {
 }
 
+div.attach-receipt {
+    font-size: 0.8em;
+}
+
 div.attach-receipt input[type="file"] 
 {
     padding: 3px 0px;
