@@ -7,7 +7,7 @@
 			name="Microsoft Visual Studio 2012"
 			description="Microsoft Visual Studio Ultimate 2012, Microsoft Visual Studio Premium 2012, Microsoft Visual Studio Professional 2012 or Microsoft Visual Studio 2012 Express for Web"
 			helpLink="http://go.microsoft.com/fwlink/?LinkId=240160"
-			disableSkip="true"
+			disableSkip="false"
 			type="Uninstall" />
 		<dependency
 			hint="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\110\Tools\Setup\SQL_SSMS_Adv.Version;11.0.2100.60"
