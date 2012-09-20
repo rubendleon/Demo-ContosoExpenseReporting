@@ -903,30 +903,17 @@ new-inbound-firewall-rule.png
 
 	_Installing the Windows Azure Storage Client library_
 
-1. In the **Web.config file**, find the comment that reads “**Windows Azure Storage Account**” within the **appSettings** section.
-
-	>**Speaking Point**
-	>
-	> Let’s add the storage account snippet. This information allows us to securely access our storage services.
-
-1. Press **CTL+K**, **CTL+X** and select **My XML Snippets**.
-1. Insert the **StorageAccountInfo** snippet and replace the storage account name and key with the corresponding values from your newly created storage account. You can retrieve this information by selecting the storage account in the portal and clicking **MANAGE KEYS**.
-
-	![Editing Web.config values](Images/editing-webconfig-values.png?raw=true "Editing Web.config values")
-
-	_Configuring the storage account settings_
-
 1. Open **Views | Reports | EditorTemplates | ExpenseReportDetail.cshtml**
 
 	>**Speaking Point**
 	>
 	> Let’s add the code to show the **Attach Receipt** link/icon for each expense line item.
 
-1. Insert a new line after the comment that reads "**Attach Link Here**" and type the text **attachlink** in this line. Then, press **TAB** to install the code snippet.
+1. Insert a new line after the comment that reads "**Attach Link Here**" and type the text **attachreceiptlink** in this line. Then, press **TAB** to install the corresponding code snippet.
 
 	![Editing ExtenseReportDetail.cshtml](Images/editing-extensereportdetailcshtml.png?raw=true "Editing ExtenseReportDetail.cshtml")
 
-	_Editing ExtenseReportDetail.cshtml_
+	_Editing the ExpenseReportDetail template_
 
 1. Open **Views | Reports | Edit.cshtml**
 
@@ -934,79 +921,87 @@ new-inbound-firewall-rule.png
 	>
 	> Next, let’s add the **Submit Receipt** form.
 
-1. At line 85, enter **attachform** and press **TAB** to install the code snippet.	
+1. Insert a new line after the comment that reads "**Attach Form Here**" and type the text **attachreceiptform** in this line. Then, press **TAB** to install the corresponding code snippet.	
 
 	![Editing Edit.cshtml](Images/editing-editcshtml.png?raw=true "Editing Edit.cshtml")
 
-	_Editing Edit.cshtml_
+	_Updating the Edit view_
 
 1. Open **Controllers | ReportsController**
 
 	>**Speaking Point**
 	>
-	> Next, let’s add the code to **save the receipt into blob storage**.
+	> Next, let’s add the code to **save the receipt to blob storage**.
 
-1. Add a new line after line 112, enter **attachmethod** and press **TAB** to install the code snippet.
+1. In the **ReportsController** class, Insert a new line immediately below the **Summary** action method, type **attachreceiptmethod** and press **TAB** to install the code snippet.
 
 	![Editing ReportsController.cs](Images/editing-reportscontrollercs.png?raw=true "Editing ReportsController.cs")
 
-	_Editing ReportsController.cs_
+	_Inserting the AttachReceipt action_
 
 1. Go back to the **Azure Management portal** and select **STORAGE** from the navigation pane.
 
 	![Selecing Storage from the Management Portal](Images/selecing-storage-from-the-management-portal.png?raw=true "Selecing Storage from the Management Portal")
 
-	_Selecing Storage from the Management Portal_
+	_Managing storage accounts_
 
 1. Select the newly created storage account **NAME** in the list of storage accounts.
 
 	![Selecting the Storage Account Name](Images/selecting-the-storage-account-name.png?raw=true "Selecting the Storage Account Name")
 
-	_Selecting the Storage Account Name_
+	_Viewing the storage account properties_
 
 1. Select the **CONFIGURE** menu option.
 
 	![Selecting Configure Option](Images/selecting-configure-option.png?raw=true "Selecting Configure Option")
 
-	_Selecting Configure Option_
+	_Configuring the storage account_
 
 	>**Speaking Point**
 	>
-	> The Blob Monitoring **Minimal** value collects metrics such as ingress/egress, availability, latency, and success percentages summarized at the Blob, Table, and Queue service level.
+	> The **Minimal** monitoring value collects metrics such as ingress/egress, availability, latency, and success percentages summarized at the Blob, Table, and Queue service level.
 	>
-	> The Blob Monitoring **VERBOSE** value collects metrics at the API operation level in addition to the service-level metrics. Verbose metrics enable closer analysis of issues that occur during application operations
+	> The **Verbose** monitoring value collects metrics at the API operation level in addition to the service-level metrics. Verbose metrics enable closer analysis of issues that occur during application operations.
 
-1. In the **MONITORING** section for **BLOBS**, set the monitoring level to **MINIMAL**.
+1. In the **monitoring** section, set the monitoring level of  **BLOBS** to **MINIMAL**.
 
 	![Selecting Monitoring Blobs Option](Images/selecting-monitoring-blobs-option.png?raw=true "Selecting Monitoring Blobs Option")
 
-	_Selecting Monitoring Blobs Option_
+	_Configuring storage monitoring options_
 
 	>**Speaking Point**
 	>
-	> Let’s go grab our **account key**. Let’s go back to the portal and select our storage account, and click **MANAGE KEYS**.
+	> We need to retrieve our **account key**. To do this, we go back to the portal, select our storage account, and click **MANAGE KEYS**.
 
-1. Click **MANAGE KEYS**.
+1. In the command bar, click **SAVE** to save the changes to the monitoring configuration.
+1. Next, in the command bar, click **MANAGE KEYS**.
 
 	![Clicking Manage Keys](Images/clicking-manage-keys.png?raw=true "Clicking Manage Keys")
 
-1. Copy the **Primary Access Key** to the clipboard.
+1. Copy the value of the **PRIMARY ACCESS KEY** to the clipboard.
 
 	![Copying the Primary Access Key](Images/copying-the-primary-access-key.png?raw=true "Copying the Primary Access Key")
 
 	_Copying the Primary Access Key_
 
-1. Scroll to the end of that line and paste in the **account key** from step 34.
+1. Open the **Web.config file** and find the comment that reads “**Windows Azure Storage Account**” within the **appSettings** section.
 
-	![Editing Web.config AccountKey](Images/editing-webconfig-accountkey.png?raw=true "Editing Web.config AccountKey")
+	>**Speaking Point**
+	>
+	> Let’s add the storage account snippet. This information allows us to securely access our storage services.
 
-	_Editing Web.config AccountKey_
+1. Press **CTL+K**, **CTL+X** and select **My XML Snippets**.
+1. Insert the **StorageAccountInfo** snippet and replace the storage account name with the name of your storage account and the key with the value you copied from the portal.
+
+	![Editing Web.config values](Images/editing-webconfig-values.png?raw=true "Editing Web.config values")
+
+	_Configuring the storage account settings_
 
 	>**Speaking Point**
 	>
 	> Every account has a set of unique keys. We need to update the key in our web.config with the key or the account we just generated.
 
-1. Right-click the **Web Project** and select **Publish** from the context menu. Follow the Wizard until the application is deployed.
+1. Right-click the **Web Project** and select **Publish** from the context menu. Follow the wizard to redeploy the updated files.
 
 	![Redeploying the application](Images/redeploying-the-application.png?raw=true "Redeploying the application")
 
@@ -1014,7 +1009,7 @@ new-inbound-firewall-rule.png
 
 	>**Speaking Point**
 	>
-	> Finally, let’s re-deploy the application.
+	> Finally, let’s redeploy the application.
 
 1. In the expense App, log in as a user and modify the Expense Report to attach a receipt.
 
@@ -1022,27 +1017,27 @@ new-inbound-firewall-rule.png
 
 	![Clicking Attach Receipt](Images/attach-receipt.png?raw=true "Clicking Attach Receipt")
 
-	_Clicking Attach Receipt_
+	_Attaching a new receipt_
 
 1. In the **Attach Receipt** dialog, click **Browse**.
 
 	![Clicking Browse Receipt](Images/clicking-browse-receipt.png?raw=true "Clicking Browse Receipt")
 
-	_Clicking Browse Receipt_
+	_Attach Receipt dialog_
 
-1. In the favourites window, select the Receipts folder and double-click a receipt.
-
-1. Click **Submit** on the **Attach Receipt** dialog.	
+1. Go to the **Assets\receipts** folder and select _Receipt.png_.
 
 	![Submiting a Receipt](Images/submiting-a-receipt.png?raw=true "Submiting a Receipt")
 
-	_Submiting a Receipt_
+	_Submiting a receipt_
+
+1. In the **Attach Receipt** dialog, click **Submit**.	
 
 1. **Save** and **Submit** the expense report.
 
 	![Saving and Submiting](Images/saving-and-submiting.png?raw=true "Saving and Submiting")
 
-	_Saving and Submiting_
+	_Submiting an expense_
 
 1. Log off as a user.
 
@@ -1056,47 +1051,11 @@ new-inbound-firewall-rule.png
 
 	![Portal Monitor Option](Images/portal-monitor-option.png?raw=true "Portal Monitor Option")
 
-	_Portal Monitor Option_
+	_Monitoring the storage account_
 
 	>**Speaking Point**
 	>
 	> Hopefully there will be some data.
-
----
-<a name="Appendix" />
-## Appendix ##
-
-
-<a name="Appendix1" />
-### Appendix 1: How to open a port in the Windows firewall for TCP access ###
-
-1.	On the **Start** menu, click **Run**, type **WF.msc**, and then click **OK**.
-1.	In the **Windows Firewall with Advanced Security**, in the left pane, right-click **Inbound Rules**, and then click **New Rule** in the action pane.
-1.	In the **Rule Type** dialog box, select **Port**, and then click **Next**.
-1.	In the **Protocol and Ports** dialog box, select **TCP**. Select **Specific local ports**, and then type the port number of the instance of the Database Engine, such as **1433** for the default instance. Click **Next**.
-1.	In the **Action** dialog box, select **Allow the connection**, and then click **Next**.
-1.	In the **Profile** dialog box, select any profiles that describe the computer connection environment when you want to connect to the Database Engine, and then click **Next**.
-1.	In the **Name** dialog box, type a name and description for this rule, and then click **Finish**.
-
-
-<a name="Appendix2" />
-### Appendix 2: To add an Virtual Machine Endpoint ###
-
-1.	In the **Windows Azure Portal**, select the VM you want to create the endpoint on.
-1.	Click  the **ENDPOINTS link.**
-1.	Click **ADD ENDPOINT**.
-1.	In the first page of the **ADD ENDPOINT** dialog, select the **Add Endpoint** option then click the right arrow to go to the second page.
-
-	![Add Endpoint to Virtual Machine page](Images/add-endpoint-to-virtual-machine-page.png?raw=true "Add Endpoint to Virtual Machine page")
-
-	_Add Endpoint to Virtual Machine page_
-
-1.	In the second page of the **ADD ENDPOINT** dialog, enter a **NAME** for the endpoint, select **TCP** for the **protocol**, and enter **1433** for the **PUBLIC** and **PRIVATE** ports. 
-
-	![Add Endpoint To Virtual Machine page](Images/add-endpoint-to-virtual-machine-page2.png?raw=true "Add Endpoint To Virtual Machine page")
-
-	_Add Endpoint To Virtual Machine page_
-
 
 ---
 <a name="summary" />
@@ -1104,7 +1063,9 @@ new-inbound-firewall-rule.png
 
 In this demo, you learned how to:
 
-1. Deploy applications to Windows Azure Web Sites.
+1. Deploy applications to Windows Azure Web sites.
+
+1. Provision a virtual machine in Windows Azure to run SQL Server.
 
 1. Connect applications to a Windows Azure SQL Database.
 
