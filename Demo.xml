@@ -12,7 +12,7 @@
 	<Description>This demo illustrates an end-to-end scenario highlighting the Windows Azure cloud-ready data services, including Windows Azure SQL Database, Windows Azure Storage, and SQL Server 2012 in a Windows Azure Virtual Machine. This demo will showcase the rich and powerful features of the Windows Azure data services including easy provisioning of the services, fluid migration options, and the high-performing, scalable and feature-rich data options.</Description>  
 	<Document ConversionType="Html">Demo.md</Document>
 	<Title>Contoso Expense Reporting Demo</Title>
-	<Version>1.0.0</Version>
+	<Version>1.0.1</Version>
 	<Source>Source</Source>
 	<DependencyChecker>Setup\Dependencies.depi</DependencyChecker>
 	<CustomProperties>    
