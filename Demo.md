@@ -1001,7 +1001,7 @@ Lastly, we need to specify in which region to create the VM.
 
 	_Copying the primary access key_
 
-1. Open the **Web.config file** and find the comment that reads “**Windows Azure Storage Account**” within the **appSettings** section.
+1. Open the **Web.config** file and find the comment that reads “**Windows Azure Storage Account**” within the **appSettings** section.
 
 	>**Speaking Point**
 	>
@@ -1050,7 +1050,7 @@ Lastly, we need to specify in which region to create the VM.
 
 1. In the **Attach Receipt** dialog, click **Submit**.	
 
-1. Finally, click **Save and Submit** the expense report.
+1. Finally, click **Save and Submit** to submit the expense report.
 
 	![Saving and Submiting](Images/saving-and-submiting.png?raw=true "Saving and Submiting")
 
@@ -1058,7 +1058,7 @@ Lastly, we need to specify in which region to create the VM.
 
 1. Log off as a user.
 
-1. Log in as a manager, approve the expense report and view the Receipt.
+1. Now, log in as a manager, approve the expense report and view the receipt.
 
 	>**Speaking Point**
 	>
