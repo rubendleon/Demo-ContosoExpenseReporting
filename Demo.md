@@ -10,17 +10,19 @@ This demo illustrates an end-to-end scenario highlighting the Windows Azure clou
 
 <a id="goals" />
 ### Goals ###
-In this demo, you will see the following things:
+In this demo, you will see the following:
 
 1. Contoso Expense Reporting application running on-premise.
 
-1. Deploy the application to a Windows Azure Web Site.
+1. Provisioning a virtual machine in Windows Azure to run SQL Server 2012.
 
-1. Connect the application to a Windows Azure SQL Database.
+1. Deploying the application to a Windows Azure Web Site.
 
-1. Connect the application to use Windows Azure Storage.
+1. Connecting the application to a Windows Azure SQL Database.
 
-1. Create SQL Database Federations.
+1. Connecting the application to use Windows Azure Storage.
+
+1. Creating SQL Database Federations.
 
 <a name="setup" />
 ### Setup and Configuration ###
@@ -42,9 +44,9 @@ In order to execute this demo, you need to set up your environment.
 <a name="Demo" />
 ## Demo ##
 
-Throughout the course of this session, we will show the power and flexibility of Windows Azure by taking an on-premises application and associated database, and migrate them to Windows Azure. We will first use our IaaS services to migrate the database to a Virtual machine with SQL Server 2012 and the application to a Windows  Azure Cloud Service. We will then highlight our PaaS services by migrating the database to SQL Azure and extending the functionality of the application to use our Windows Azure storage services.
+Throughout the course of this session, we will show the power and flexibility of Windows Azure by taking an on-premises application and associated database, and migrate them to Windows Azure. We will first use our IaaS services to migrate the database to a virtual machine with SQL Server 2012 and the application to a Windows  Azure Cloud Service. We will then highlight our PaaS services by migrating the database to SQL Azure and extend the functionality of the application to use our Windows Azure storage services.
 
-This demo is composed of the following segments:
+This demo contains the following segments:
 
 1. [Contoso Expense Reporting Application Overview](#segment1).
 1. [Migrating to Windows Azure with Virtual Machines & SQL Server 2012](#segment2).
@@ -53,26 +55,26 @@ This demo is composed of the following segments:
 1. [Windows Azure Storage](#segment5). 
 
 <a name="segment1" />
-### Contoso Expense Reporting on-premise ###
+### Contoso Expense Reporting On-Premises ###
 
 1. In Visual Studio, open the **Expenses.Web.sln** solution located in the working folder of this demo.
 1. Press **F5** to launch the application in the Development Server.
 
-	![Expense Reportin App running Locally](Images/expense-reportin-app-running-locally.png?raw=true "Expense Reportin App running Locally")
+	![Expense Reportin App running Locally](Images/expense-reportin-app-running-locally.png?raw=true "Expense Reportin App running locally")
 
-	_Expense Reportin App running Locally_
+	_Expense reporting application running locally (on-premises)_
 
 	>**Speaking Point**
 	>
 	> We’re first going to log in as a user and submit a simple expense report.
 	>
-	> As part of this we’re going to highlight some of the challenges the company has today with the system, including the challenge of attaching receipts and verifying expenses.
+	> As part of this, we’re going to highlight some of the challenges the company has today with the system, including the challenge of attaching receipts and verifying expenses.
 
 1. Click **Login as user**.
 
 	![Log in as User](Images/log-in-as-user.png?raw=true "Log in as User")
 
-	_Log in as User_
+	_Log in as a regular user_
 
 	>**Speaking Point**
 	>
@@ -83,7 +85,7 @@ This demo is composed of the following segments:
 
 	![Application Dashboard](Images/application-dashboard.png?raw=true "Application Dashboard")
 
-	_Application Dashboard_
+	_Viewing the list of expense reports_
 
 	>**Speaking Point**
 	>
@@ -92,6 +94,7 @@ This demo is composed of the following segments:
 1.	Enter the following information:
 	- Name
 	- Purpose
+
 
 1. Next, click **Add New Expense** and fill in the following fields:
 	- Category
@@ -102,7 +105,7 @@ This demo is composed of the following segments:
 
 	![Expense Reporting - New Report](Images/expense-reporting-new-report.png?raw=true "Expense Reporting - New Report")
 
-	_Expense Reporting - New Report_
+	_Adding a new report_
 
 	>**Speaking Point**
 	>
@@ -112,7 +115,7 @@ This demo is composed of the following segments:
 
 	![Expense Reporting - Save Draft](Images/expense-reporting-save-draft.png?raw=true "Expense Reporting - Save Draft")
 
-	_Expense Reporting - Save Draft_
+	_Saving a draft report_
 
 	>**Speaking Point**
 	>
@@ -123,7 +126,7 @@ This demo is composed of the following segments:
 
 	![Application's Solution Explorer](Images/applications-solution-explorer.png?raw=true "Application's Solution Explorer")
 
-	_Application's Solution Explorer_
+	_The Expense Report application in Solution Explorer_
 
 	>**Speaking Point**
 	>
@@ -132,14 +135,14 @@ This demo is composed of the following segments:
 <a name="segment2" />
 ### Migrating to Windows Azure with Virtual Machines & SQL Server 2012 ###
 
-1. Open the Web browser and navigate to the Windows Azure Portal at <http://windows.azure.com>
+1. Open the Web browser and go to the Windows Azure Portal at <http://windows.azure.com>
 
 1. Sign in with your Live ID.
 
 
 	![Sign in](Images/sign-in.png?raw=true "Windows Azure Portal Sign in")
 
-	Windows Azure Portal Sign in
+	_Windows Azure Portal sign in_
 
 	>**Speaking Point**
 	>
@@ -147,9 +150,9 @@ This demo is composed of the following segments:
 	>
 	> Let us first navigate to the Windows Azure portal and get signed in.
 	>
-	> We use Live ID for authentication on the portal, so let’s log in.
+	> We use Live ID for authentication on the portal, so let’s log on.
 
-1. Click **New** | **Virtual Machine** | **From Gallery**.
+1. In the portal, click **New** | **Virtual Machine** | **From Gallery**.
 
 	![Creating Virtual Machine from Gallery](Images/creating-virtual-machine-from-gallery.png?raw=true "Creating Virtual Machine from Gallery")
 
@@ -164,13 +167,13 @@ This demo is composed of the following segments:
 	>You can use **Quick Create** if you only need one virtual machine that doesn’t need to be load-balanced or joined to a virtual network or
 **From Gallery** if you have more complex solution. With the latter, you have more flexibility in how the machine is used in advanced scenarios.
 
-1.	In the **CREATE VIRTUAL MACHINE** dialog, select the **SQL Server 2012 Evaluation** option.
+1.	In the **CREATE VIRTUAL MACHINE** dialog, select the **Microsoft SQL Server 2012 Evaluation** option.
 1.	Click the right arrow (Next).
 
 
 	![Selecting Virtual Machine OS version](Images/selecting-virtual-machine-os-version.png?raw=true "Selecting Virtual Machine OS version")
 
-	_Selecting Virtual Machine OS version_
+	_Selecting an OS version for the virtual machine_
 
 	>**Speaking Point**
 	>
@@ -179,15 +182,15 @@ This demo is composed of the following segments:
 	>We also have, as you can see, a SQL Server 2012 VM. This VM is running SQL Server 2012 Enterprise Evaluation edition which is the VM we want to create, so let’s select that one.
 
 1.	The second page of the **Create Virtual Machine** wizard is the **VM Configuration**. Enter the following:
-	- **Virtual Machine Name**: ContosExpenseVM
-	- **Password**: Passw0rd!
+	- **Virtual Machine Name**: _ContosExpenseVM_
+	- **Password**: _Passw0rd!_
 
 1.	Enter the password for the administrator account, then re-enter the password for confirmation.
-1. Select the _Large_ VM **size**.
+1. Select _Large_ as the **SIZE** of the VM.
 
 	![VM Configuration page](Images/vm-configuration-page.png?raw=true "VM Configuration page")
 
-	_VM Configuration page_
+	_VM configuration page_
 
 	>**Speaking Point**
 	>
@@ -216,16 +219,16 @@ This demo is composed of the following segments:
 
 	>**Speaking Point**
 	>
-	> Next we need to select the type of virtual machine. In other words, is this going to be new standalone virtual machine, or are we connecting to an existing virtual machine? With the new IaaS domain features, we have the ability to join this VM to an existing domain. However, for the purposes of this demo, we’ll simply create a standalone VM.
+	> Now, we need to select the type of virtual machine. In other words, is this going to be new standalone virtual machine, or are we connecting to an existing virtual machine? With the new IaaS domain features, we have the ability to join this VM to an existing domain. However, for the purposes of this demo, we’ll simply create a standalone VM.
 	>
-	> Next we need to supply a DNS name for this VM. 
+	> Next, we need to supply a DNS name for this VM. 
 	> 
-	> These VMs are stored in blob storage and we need to specify whether our VM will use a Windows Azure account tied to our subscription if we created one, or use an automatically generated storage account. Since we haven’t created a storage account yet, we’ll use the automatically generated account.
-Lastly, we need specify in which region to create the VM. 
+	> These VMs are stored in blob storage and we need to specify whether our VM will use a Windows Azure account tied to our subscription, if we created one, or use an automatically generated storage account. Since we haven’t created a storage account yet, we’ll use the automatically generated account.
+Lastly, we need to specify in which region to create the VM. 
 
 
 1.	The fourth and final page of the **CREATE VIRTUAL MACHINE** wizard is the **VM Options.** 
-1.	Select **Create Availability Set**, and set the **NAME** to **MyAvailSet**.
+1.	Select **Create Availability Set**, and set the **AVAILABILITY SET NAME** to **MyAvailSet**.
 1. Click Finish (check mark).
 
 	![VM Options page](Images/vm-options-page.png?raw=true "VM Options page")
@@ -242,7 +245,15 @@ Lastly, we need specify in which region to create the VM.
 	>
 	>Great, we are done! We can see in the portal that our VM is being provisioned.
 
-1. For expediency, you may switch over to a virtual machine that has been previously provisioned and configured with an endpoint for SQL Server Management and that has the corresponding TCP port (1433) opened in its firewall, as well as having an additional SQL Server login which you can use to connect remotely. Otherwise, you will need to complete the following steps to configure the VM. 
+1. For expediency, you may now switch over to a virtual machine that you have previously provisioned. This VM must be configured with:
+
+	- Microsoft SQL Server 2012
+	- An endpoint configured for TCP port 1433 to enable remote access to the SQL Server instance
+	- TCP port 1433 opened in the Windows Firewall
+	- SQL Server authentication enabled in SQL Server
+	- An additional SQL Server login configured with SQL Server authentication and assigned to the _sysadmin_ server role
+
+	Otherwise, you need to complete the following steps to configure the VM.
 
 1.	In the **Windows Azure Portal**, select the VM you created previously.
 1.	Select the **ENDPOINTS** view, and then click **ADD ENDPOINT** in the command bar.
@@ -250,9 +261,9 @@ Lastly, we need specify in which region to create the VM.
 
 	![Add Endpoint to Virtual Machine page](Images/add-endpoint-to-virtual-machine-page.png?raw=true "Add Endpoint to Virtual Machine page")
 
-	_Adding an endpoint to a virtual machine_
+	_Adding an endpoint to the virtual machine_
 
-1.	In the second page of the **ADD ENDPOINT** dialog, enter a **NAME** for the endpoint, select **TCP** as the **PROTOCOL**, and enter **1433** for both the **PUBLIC PORT** and **PRIVATE PORT** . 
+1.	In the second page of the **ADD ENDPOINT** dialog, enter a **NAME** for the endpoint, select **TCP** as the **PROTOCOL**, and specify _1433_ for both the **PUBLIC PORT** and **PRIVATE PORT** . 
 
 	![Add Endpoint To Virtual Machine page](Images/add-endpoint-to-virtual-machine-page2.png?raw=true "Add Endpoint To Virtual Machine page")
 
@@ -297,26 +308,25 @@ Lastly, we need specify in which region to create the VM.
 	> For our existing VM, we will save this shortcut to our desktop.
 
 1.	On the desktop, double-click the RDP file.
-2.	In the **Windows Security** dialog, enter the password
+2.	In the **Windows Security** dialog, enter the password for the Administrator account.
 	- Password: Passw0rd!
 1. Click **OK**.
 
 	![Connecting Virtual Machine - Entering Credentials](Images/connecting-virtual-machine-entering-credent.png?raw=true "Connecting Virtual Machine - Entering Credentials")
 
-	_Entering credentials for the Remote Desktop Connection_
+	_Entering the credentials for the Remote Desktop Connection_
 
 	>**Speaking Point**
 	>
 	> Let’s log into the virtual machine by entering the password we configured earlier. 
 
 1.	Inside the remote desktop session, click **Run** on the **Start** menu, type **WF.msc**, and then click **OK**.
-1.	In the **Windows Firewall with Advanced Security** management console, select **Inbound Rules** in the tree view on the left pane, and then click **New Rule** in the action pane.
-1.	In the **Rule Type** dialog box, select **Port**, and then click **Next**.
-1.	In the **Protocol and Ports** dialog box, select **TCP**. Select **Specific local ports**, and then type the port number of the instance of the Database Engine, such as **1433** for the default instance. Click **Next**.
-1.	In the **Action** dialog box, select **Allow the connection**, and then click **Next**.
-1.	In the **Profile** dialog box, select any profiles that describe the computer connection environment when you want to connect to the Database Engine, and then click **Next**.
-1.	In the **Name** dialog box, type a name and description for this rule, and then click **Finish**.
-new-inbound-firewall-rule.png
+1.	In the **Windows Firewall with Advanced Security** management console, select **Inbound Rules** in the left pane, and then click **New Rule** in the action pane.
+1.	In the **Rule Type** page, select **Port**, and then click **Next**.
+1.	In the **Protocol and Ports** page, select **TCP**. Select **Specific local ports**, and then type the port number of the instance of the Database Engine, **1433** for the default instance. Click **Next**.
+1.	In the **Action** page, select **Allow the connection**, and then click **Next**.
+1.	In the **Profile** page, select any profiles that describe the computer connection environment when you want to connect to the Database Engine, and then click **Next**.
+1.	In the **Name** page, type a name and description for this rule, and then click **Finish**.
 
 	![New Inbound Firewall Rule](Images/new-inbound-firewall-rule.png?raw=true"New Inbound Firewall Rule")
 
@@ -326,7 +336,7 @@ new-inbound-firewall-rule.png
 	> 
 	> To gain access to SQL Server in the VM, we need to open port 1433 on the Windows Firewall to allow inbound connections.
 
-1.	Now, open SQL Server Management Studio in the remote desktop session and log in to SQL Server using Windows Authentication.
+1.	Now, **in the remote desktop session**, open SQL Server Management Studio and log in to SQL Server using Windows Authentication.
 
 	![Management Studio's Object Explorer](Images/management-studios-object-explorer.png?raw=true "Management Studio's Object Explorer")
 
@@ -336,7 +346,7 @@ new-inbound-firewall-rule.png
 	>
 	> Call out the fact that is indeed SQL Server 2012, FULL FUNCTIONALITY.
 
-1. Expand the databases node to illustrate that there are no user databases.
+1. Expand the **Databases** node to illustrate that there are no user databases.
 1. Right-click the (root) server node and then select **Properties**.
 1. In the **Server Properties** dialog, select the **Security** page.
 1. Under **Server authentication**, select the option labeled **SQL Server and Windows Authentication mode** and then click **OK**.
@@ -352,7 +362,7 @@ new-inbound-firewall-rule.png
 1. Now, right-click the (root) server node again and select **Restart** to allow the change in authentication mode to take effect.
 
 1. Expand the **Security** node, right-click **Logins**, and then select **New Login**.
-1. In the **Login - New** dialog, select the **General** page, type a new **Login name**, for example _demouser_, select **SQL Server authentication**, clear the option labeled **User must change password at next login**.
+1. In the **Login - New** dialog, select the **General** page, type a new **Login name**, for example _demouser_, select **SQL Server authentication**, and clear the option labeled **User must change password at next login**.
 
 	![New SQL Server Login](Images/sql-server-create-login.png?raw=true"New SQL Server Login")
 
@@ -360,13 +370,17 @@ new-inbound-firewall-rule.png
 
 1. Now, switch to the **Server Roles** page, enable the **sysadmin** role, and then click **OK**.
 
+	![Assigning the sysadmin role](Images/assign-sysadmin-role-to-login.png?raw=true"Assigning the sysadmin role")
+
+	_Assigning the sysadmin role to the SQL Server login_
+
 	>**Speaking Point**
 	>
 	> For simplicity, we also need to create a new SQL Server login with which to connect to SQL Server in the VM.
 
 1. Minimize the remote desktop session for the VM.
 
-1.	Open Management Studio for SQL Server 2012 in your local machine (on-premises).
+1.	**In your local machine (on-premises)**, open Management Studio for SQL Server 2012.
 1.	In the **Connect to Server** dialog, log into the on-premise SQL Server using Windows Authentication.
 
 	![Connecting to on-premises SQL Server](Images/connecting-to-on-premises-sql-server.png?raw=true "Connecting to on-premises SQL Server")
@@ -409,7 +423,7 @@ new-inbound-firewall-rule.png
 
 1.	In the **Export Settings** page, select the option labeled **Save to local disk**.
 1.	Click **Browse**.
-1.	In the **Save As** dialog, go to the _C:\DAC Packages_ folder, set the filename to **Expenses**, and then click **Save**.
+1.	In the **Save As** dialog, go to the _C:\DAC Packages_ folder or another suitable location, set the filename to **Expenses**, and then click **Save**.
 1. Click **Next** to go to the **Summary Page**.
 1. Click **Finish**.
 
@@ -423,8 +437,9 @@ new-inbound-firewall-rule.png
 	>
 	>	- BACPACs - schema and data
 	>	- Save TO Windows Azure BLOB storage
+	>
+	> We will now import the bacpac into the SQL Server running in the VM.
 
-1.	We will now import the bacpac.
 1.	In the SQL/VM connection in Object Explorer, right-click the **Databases** node and select **Import Data-Tier Application**.
 1. In the **Introduction** page, click **Next**.
 
@@ -440,7 +455,7 @@ new-inbound-firewall-rule.png
 1. Select the bacpac file and click **Open**.
 1. Click **Next**.
 1. In the **Database Settings** page, click **Next**.
-1. In the Summary page, click **Finish**.
+1. In the **Summary** page, click **Finish**.
 
 	![Importing bacpac file](Images/importing-bacpac-file.png?raw=true "Importing bacpac file")
 
@@ -461,7 +476,7 @@ new-inbound-firewall-rule.png
 1. Show the newly created database and, in particular, expand its **Tables** node.
 1. In Visual Studio, open the **Web.config** file.
 1.	Remove the existing connection string.
-1.	Press *CTL+K, CTL+X** and select **My XML Snippets**.
+1.	Press **CTL+K, CTL+X** and select **My XML Snippets**.
 1. Insert the **VMConnectionString** snippet and replace the placeholders in the connection string with the host name of your SQL Server VM, and the user name and password of the SQL Server login that you created previously.
 
 	![Updating the connection string within Web.config](Images/updating-connection-stirng-within-webconfig.png?raw=true "Updating the connection string within Web.config")
@@ -498,7 +513,7 @@ new-inbound-firewall-rule.png
 	>
 	> **Custom Create** a website if you plan to deploy a completed web application to Window Azure and you want to simultaneously set up a database for use with your website.
 	>
-	> We need to specify the URL through which this app will be accessed, as well as the region where our application will be hosted.
+	> We need to specify the URL through which this app will be accessed, as well as the region where the application will be hosted.
 	>
 	> POINT: **Notice how fast our Web site was provisioned**.
 
@@ -506,15 +521,15 @@ new-inbound-firewall-rule.png
 
 	![Selecting Web Site's name](Images/selecting-web-sites-name.png?raw=true "Selecting Web Site's name")
 
-	_Selecting the Web site_
+	_Managing the Web site_
 
-1. In the **DASHBOARD** view, click the **Download publish profile** link.
+1. In the **DASHBOARD**, click the **Download publish profile** link.
 
 	![Downloading Publish Profile](Images/downloading-publish-profile.png?raw=true "Downloading Publish Profile")
 
 	_Downloading the publish profile_
 
-1. Save the file to the desktop.
+1. Save the file to the desktop or another suitable location.
 
 	>**Speaking Point**
 	>
@@ -603,7 +618,7 @@ new-inbound-firewall-rule.png
 
 	![Add Firewall Rule](Images/add-firewall-rule.png?raw=true "Add Firewall Rule")
 
-	_Adding a firewall rule_
+	_Adding a firewall rule for the current location_
 
 1. Click **Save**.
 
@@ -611,7 +626,7 @@ new-inbound-firewall-rule.png
 	>
 	> One of the great features of WA SQL Database is its built-in security. Firewall rules help protect your data by preventing all access to your server until you specify which computers have permission.
 	>
-	>Firewall rules grant access based on originating IP addresses of each request.
+	>Firewall rules grant access based on the originating IP addresses of each request.
 	>
 	> Let's save the changes.
 
@@ -656,8 +671,7 @@ new-inbound-firewall-rule.png
 	>
 	> Now, let’s use the same bacpac that we used earlier to also import the data into a Windows Azure SQL Database.
 
-1.	In the **Import Settings** page, click **Browse** and go to C:\DAC Packages.
-1.	Select the **Expenses** bacpac file and click **Open**.
+1.	In the **Import Settings** page, click **Browse** to locate and select the saved **Expenses** bacpac file and then click **Open**.
 1. Click **Next**.
 
 	![Importing the bacpac file](Images/importing-bacpac-file2.png?raw=true "Importing the bacpac file")
@@ -775,7 +789,7 @@ new-inbound-firewall-rule.png
 
 	![Azure SQL Database Connection](Images/azure-sql-database-connection.png?raw=true "Azure SQL Database Connection")
 	
-	_Azure SQL Database Connection_
+	_Windows Azure SQL Database connection_
 
 	>**Speaking Point**
 	>
@@ -810,7 +824,7 @@ new-inbound-firewall-rule.png
 
 	![SQL Databases page](Images/sql-databases-page.png?raw=true "SQL Databases page")
 
-	_SQL databases page_
+	_Managing the ContosoFed SQL Database_
 
 	>**Speaking Point**
 	>
@@ -822,7 +836,7 @@ new-inbound-firewall-rule.png
 
 	_Accessing the database management portal_
 
-1.	Log in with the following credentials:
+1.	Enter the following credentials:
 	1.	**User**: _AzureAdmin_
 	1.	**Password**: Passw0rd!
 1. Click **Log on**.
@@ -835,7 +849,7 @@ new-inbound-firewall-rule.png
 
 	![SQL Portal showing federations](Images/sql-portal-showing-federations.png?raw=true "SQL Portal showing federations")
 
-	_SQL Portal showing federations_
+	_Windows Azure SQL Database portal showing federations_
 
 	>**Speaking Point**
 	>
@@ -883,7 +897,7 @@ new-inbound-firewall-rule.png
 
 	![Creating the Storage Account](Images/creating-the-storage-account.png?raw=true "Creating the Storage Account")
 
-	_Creating the Storage Account_
+	_Creating the storage account_
 
 	>**Speaking Point**
 	>
@@ -949,7 +963,7 @@ new-inbound-firewall-rule.png
 
 	![Selecting the Storage Account Name](Images/selecting-the-storage-account-name.png?raw=true "Selecting the Storage Account Name")
 
-	_Viewing the storage account properties_
+	_Managing the storage account_
 
 1. Select the **CONFIGURE** menu option.
 
@@ -969,20 +983,23 @@ new-inbound-firewall-rule.png
 
 	_Configuring storage monitoring options_
 
-	>**Speaking Point**
-	>
-	> We need to retrieve our **account key**. To do this, we go back to the portal, select our storage account, and click **MANAGE KEYS**.
-
 1. In the command bar, click **SAVE** to save the changes to the monitoring configuration.
+
+	![Saving the Monitoring Configuration](Images/save-monitoring-configuration.png?raw=true "Saving the Monitoring Configuration")
+
 1. Next, in the command bar, click **MANAGE KEYS**.
 
 	![Clicking Manage Keys](Images/clicking-manage-keys.png?raw=true "Clicking Manage Keys")
+
+	>**Speaking Point**
+	>
+	> We need to retrieve our **account key**. To do this, we go back to the portal, select our storage account, and click **MANAGE KEYS**.
 
 1. Copy the value of the **PRIMARY ACCESS KEY** to the clipboard.
 
 	![Copying the Primary Access Key](Images/copying-the-primary-access-key.png?raw=true "Copying the Primary Access Key")
 
-	_Copying the Primary Access Key_
+	_Copying the primary access key_
 
 1. Open the **Web.config file** and find the comment that reads “**Windows Azure Storage Account**” within the **appSettings** section.
 
@@ -1011,9 +1028,9 @@ new-inbound-firewall-rule.png
 	>
 	> Finally, let’s redeploy the application.
 
-1. In the expense App, log in as a user and modify the Expense Report to attach a receipt.
+1. In the expense App, log in as a user and modify the expense report to attach a receipt.
 
-1. Click the **Attach receipt** link.
+1. Click the **Attach receipt** icon.
 
 	![Clicking Attach Receipt](Images/attach-receipt.png?raw=true "Clicking Attach Receipt")
 
@@ -1033,7 +1050,7 @@ new-inbound-firewall-rule.png
 
 1. In the **Attach Receipt** dialog, click **Submit**.	
 
-1. **Save** and **Submit** the expense report.
+1. Finally, click **Save and Submit** the expense report.
 
 	![Saving and Submiting](Images/saving-and-submiting.png?raw=true "Saving and Submiting")
 
@@ -1065,7 +1082,7 @@ In this demo, you learned how to:
 
 1. Deploy applications to Windows Azure Web sites.
 
-1. Provision a virtual machine in Windows Azure to run SQL Server.
+1. Provision a virtual machine in Windows Azure to run SQL Server 2012.
 
 1. Connect applications to a Windows Azure SQL Database.
 
