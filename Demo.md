@@ -548,7 +548,7 @@ new-inbound-firewall-rule.png
 <a name="segment3" />
 #### Windows Azure SQL Database ####
 
-1.	Back in to the Windows Azure portal, select the **SQL Databases** option in the navigation pane
+1.	Back in to the Windows Azure portal, select the **SQL DATABASES** option in the navigation pane.
 1. Click **New**.
 
 	![Azure Portal SQL Databases](Images/azure-portal-sql-databases.png?raw=true "Azure Portal SQL Databases")
@@ -639,7 +639,7 @@ new-inbound-firewall-rule.png
 	>
 	> We now have every relational database option in a single tool!
 	>
-	>	- On-Premises
+	>	- On-premises
 	>	- SQL Server in a VM
 	>	- Windows Azure SQL Database
 
@@ -740,8 +740,8 @@ new-inbound-firewall-rule.png
 	> The database we have been using up to this point is a single Azure SQL Database. Since we've just discussed SQL Federations, we’re going to illustrate how to create a federated version of our expense report database.
 	> In SSMS, we need to create a new database from which we will create our federations. 
 
-1.	Right-click the server node, and select **New Query** to open a new query window connected to the _master_ database. 
-1. In the new query window, execute the following statement to create a database named **ContosoFED**.
+1.	Right-click the **Databases** node, and select **New Database** to open a new query window connected to the _master_ database. 
+1. In the new query window, replace the placeholder for the database name with the name _ContosoFed_ and execute the query.
 
 	![Creating a new database](Images/creating-a-new-database.png?raw=true "Creating a new database")
 
@@ -749,9 +749,9 @@ new-inbound-firewall-rule.png
 
 	>**Speaking Point**
 	>
-	> Let’s open a new query window and create a new database. We’ll call this database ContosoFED. 
+	> Let’s open a new query window and create a new database. We’ll call this database ContosoFed. 
 	>
-	> We need to make sure that the connection for this query window is connected to the Master database.
+	> We need to make sure that the connection for this query window is connected to the master database.
 
 1.	Once the database is created, in SSMS, open the **ContosoExpenseFed_DB.sql** script located in the **Assets\Federations** folder. Ensure that the query window connection is for the new database.
 1. Execute the script.
@@ -763,6 +763,7 @@ new-inbound-firewall-rule.png
 	>**Speaking Point**
 	>
 	> Before we run the script that will create our federation and federated objects, let’s spend a minute looking at the script and Federation syntax. 
+	>
 	>	- CREATE FED statement
 	>	- USE FED statement
 	>	- Table changes for FEDs
@@ -770,8 +771,7 @@ new-inbound-firewall-rule.png
 	>
 	> With our root database created, let’s run the script that will create our federation and associated federated objects.
 
-1.	In Object Explorer in SSMS, expand the Federations node of the new database.
-1. Right-click on the Expense_Federation.
+1. In Object Explorer in SSMS, expand the **Federations** node of the new database and right-click the **UserExpense_Federation**.
 
 	![Azure SQL Database Connection](Images/azure-sql-database-connection.png?raw=true "Azure SQL Database Connection")
 	
@@ -779,54 +779,59 @@ new-inbound-firewall-rule.png
 
 	>**Speaking Point**
 	>
-	> SQL Server 2012 now includes the ability to work directly with Federations. Talking Points:
-	>	- Connect to a specific Fed - The ability to connect and query a specific federation
+	> SQL Server 2012 now includes the ability to work directly with Federations.
+	>
+	> Talking Points:
+	>
+	>	- Connect to a specific Fed
+	>	- The ability to connect and query a specific federation
 	>	- Split - Scale the database by partitioning the database via the designated key.
 
-1.	Open the SQL script on the desktop called ContosoExpenseFed_Split in SSMS.
-1.	Execute the First Statement
-1.	Execute the 2nd set of statements (the DMV’s)
-1. Execute the SELECT queries
+1.	Now, open the **ContosoExpenseFed_Split.sql** script located in the **Assets\Federations** folder. Ensure that the query window connection is for the new database.
+1.	Execute the first statement.
+1.	Execute the 2nd set of statements (the DMV’s).
+1. Execute the SELECT queries.
 
 	![Execute Federation Script](Images/execute-federation-script.png?raw=true "Execute Federation Script")
 
-	_Execute Federation Script_
+	_Executing the Federation script_
 
 	>**Speaking Point**
 	>
 	> Walk through the examples of:
+	>
 	>	- Looking at the metadata
 	>	- Split operation
 	>	- Querying a specific fed mem
 
 1.	Back in the portal, select **SQL DATABASES** from the navigation menu.
 1.	Select the **Databases** option.
-1. Click the Federated database **NAME** from the list.
+1. Click the federated database **NAME** to view its properties.
 
 	![SQL Databases page](Images/sql-databases-page.png?raw=true "SQL Databases page")
 
-	_SQL Databases page_
+	_SQL databases page_
 
 	>**Speaking Point**
 	>
 	> The Management Portal for SQL Azure is a lightweight and easy-to-use database management tool. It allows you to conveniently manage your SQL Azure databases and to quickly develop, deploy, and manage your data-driven applications in the cloud.
 
-1. In the **Dashboard** for the **Federated** database, click the **MANAGE URL** link.
+1. In the **Dashboard** for the **ContosoFed** database, click the **MANAGE URL** link.
 
 	![Manage URL](Images/manage-url2.png?raw=true "Manage URL")
 
-	_Manage URL_
+	_Accessing the database management portal_
 
-1.	Login in with the following:
-	1.	AzureAdmin
-	1.	Passw0rd!
-1. Click **Log On**.
+1.	Log in with the following credentials:
+	1.	**User**: _AzureAdmin_
+	1.	**Password**: Passw0rd!
+1. Click **Log on**.
 
 	![Log in to Azure SQL Database portal](Images/log-in-to-azure-sql-database-portal.png?raw=true "Log in to Azure SQL Database portal")
 
-	_Log in to Azure SQL Database portal_
+	_Windows Azure SQL Database portal_
 
-1. In the **Summary Page** of the SQL Database portal, click the **right arrow** in the Federations section to show all Federation Members.
+1. In the **Summary Page** of the SQL Database portal, click the **right arrow** in the Federations section to show all federation members.
 
 	![SQL Portal showing federations](Images/sql-portal-showing-federations.png?raw=true "SQL Portal showing federations")
 
@@ -834,20 +839,19 @@ new-inbound-firewall-rule.png
 
 	>**Speaking Point**
 	>
-	> Database sharding is a technique of horizontal partitioning data across multiple physical servers to provide application scale-out. SQL Azure combined with database sharding techniques provides for virtually unlimited scalability of data for an application.
+	> Database sharding is a technique for horizontally partitioning data across multiple physical servers to provide application scale-out. Windows Azure SQL Database combined with database sharding techniques provides for virtually unlimited scalability of data for an application.
 
 1.	In the **Federation Member** grid, click the grey area.
-1.	In the **Federation Member** dialog, select the **Split** option.
-1.	Enter the value of **40**.
+1.	In the **UserExpense_Federation** dialog, select the **Split** option and set the value to **40**.
 1. Click **Split**.
 
 	![Federation Member](Images/federation-member.png?raw=true "Federation Member")
 
-	_Federation Member_
+	_Splitting a federation member_
 
 	>**Speaking Point**
 	>
-	> Here we’re going to specify the value on which to split the federation, thus creating a second federation member.
+	> Here, we’re going to specify the value on which to split the federation, thus creating a second federation member.
 
 1.	Go back to SSMS
 1. Talk through the **USE FEDERATION** statements to query the different **Federation Members**.
@@ -860,11 +864,11 @@ new-inbound-firewall-rule.png
 
 	![Selecting the Sorage Accounts](Images/selecting-the-sorage-accounts.png?raw=true "Selecting the Sorage Accounts")
 
-	_Selecting the Sorage Accounts_
+	_Managing Storage Accounts_
 
 	>**Speaking Point**
 	>
-	> There are three options for unstructured and non-relational data storage in Windows Azure: the **Blob**, **Table**, and **Queue** services.
+	> There are three options for unstructured and non-relational data storage in Windows Azure: **Blob**, **Table**, and **Queue** services.
 	>
 	> A storage account is scoped to a primary geographic region and is configured by default to seamlessly replicate itself to a secondary region in case of a major failure in the primary region.
 
@@ -874,7 +878,8 @@ new-inbound-firewall-rule.png
 
 	_Quick Create a Storage Account_
 
-1. In **CREATE A NEW STORAGE ACCOUNT**, enter **contosostorage** for the storage account name.
+1. In **CREATE A NEW STORAGE ACCOUNT**, enter **contosoexpense** for the storage account name or, if this name is already in use, choose a different name.
+1. Choose a **REGION/AFFINITY GROUP** that matches the one used by the web site that you created previously.
 
 	![Creating the Storage Account](Images/creating-the-storage-account.png?raw=true "Creating the Storage Account")
 
@@ -884,42 +889,40 @@ new-inbound-firewall-rule.png
 	>
 	> You can specify either a **geographic region** or an **affinity group** for your storage. By specifying an affinity group, you can co-locate your cloud apps in the same data center with your storage
 	>
-	> Geo-replication is turned on by default. During geo-replication, your data is replicated to a secondary location, at no cost to you, so that your storage fails over seamlessly to a secondary location in the event of a major failure that can't be handled in the primary location. The secondary location is assigned automatically, and can't be changed**
+	> Geo-replication is turned on by default. During geo-replication, your data is replicated to a secondary location, at no cost to you, so that your storage fails over seamlessly to a secondary location in the event of a major failure that can't be handled in the primary location. The secondary location is assigned automatically, and can't be changed.
 
 1. Click **CREATE STORAGE ACCOUNT**.	
 
-1. Open **Visual Studio** and go to **Tools | Library Manager Console menu | Package Manager Console**.
+1. Open **Visual Studio** and go to **Tools | Library Package Manager | Package Manager Console**.
 
-	> By running the following command at the **Package Manager Console** we are adding the Windows Azure Storage Client libraries to the project.
+	> By running the following command in the **Package Manager Console**, we are adding the Windows Azure Storage Client libraries to the project.
 
-1. In the Package Manager Console, type: **Install-Package WindowsAzure.Storage**.
+1. In the **Package Manager Console**, type: _Install-Package WindowsAzure.Storage_.
 
 	![Using the Package Manager Console](Images/using-the-package-manager-console.png?raw=true "Using the Package Manager Console")
 
-	_Using the Package Manager Console_
+	_Installing the Windows Azure Storage Client library_
 
-1. In the Web.config, within the appsettings section, find the comment that says “**Windows Azure Storage Account**”
+1. In the **Web.config file**, find the comment that reads “**Windows Azure Storage Account**” within the **appSettings** section.
 
 	>**Speaking Point**
 	>
 	> Let’s add the storage account snippet. This information allows us to securely access our storage services.
 
 1. Press **CTL+K**, **CTL+X** and select **My XML Snippets**.
-1. Insert the **StorageAccountInfo** snippet.
+1. Insert the **StorageAccountInfo** snippet and replace the storage account name and key with the corresponding values from your newly created storage account. You can retrieve this information by selecting the storage account in the portal and clicking **MANAGE KEYS**.
 
 	![Editing Web.config values](Images/editing-webconfig-values.png?raw=true "Editing Web.config values")
 
-	_Editing Web.config values_
-
-1. Replace the Key with your Storage Account value.
+	_Configuring the storage account settings_
 
 1. Open **Views | Reports | EditorTemplates | ExpenseReportDetail.cshtml**
 
 	>**Speaking Point**
 	>
-	> Let’s add the code so show the **attach receipt**  link/icon for each expense line item.
+	> Let’s add the code to show the **Attach Receipt** link/icon for each expense line item.
 
-1. Add a new line after line 17. Enter **attachlink** and press **TAB** to install the code snippet.
+1. Insert a new line after the comment that reads "**Attach Link Here**" and type the text **attachlink** in this line. Then, press **TAB** to install the code snippet.
 
 	![Editing ExtenseReportDetail.cshtml](Images/editing-extensereportdetailcshtml.png?raw=true "Editing ExtenseReportDetail.cshtml")
 
