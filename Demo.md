@@ -538,7 +538,7 @@ Lastly, we need to specify in which region to create the VM.
 1.	Go back to **Visual Studio**, right-click the **Web Project** and then select **Publish**.
 1.	In the **Publish Web** dialog, click the **Import** button, browse to locate the **.PublishSettings** file that you downloaded previously, and then click **Open**.
 
-	![Importin Publish Settings File](Images/importin-publish-settings-file.png?raw=true "Importin Publish Settings File")
+	![Importing Publish Settings File](Images/importin-publish-settings-file.png?raw=true "Importin Publish Settings File")
 
 	_Importing the publish settings file_
 
@@ -909,6 +909,8 @@ Lastly, we need to specify in which region to create the VM.
 
 1. Open **Visual Studio** and go to **Tools | Library Package Manager | Package Manager Console**.
 
+	>**Speaking Point**
+	>
 	> By running the following command in the **Package Manager Console**, we are adding the Windows Azure Storage Client libraries to the project.
 
 1. In the **Package Manager Console**, type: _Install-Package WindowsAzure.Storage_.
@@ -916,6 +918,15 @@ Lastly, we need to specify in which region to create the VM.
 	![Using the Package Manager Console](Images/using-the-package-manager-console.png?raw=true "Using the Package Manager Console")
 
 	_Installing the Windows Azure Storage Client library_
+
+1. In Solution Explorer, right-click the **Helpers** folder, point to **Add** and select **Existing Item**. 
+1. Browse to the **Assets\storage** folder, select **StorageHelper.cs** and click **Add**.
+
+	![Adding the StorageHelper class](Images/add-storage-helper-class.png?raw=true "Adding the StorageHelper class")
+
+	>**Speaking Point**
+	>
+	> We'll also add a helper class that handles the creation of blob containers and sets their access permission.
 
 1. Open **Views | Reports | EditorTemplates | ExpenseReportDetail.cshtml**
 
