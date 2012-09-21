@@ -5,32 +5,19 @@ if ($SetupLocal.IsPresent) {
     Write-Host ""    
     Write-Host "1. Create the demo's working directory"
     Write-Host "2. Copy begin solution"
-    Write-Host "3. Update web project connection string"
-	Write-Host "4. Setup demo related folders"
-	Write-Host "5. Deploy site to IIS"
-}}
+    Write-Host "3. Configure connection string in begin solution"
+    Write-Host "4. Install the code snippets for the demo"
+	Write-Host "5. Install Windows Azure SDK for Node.js"
+}
 
 if ($ResetLocal.IsPresent) {
-    Write-Warning "This script will reset your machine by performing the following tasks:"
+    Write-Host "This demo does not require any reset step in your local machine" -ForegroundColor Green
     Write-Host ""
-    Write-Host " 1. Close all Visual Studio instances"
-    Write-Host " 2. Close all Internet Explorer instances"
-    Write-Host " 3. Clear Internet Explorer History" -ForegroundColor Red
-	Write-Host " 4. Clear Internet Explorer Cookies" -ForegroundColor Red
-	Write-Host " 5. Clear Internet Explorer Form Data" -ForegroundColor Red    
-    Write-Host " 6. Clear Internet Explorer AutoComplete Settings" -ForegroundColor Red
-	Write-Host " 7. Reset the Visual Studio settings" -ForegroundColor Red
-    Write-Host " 8. Remove Visual Studio most recently used projects"
-	Write-Host " 9. Remove Visual Studio most recently used files"
-    Write-Host "10. Clean up Downloads Folder" -ForegroundColor Red
-	Write-Host "11. Remove local Windows Azure subscription settings from Visual Studio"
-    Write-Host "12. Remove publishsettings from Desktop (if any)" -ForegroundColor Red
-    Write-Host "13. Restart the Windows Azure Compute Emulator & Dev Storage"
-    Write-Host "14. Set Visual Studio New Project Dialog Defaults"
-	Write-Host "15. Set Visual Studio Open Project Dialogs Defaults"
-    Write-Host "16. Reset the demo solutions from the working directory"
-    Write-Host "17. Launch a new Visual Studio instance"
-    Write-Host "18. Launch Windows Azure management portal in Intenet Explorer"
+}
+
+if ($CleanupLocal.IsPresent) {
+    Write-Host "This demo does not require any cleanup step in your local machine" -ForegroundColor Green
+    Write-Host ""
 }
 
 if ($SetupAzure.IsPresent) {
@@ -39,25 +26,17 @@ if ($SetupAzure.IsPresent) {
 }
 
 if ($ResetAzure.IsPresent) {
-    Write-Warning "This script will reset your Azure subscription by performing the following tasks:"
+    Write-Host "This demo does not require any reset step in Windows Azure" -ForegroundColor Green
     Write-Host ""
-    Write-Host " 1. Delete Websites configured in the Setup.Azure.xml file" -ForegroundColor Red
-    Write-Host " 2. Delete SQL Azure databases configured in the Setup.Azure.xml file" -ForegroundColor Red
-}
-
-if ($CleanupLocal.IsPresent) {
-Write-Warning "This script will cleanup your machine by performing the following tasks:"
-    Write-Host ""
-    Write-Host "1. Remove the working directory for the demo"
-	Write-Host "3. Remove demo related folders"
-	Write-Host "4. Remove site from IIS"
 }
 
 if ($CleanupAzure.IsPresent) {
     Write-Warning "This script will reset your Azure subscription by performing the following tasks:"
     Write-Host ""
-    Write-Host " 1. Delete Websites configured in the Setup.Azure.xml file" -ForegroundColor Red
-    Write-Host " 2. Delete SQL Azure databases configured in the Setup.Azure.xml file" -ForegroundColor Red
+    Write-Host " 1. Delete Websites configured in the Config.Azure.xml file" -ForegroundColor Red
+    Write-Host " 2. Delete SQL Azure databases configured in the Config.Azure.xml file" -ForegroundColor Red
+    Write-Host " 3. Delete Azure VMs configured in the Config.Azure.xml file" -ForegroundColor Red
+    Write-Host " 4. Delete Azure Storage Accounts configured in the Config.Azure.xml file" -ForegroundColor Red
 }
 
 Write-Host ""

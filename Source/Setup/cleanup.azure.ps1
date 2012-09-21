@@ -16,11 +16,10 @@ if($configFile -eq $nul -or $configFile -eq "")
 [string] $publishProfileDownloadUrl = $xml.configuration.urls.publishProfileDownloadUrl
 [string] $wazVmHostName = $xml.configuration.windowsAzureSubscription.vmHostNameToDelete
 [string] $wazStorageAccountName = $xml.configuration.windowsAzureSubscription.storageAccountNameToDelete
-
-[string] $SQLAzureServerName = $xmlUserSettings.configuration.azureSqlServer.serverName
-[string] $SQLAzureUsername = $xmlUserSettings.configuration.azureSqlServer.username
-[string] $SQLAzurePassword = $xmlUserSettings.configuration.azureSqlServer.password
-[string] $azureDbName = $xmlUserSettings.configuration.azureSqlServer.dbName
+[string] $SQLAzureServerName = $xml.configuration.azureSqlServer.serverName
+[string] $SQLAzureUsername = $xml.configuration.azureSqlServer.username
+[string] $SQLAzurePassword = $xml.configuration.azureSqlServer.password
+[string] $azureDbName = $xml.configuration.azureSqlServer.dbName
 
 
 # "========= Main Script =========" #
