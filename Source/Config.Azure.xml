@@ -10,10 +10,21 @@
 	-->
 		<webSitesToDelete></webSitesToDelete>
 
-		</windowsAzureSubscription>
+	<!-- 
+		The Cleanup.Azure process will remove the vm specified in the vmHostNameToDelete element.
+	-->
+		<vmHostNameToDelete></vmHostNameToDelete>
+
+	<!-- 
+		The Cleanup.Azure process will remove the storage account specified in the storageAccountNameToDelete element.
+	-->
+		<storageAccountNameToDelete></storageAccountNameToDelete>
+
+    </windowsAzureSubscription>
 	<urls>
 		<publishProfileDownloadUrl>https://windows.azure.com/download/publishprofile.aspx</publishProfileDownloadUrl>
 	</urls>
+
 	<azureSqlServer>
 		<servername></servername>
 		<username></username>

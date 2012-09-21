@@ -14,6 +14,8 @@ if($configFile -eq $nul -or $configFile -eq "")
 [string] $wazPublishSettings = $xml.configuration.windowsAzureSubscription.publishSettingsFile
 [string] $webSitesToDelete = $xml.configuration.windowsAzureSubscription.webSitesToDelete
 [string] $publishProfileDownloadUrl = $xml.configuration.urls.publishProfileDownloadUrl
+[string] $wazVmHostName = $xml.configuration.windowsAzureSubscription.vmHostNameToDelete
+[string] $wazStorageAccountName = $xml.configuration.windowsAzureSubscription.storageAccountNameToDelete
 
 [string] $SQLAzureServerName = $xmlUserSettings.configuration.azureSqlServer.serverName
 [string] $SQLAzureUsername = $xmlUserSettings.configuration.azureSqlServer.username
@@ -39,10 +41,10 @@ if (-not ($wazPublishSettings) -or -not (test-path $wazPublishSettings)) {
 #========= Deleting Configured SQL Azure Database... =========
 & ".\tasks\waz-delete-azure-sqldb.ps1" -SQLAzureServerName $SQLAzureServerName -SQLAzureUsername $SQLAzureUsername -SQLAzurePassword $SQLAzurePassword -azureDbName $azureDbName
 
-#"========= Deleting Windows Azure VM ... ========="
-& ".\tasks\waz-delete-vm.ps1" -wazHostName $wazHostName -wazPublishSettings $wazPublishSettings
+#"========= Deleting Windows Azure VM... ========="
+& ".\tasks\waz-delete-vm.ps1" -wazVMHostName $wazVMHostName -wazPublishSettings $wazPublishSettings
 
-#"========= Deleting Azure Storage ... ========="
+#"========= Deleting Azure Storage... ========="
 & ".\tasks\waz-delete-storage.ps1" -wazStorageAccountName $wazStorageAccountName -wazPublishSettings $wazPublishSettings
 
 

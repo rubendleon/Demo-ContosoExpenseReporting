@@ -1,4 +1,4 @@
-Param([string] $wazHostName,
+Param([string] $wazVMHostName,
       [string] $wazPublishSettings)
 
 
@@ -11,6 +11,6 @@ Import-Module "${env:ProgramFiles(x86)}\Microsoft SDKs\Windows Azure\PowerShell\
 $wazPublishSettings = Resolve-Path $wazPublishSettings
 Import-AzurePublishSettingsFile $wazPublishSettings
 
-Get-AzureVM | Where { $_.ServiceName -eq $wazHostName } | Remove-AzureVM
+Get-AzureVM | Where { $_.ServiceName -eq $wazVMHostName } | Remove-AzureVM
 
 write-host "Deleting Windows Azure VMs done!"
