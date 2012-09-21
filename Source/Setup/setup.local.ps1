@@ -20,7 +20,7 @@ if($demoSettingsFile -eq $nul -or $demoSettingsFile -eq "")
 [xml]$xmlDemoSettings = Get-Content $demoSettingsFile
 
 [string] $workingDir = $xmlUserSettings.configuration.localPaths.workingDir
-[string] $sourceCodeDir = Resolve-Path "..\Begin"
+[string] $sourceCodeDir = Resolve-Path "..\Code\Begin"
 [string] $assetsDir = Resolve-Path "..\Assets"
 [string] $sqlServerName = $xmlUserSettings.configuration.localSqlserver.sqlServerName
 
