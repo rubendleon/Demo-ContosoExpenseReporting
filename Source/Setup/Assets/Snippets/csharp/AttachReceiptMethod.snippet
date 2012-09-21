@@ -16,7 +16,7 @@
                     var file = Request.Files[0];
                     if (file != null && file.ContentLength > 0)
                     {
-                        var container = StorageHelper.GetUserContainer(User.Identity);
+                        var container = Expenses.Web.Helpers.StorageHelper.GetUserContainer(User.Identity);
                         var blob = container.GetBlobReference(Guid.NewGuid() + System.IO.Path.GetExtension(file.FileName));
                         blob.Properties.ContentType = file.ContentType;
                         blob.UploadFromStream(file.InputStream);

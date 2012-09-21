@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
-    using Expenses.Web.Helpers;
     using Expenses.Web.Models;
     using Expenses.Web.Repository;
 
@@ -99,13 +98,20 @@
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public JsonResult Summary()
+        {
+            var result = this.expenseReportRepository.GetEmployeesReports(this.GetUserId(), "pending", 0);
+            return Json(new { pending = result.Count() }, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost]
         public JsonResult AttachReceipt()
         {
             var file = Request.Files[0];
             if (file != null && file.ContentLength > 0)
             {
-                var container = StorageHelper.GetUserContainer(User.Identity);
+                var container = Expenses.Web.Helpers.StorageHelper.GetUserContainer(User.Identity);
                 var blob = container.GetBlobReference(Guid.NewGuid() + System.IO.Path.GetExtension(file.FileName));
                 blob.Properties.ContentType = file.ContentType;
                 blob.UploadFromStream(file.InputStream);
@@ -114,13 +120,6 @@
             }
 
             return Json(new { error = "an error ocurred while uploading the receipt." });
-        }
-
-        [HttpGet]
-        public JsonResult Summary()
-        {
-            var result = this.expenseReportRepository.GetEmployeesReports(this.GetUserId(), "pending", 0);
-            return Json(new { pending = result.Count() }, JsonRequestBehavior.AllowGet);
         }
 
         private JsonResult CreateOrUpdate(ExpenseReport report)
