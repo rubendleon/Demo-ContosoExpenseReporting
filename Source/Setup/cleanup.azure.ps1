@@ -19,7 +19,8 @@ if($configFile -eq $nul -or $configFile -eq "")
 [string] $SQLAzureServerName = $xml.configuration.azureSqlServer.serverName
 [string] $SQLAzureUsername = $xml.configuration.azureSqlServer.username
 [string] $SQLAzurePassword = $xml.configuration.azureSqlServer.password
-[string] $azureDbName = $xml.configuration.azureSqlServer.dbName
+[string] $azureExpensesDbName = $xml.configuration.azureSqlServer.expensesDbName
+[string] $azureFederationDbName = $xml.configuration.azureSqlServer.federationDbName
 
 
 # "========= Main Script =========" #
@@ -37,8 +38,9 @@ if (-not ($wazPublishSettings) -or -not (test-path $wazPublishSettings)) {
 #========= Deleting Configured Windows Azure Web Sites... =========
 & ".\tasks\waz-delete-websites.ps1" -webSitesToDelete $webSitesToDelete
 
-#========= Deleting Configured SQL Azure Database... =========
-& ".\tasks\waz-delete-azure-sqldb.ps1" -SQLAzureServerName $SQLAzureServerName -SQLAzureUsername $SQLAzureUsername -SQLAzurePassword $SQLAzurePassword -azureDbName $azureDbName
+#========= Deleting Configured SQL Azure Databases... =========
+& ".\tasks\waz-delete-azure-sqldb.ps1" -SQLAzureServerName $SQLAzureServerName -SQLAzureUsername $SQLAzureUsername -SQLAzurePassword $SQLAzurePassword -azureDbName $azureExpensesDbName
+& ".\tasks\waz-delete-azure-sqldb.ps1" -SQLAzureServerName $SQLAzureServerName -SQLAzureUsername $SQLAzureUsername -SQLAzurePassword $SQLAzurePassword -azureDbName $azureFederationDbName
 
 #"========= Deleting Windows Azure VM... ========="
 & ".\tasks\waz-delete-vm.ps1" -wazVMHostName $wazVMHostName -wazPublishSettings $wazPublishSettings
