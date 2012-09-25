@@ -1,12 +1,4 @@
 <configuration>	
-	<localPaths>
-		<vsSettingsFile>assets\VS2012Settings-Font-Output.vssettings</vsSettingsFile>
-    <solutions>
-      <solution>
-        <file>Expenses.Web.sln</file>
-      </solution>
-    </solutions>
-	</localPaths>
     <codeSnippets>
         <cSharp>assets\snippets\csharp</cSharp>
         <html>assets\snippets\html</html>
@@ -16,38 +8,4 @@
 		<receiptsDir>..\assets\receipts</receiptsDir>
 		<federationsDir>..\assets\federations</federationsDir>
 	</copyAssets>
-
-  <resetEnvironment>
-    <closeIE>true</closeIE>
-    <closeOpenVSInstances>true</closeOpenVSInstances>
-    <clearIEFormData>true</clearIEFormData>
-    <clearIEHistory>true</clearIEHistory>
-    <clearIECookies>true</clearIECookies>
-    <setIEAutoCompleteSettings>true</setIEAutoCompleteSettings>
-    <clearVSProjectMRUList>true</clearVSProjectMRUList>
-    <clearVSFileMRUList>true</clearVSFileMRUList>
-    <cleanupDownloadsFolder>true</cleanupDownloadsFolder>
-    <removeAzureVSSettings>true</removeAzureVSSettings>
-    <removeDesktopPublishSettings>true</removeDesktopPublishSettings>
-    <resetAzureComputeEmulator>true</resetAzureComputeEmulator>
-    <setVSNewProjectDialogDefaults>true</setVSNewProjectDialogDefaults>
-    <setVSOpenProjectDialogDefaults>true</setVSOpenProjectDialogDefaults>
-    <setNuGetRestoreOnBuild>true</setNuGetRestoreOnBuild>
-    <emptyRecycleBin>true</emptyRecycleBin>
-    <startVS>true</startVS>
-    <startVSWithSolutions>false</startVSWithSolutions>
-    <vsNewProjectDialogDefaults>
-      <fxVersion>4.0</fxVersion>
-      <templateName>ASP.NET MVC 4 Web Application</templateName>
-      <templateNode>Templates\Visual C#\Web</templateNode>
-    </vsNewProjectDialogDefaults>
-    <ieAutoCompleteSettings>
-      <autoCompleteForms>false</autoCompleteForms>
-      <autoCompleteUsernamesAndPasswords>false</autoCompleteUsernamesAndPasswords>
-      <askBeforeSavingPasswords>false</askBeforeSavingPasswords>
-    </ieAutoCompleteSettings>
-	<startSQL>true</startSQL>
-	<startIE>true</startIE>
-	<ieOpenTabUrls>http://contosoexpense,https://manage.windowsazure.com/</ieOpenTabUrls>
-  </resetEnvironment>
 </configuration>
