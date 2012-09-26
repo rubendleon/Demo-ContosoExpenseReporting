@@ -60,7 +60,7 @@ This demo contains the following segments:
 1. In Visual Studio, open the **Expenses.Web.sln** solution located in the working folder of this demo.
 1. Press **F5** to launch the application in the Development Server.
 
-	![Expense Reportin App running Locally](Images/expense-reportin-app-running-locally.png?raw=true "Expense Reportin App running locally")
+	![Expense reporting application running locally](Images/expense-reportin-app-running-locally.png?raw=true "Expense reporting application running locally")
 
 	_Expense reporting application running locally (on-premises)_
 
@@ -80,8 +80,13 @@ This demo contains the following segments:
 	>
 	> We’re first going to log in as a user to illustrate some of the pain points we have with this application in submitting expense reports and highlight some of the areas where this application can be expanded and improved.
 
+1. Select **My Reports** in the toolbar. 
 
-1. Select **My Reports** in the toolbar and then click **Add New Report**.
+	![Expense reporting application dashboard](Images/expense-reporting-app-dashboard.png?raw=true "Expense reporting application dashboard")
+
+	_Expense reporting application dashboard_
+
+1. In the **My Reports** view, click **Add New Report**.
 
 	![Application Dashboard](Images/application-dashboard.png?raw=true "Application Dashboard")
 
