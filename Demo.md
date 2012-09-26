@@ -191,7 +191,7 @@ This demo contains the following segments:
 	- **Password**: _Passw0rd!_
 
 1.	Enter the password for the administrator account, then re-enter the password for confirmation.
-1. Select _Large_ as the **SIZE** of the VM.
+1. Select _Medium_ or larger as the **SIZE** of the VM.
 
 	![VM Configuration page](Images/vm-configuration-page.png?raw=true "VM Configuration page")
 
