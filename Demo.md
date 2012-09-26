@@ -60,7 +60,7 @@ This demo contains the following segments:
 1. In Visual Studio, open the **Expenses.Web.sln** solution located in the working folder of this demo.
 1. Press **F5** to launch the application in the Development Server.
 
-	![Expense reporting application running locally](Images/expense-reportin-app-running-locally.png?raw=true "Expense reporting application running locally")
+	![Expense reporting application running locally](Images/expense-reporting-app-running-locally.png?raw=true "Expense reporting application running locally")
 
 	_Expense reporting application running locally (on-premises)_
 
@@ -284,6 +284,8 @@ Lastly, we need to specify in which region to create the VM.
 
 	![Endpoints Section](Images/endpoints-section.png?raw=true "Endpoints Section")
 
+	_Viewing the endpoints configured for the virtual machine_
+
 1.	Ensure that you are on the **DASHBOARD** page.
 
 1. In the **DASHBOARD**, highlight and copy the **DNS** name of the virtual machine to the clipboard.
@@ -398,7 +400,7 @@ Lastly, we need to specify in which region to create the VM.
 
 1. Expand the database node and point to the database that is going to be migrated to the VM. 
 1.	Create a second SQL Server connection. In the **Server name** field, paste in the DNS name of the VM copied earlier from the portal.
-1. Choose **SQL Server Authentication** as the authentication method, and then type _demouser_ and _Passw0rd1!_ for the login name and password.
+1. Choose **SQL Server Authentication** as the authentication method, and then type _demouser_ and _Passw0rd!_ for the login name and password.
 
 	![Creating to SQL Server using VM's DNS Name](Images/creating-to-sql-server-using-vms-dns-name.png?raw=true "Creating to SQL Server using VM's DNS Name")
 
@@ -484,7 +486,7 @@ Lastly, we need to specify in which region to create the VM.
 1.	Press **CTL+K, CTL+X** and select **My XML Snippets**.
 1. Insert the **VMConnectionString** snippet and replace the placeholders in the connection string with the host name of your SQL Server VM, and the user name and password of the SQL Server login that you created previously.
 
-	![Updating the connection string within Web.config](Images/updating-connection-stirng-within-webconfig.png?raw=true "Updating the connection string within Web.config")
+	![Updating the connection string within Web.config](Images/updating-connection-string-in-webconfig.png?raw=true "Updating the connection string within Web.config")
 
 	_Updating the connection string in Web.config_
 
@@ -543,7 +545,7 @@ Lastly, we need to specify in which region to create the VM.
 1.	Go back to **Visual Studio**, right-click the **Web Project** and then select **Publish**.
 1.	In the **Publish Web** dialog, click the **Import** button, browse to locate the **.PublishSettings** file that you downloaded previously, and then click **Open**.
 
-	![Importing Publish Settings File](Images/importin-publish-settings-file.png?raw=true "Importin Publish Settings File")
+	![Importing the publish settings file](Images/importing-publish-settings-file.png?raw=true "Importing the publish settings file")
 
 	_Importing the publish settings file_
 
@@ -752,7 +754,9 @@ Lastly, we need to specify in which region to create the VM.
 
 1. In SQL Server Management Studio, expand the SQL Azure Connection in Object Explorer and select the **Databases** node.
 
-	![Management Studio's Object Explorer](Images/management-studios-object-explorer-.png?raw=true "Management Studio's Object Explorer")
+	![Object Explorer showing the SQL Azure Database connection](Images/management-studios-object-explorer-.png?raw=true "Object Explorer showing the SQL Azure Database connection")
+
+	_Object Explorer showing the SQL Azure Database connection_
 
 	>**Speaking Point**
 	>
@@ -881,9 +885,9 @@ Lastly, we need to specify in which region to create the VM.
 
 1. Open the **Windows Azure Management portal** and select the **STORAGE ACCOUNTS** option in the **Navigation Pane**.
 
-	![Selecting the Sorage Accounts](Images/selecting-the-sorage-accounts.png?raw=true "Selecting the Sorage Accounts")
+	![Managing storage accounts](Images/selecting-the-storage-accounts.png?raw=true "Managing storage accounts")
 
-	_Managing Storage Accounts_
+	_Managing storage accounts_
 
 	>**Speaking Point**
 	>
@@ -927,7 +931,9 @@ Lastly, we need to specify in which region to create the VM.
 1. In Solution Explorer, right-click the **Helpers** folder, point to **Add** and select **Existing Item**. 
 1. Browse to the **Assets\storage** folder, select **StorageHelper.cs** and click **Add**.
 
-	![Adding the StorageHelper class](Images/add-storage-helper-class.png?raw=true "Adding the StorageHelper class")
+	![Adding the StorageHelper class to the project](Images/add-storage-helper-class.png?raw=true "Adding the StorageHelper class to the project")
+
+	_Adding the StorageHelper class to the project_
 
 	>**Speaking Point**
 	>
@@ -971,9 +977,9 @@ Lastly, we need to specify in which region to create the VM.
 
 1. Go back to the **Azure Management portal** and select **STORAGE** from the navigation pane.
 
-	![Selecing Storage from the Management Portal](Images/selecing-storage-from-the-management-portal.png?raw=true "Selecing Storage from the Management Portal")
+	![Managing storage in the Management Portal](Images/managing-storage-in-the-management-portal.png?raw=true "Managing storage in the Management Portal")
 
-	_Managing storage accounts_
+	_Managing storage in the Management Portal_
 
 1. Select the newly created storage account **NAME** in the list of storage accounts.
 
@@ -1001,11 +1007,15 @@ Lastly, we need to specify in which region to create the VM.
 
 1. In the command bar, click **SAVE** to save the changes to the monitoring configuration.
 
-	![Saving the Monitoring Configuration](Images/save-monitoring-configuration.png?raw=true "Saving the Monitoring Configuration")
+	![Saving the monitoring configuration](Images/save-monitoring-configuration.png?raw=true "Saving the monitoring configuration")
+
+	_Saving the monitoring configuration_
 
 1. Next, in the command bar, click **MANAGE KEYS**.
 
-	![Clicking Manage Keys](Images/clicking-manage-keys.png?raw=true "Clicking Manage Keys")
+	![Managing the storage account keys](Images/clicking-manage-keys.png?raw=true "Clicking the storage account keys")
+
+	_Managing the storage account keys_
 
 	>**Speaking Point**
 	>
@@ -1060,17 +1070,17 @@ Lastly, we need to specify in which region to create the VM.
 
 1. Go to the **Assets\receipts** folder and select _Receipt.png_.
 
-	![Submiting a Receipt](Images/submiting-a-receipt.png?raw=true "Submiting a Receipt")
+	![Submitting a receipt](Images/submitting-a-receipt.png?raw=true "Submitting a Receipt")
 
-	_Submiting a receipt_
+	_Submitting a receipt_
 
 1. In the **Attach Receipt** dialog, click **Submit**.	
 
 1. Finally, click **Save and Submit** to submit the expense report.
 
-	![Saving and Submiting](Images/saving-and-submiting.png?raw=true "Saving and Submiting")
+	![Submitting an expense](Images/saving-and-submitting.png?raw=true "Submitting an expense")
 
-	_Submiting an expense_
+	_Submitting an expense_
 
 1. Log off as a user.
 
