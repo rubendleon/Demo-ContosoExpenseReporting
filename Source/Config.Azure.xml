@@ -11,7 +11,8 @@
 		<webSitesToDelete></webSitesToDelete>
 
 	<!-- 
-		The Cleanup.Azure process will remove the vm specified in the vmHostNameToDelete element.
+		The Cleanup.Azure process will remove the VM specified in the vmHostNameToDelete element. Specify the host name portion of your 
+                DNS name only (e.g. for a DNS [yourname].cloudapp.net, specify [yourname]).
 	-->
 		<vmHostNameToDelete></vmHostNameToDelete>
 
