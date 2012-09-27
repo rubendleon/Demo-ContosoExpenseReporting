@@ -11,6 +11,15 @@ Import-Module "${env:ProgramFiles(x86)}\Microsoft SDKs\Windows Azure\PowerShell\
 $wazPublishSettings = Resolve-Path $wazPublishSettings
 Import-AzurePublishSettingsFile $wazPublishSettings
 
-Get-AzureVM | Where { $_.ServiceName -eq $wazVMHostName } | Remove-AzureVM
+$vmToRemove = Get-AzureVM | Where { $_.ServiceName -eq $wazVMHostName }
 
-write-host "Deleting Windows Azure VMs done!"
+if ($vmToRemove -eq $null) {
+    write-host "The specified VM to remove ($wasVMHostName) could not be found. Please verify the configured value in the settings file for this script."
+}
+else {
+    $vmToRemove | Remove-AzureVM
+    write-host "Deleting Windows Azure VMs done!"
+}
+
+
+
